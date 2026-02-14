@@ -37,5 +37,3 @@ This project uses graph databases to aid financial asset allocation by uncoverin
 
 Graph Database Design • Data Engineering • Machine Learning • Financial Analytics • Time Series Analysis • Portfolio Theory • Network Analysis
 
----
-*Advanced data engineering and graph theory applied to solve real-world quantitative finance challenges.*
