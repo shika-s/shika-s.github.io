@@ -1,7 +1,7 @@
 # DATASCI207_Bird_Sounds
 Local Copy of Team Project Repo for DATASCI 207
 
-Team Members: [Denvir Higgins](https://github.com/denvir-py), [WooJung Kim](https://github.com/WooJung-K), [David Lin](https://github.com/ddlin-mids) 
+Team Members: Shikha Sharma, [Denvir Higgins](https://github.com/denvir-py), [WooJung Kim](https://github.com/WooJung-K), [David Lin](https://github.com/ddlin-mids) 
 
 ## Prerequisites
 
