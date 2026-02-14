@@ -1,0 +1,14 @@
+# Core app
+streamlit==1.48.0
+numpy==1.26.4
+Pillow==10.3.0
+
+# Audio
+librosa==0.10.2.post1
+soundfile==0.12.1
+audioread==3.0.1
+resampy==0.4.3
+
+# TensorFlow / Keras (CPU)
+tensorflow==2.19.0
+keras==3.10.0

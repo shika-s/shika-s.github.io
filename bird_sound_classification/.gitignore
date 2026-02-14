@@ -1,0 +1,96 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+pip-wheel-metadata/
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+
+# Sphinx documentation
+docs/_build/
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+
+# Virtual environments
+.env/
+env/
+venv/
+.venv/
+
+# PyBuilder
+target/
+CLAUDE.md
+GEMINI.md
+suggestions.md
+
+# Flask / Django
+instance/
+local_settings.py
+db.sqlite3
+
+# Scrapy
+.scrapy/
+
+# IPython
+profile_default/
+ipython_config.py
+
+# Mypy, Pyre
+.mypy_cache/
+.pyre/
+
+# Logs
+*.log
+logs/
+
+# IDEs and editors
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+
+# Ignore everything inside the data directory
+data/*
+# But don't ignore the .gitkeep file
+!data/.gitkeep
+
+# don’t accidentally commit Kaggle credentials
+.kaggle/
+
+# These weight files are too large
+*.pth
+*.keras
+bak.py
+*.h5
