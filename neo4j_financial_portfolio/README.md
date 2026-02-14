@@ -1,7 +1,7 @@
 # neo4j_financial_portfolio
 
 
-**UC Berkeley MIDS | DATASCI 205** • Michael Strommer, Leo Lazzarini, Shikha Sharma • August 2025
+**UC Berkeley MIDS | DATASCI 205** • [Michael Strommer](https://www.linkedin.com/in/michael-strommer/), [Leo Lazzarini](https://www.linkedin.com/in/leandro-lazzarini-vieira-2068a55/), [Shikha Sharma](https://www.linkedin.com/in/shikhasharma0/) • August 2025
 
 ## Overview
 
