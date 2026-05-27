@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shikha Sharma — Machine Learning & AI Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ink: #1a1a2e;
+            --paper: #faf8f5;
+            --accent: #e07a5f;
+            --accent-glow: #e07a5f22;
+            --muted: #7c7c8a;
+            --card-bg: #ffffff;
+            --border: #e8e6e1;
+            --tag-bg: #f0eeea;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--paper);
+            color: var(--ink);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* --- Grain overlay --- */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 999;
+        }
+
+        /* --- Navigation --- */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.2rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(12px);
+            background: rgba(250, 248, 245, 0.85);
+            z-index: 100;
+            border-bottom: 1px solid var(--border);
+        }
+
+        nav .logo {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.3rem;
+            letter-spacing: -0.02em;
+            color: var(--ink);
+            text-decoration: none;
+        }
+
+        nav .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        nav .nav-links a {
+            text-decoration: none;
+            color: var(--muted);
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s;
+            letter-spacing: 0.02em;
+        }
+
+        nav .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* --- Hero --- */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 8rem 3rem 4rem;
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .hero .eyebrow {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--accent);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            animation: fadeUp 0.8s ease forwards 0.2s;
+        }
+
+        .hero h1 {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(2.8rem, 6vw, 4.5rem);
+            line-height: 1.15;
+            letter-spacing: -0.03em;
+            color: var(--ink);
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            animation: fadeUp 0.8s ease forwards 0.4s;
+        }
+
+        .hero h1 span {
+            color: var(--accent);
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: var(--muted);
+            max-width: 560px;
+            font-weight: 300;
+            opacity: 0;
+            animation: fadeUp 0.8s ease forwards 0.6s;
+        }
+
+        .hero .scroll-cue {
+            position: absolute;
+            bottom: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--muted);
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            opacity: 0;
+            animation: fadeUp 0.8s ease forwards 1s;
+        }
+
+        .hero .scroll-cue .line {
+            width: 1px;
+            height: 40px;
+            background: var(--accent);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        /* --- Section Common --- */
+        section {
+            padding: 6rem 3rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--accent);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            letter-spacing: -0.02em;
+            margin-bottom: 3rem;
+        }
+
+        /* --- Project Cards --- */
+        .project-group-title {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.5rem;
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.01em;
+            color: var(--ink);
+        }
+
+        .projects-grid + .project-group-title {
+            margin-top: 4rem;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2.2rem;
+            transition: transform 0.4s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.4s ease, border-color 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 60px -15px rgba(26, 26, 46, 0.1);
+            border-color: var(--accent);
+        }
+
+        .project-card:hover::before {
+            opacity: 1;
+        }
+
+        .project-card .card-number {
+            font-family: 'DM Serif Display', serif;
+            font-size: 3rem;
+            color: var(--accent-glow);
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            line-height: 1;
+            font-weight: 400;
+        }
+
+        .project-card h3 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.4rem;
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.01em;
+        }
+
+        .project-card p {
+            color: var(--muted);
+            font-size: 0.95rem;
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tag {
+            background: var(--tag-bg);
+            color: var(--muted);
+            font-size: 0.75rem;
+            font-weight: 500;
+            padding: 0.3rem 0.75rem;
+            border-radius: 100px;
+            letter-spacing: 0.03em;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: gap 0.3s;
+        }
+
+        .project-link:hover {
+            gap: 0.75rem;
+        }
+
+        .project-link .arrow {
+            transition: transform 0.3s;
+        }
+
+        .project-link:hover .arrow {
+            transform: translateX(3px);
+        }
+
+        /* --- About --- */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .about-text p {
+            color: var(--muted);
+            font-weight: 300;
+            font-size: 1.05rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-top: 1.5rem;
+        }
+
+        .skill-pill {
+            background: var(--ink);
+            color: var(--paper);
+            font-size: 0.8rem;
+            font-weight: 500;
+            padding: 0.45rem 1rem;
+            border-radius: 100px;
+            letter-spacing: 0.02em;
+        }
+
+        /* --- Contact --- */
+        .contact {
+            text-align: center;
+            padding: 6rem 3rem 8rem;
+        }
+
+        .contact .section-title {
+            margin-bottom: 1rem;
+        }
+
+        .contact p {
+            color: var(--muted);
+            font-weight: 300;
+            font-size: 1.05rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.85rem 2rem;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            letter-spacing: 0.02em;
+        }
+
+        .contact-btn.primary {
+            background: var(--ink);
+            color: var(--paper);
+        }
+
+        .contact-btn.primary:hover {
+            background: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px -8px var(--accent);
+        }
+
+        .contact-btn.secondary {
+            background: transparent;
+            color: var(--ink);
+            border: 1.5px solid var(--border);
+        }
+
+        .contact-btn.secondary:hover {
+            border-color: var(--ink);
+            transform: translateY(-2px);
+        }
+
+        /* --- Footer --- */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--muted);
+            font-size: 0.8rem;
+            border-top: 1px solid var(--border);
+        }
+
+        /* --- Animations --- */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(24px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 1.5rem;
+            }
+
+            nav .nav-links {
+                gap: 1.2rem;
+            }
+
+            .hero, section {
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="#" class="logo">S.S.</a>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <p class="eyebrow">Machine Learning &amp; AI Engineering</p>
+        <h1>My <span>ML &amp; AI</span> Journey</h1>
+        <p>Production ML systems and AI applications — from feature engineering to cloud deployment and LLM evaluation.</p>
+        <div class="scroll-cue">
+            <span>Scroll</span>
+            <div class="line"></div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+        <p class="section-label reveal">About</p>
+        <h2 class="section-title reveal">Background</h2>
+        <div class="about-content">
+            <div class="about-text reveal">
+                <p>Machine learning and AI professional building scalable data pipelines, predictive models, and LLM applications, with 10+ years of prior software engineering leadership across healthcare, e-commerce, and semiconductor systems.</p>
+            </div>
+            <div class="reveal">
+                <div class="skills-list">
+                    <span class="skill-pill">Python</span>
+                    <span class="skill-pill">AWS</span>
+                    <span class="skill-pill">Kubernetes</span>
+                    <span class="skill-pill">Docker</span>
+                    <span class="skill-pill">FastAPI</span>
+                    <span class="skill-pill">PySpark</span>
+                    <span class="skill-pill">LangChain</span>
+                    <span class="skill-pill">Neo4j</span>
+                    <span class="skill-pill">LLMs &amp; RAG</span>
+                    <span class="skill-pill">Deep Learning</span>
+                    <span class="skill-pill">LightGBM / XGBoost</span>
+                    <span class="skill-pill">DPO / LoRA</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+        <p class="section-label reveal">Selected Work</p>
+        <h2 class="section-title reveal">Projects</h2>
+
+        <h3 class="project-group-title reveal">Production ML &amp; Cloud</h3>
+        <div class="projects-grid">
+
+            <div class="project-card reveal">
+                <span class="card-number">01</span>
+                <h3>WFP Food Security Forecasting</h3>
+                <p>Capstone with the World Food Programme — automated monthly AWS pipeline (EventBridge → ECS Fargate → S3 → Lambda → App Runner) predicting IPC Phase 3+ food insecurity at the district level across four Sub-Saharan countries. Case study with architecture, IaC, and Dockerfiles; pipeline source under client license.</p>
+                <div class="tags">
+                    <span class="tag">Capstone</span>
+                    <span class="tag">AWS</span>
+                    <span class="tag">ECS Fargate</span>
+                    <span class="tag">Lambda</span>
+                    <span class="tag">EventBridge</span>
+                    <span class="tag">IaC</span>
+                </div>
+                <a href="https://github.com/shika-s/shika-s.github.io/tree/main/capstone/" class="project-link" target="_blank" rel="noopener">
+                    View Project <span class="arrow">→</span>
+                </a>
+            </div>
+
+            <div class="project-card reveal">
+                <span class="card-number">02</span>
+                <h3>End-to-End ML API</h3>
+                <p>DistilBERT sentiment API with a full production stack — FastAPI, Docker, and Kubernetes with autoscaling, health probes, and caching, validated with k6 load testing.</p>
+                <div class="tags">
+                    <span class="tag">FastAPI</span>
+                    <span class="tag">Kubernetes</span>
+                    <span class="tag">Docker</span>
+                    <span class="tag">DistilBERT</span>
+                    <span class="tag">MLOps</span>
+                </div>
+                <a href="https://github.com/shika-s/shika-s.github.io/tree/main/end_to_end_machine_learning_api/" class="project-link" target="_blank" rel="noopener">
+                    View Project <span class="arrow">→</span>
+                </a>
+            </div>
+
+            <div class="project-card reveal">
+                <span class="card-number">03</span>
+                <h3>Caching &amp; Kubernetes Lab</h3>
+                <p>FastAPI + Redis service deployed on Kubernetes, exploring caching strategies for low-latency inference.</p>
+                <div class="tags">
+                    <span class="tag">FastAPI</span>
+                    <span class="tag">Redis</span>
+                    <span class="tag">Kubernetes</span>
+                    <span class="tag">Python</span>
+                </div>
+                <a href="https://github.com/shika-s/shika-s.github.io/tree/main/caching-and-kubernetes/" class="project-link" target="_blank" rel="noopener">
+                    View Project <span class="arrow">→</span>
+                </a>
+            </div>
+
+        </div>
+
+        <h3 class="project-group-title reveal">AI / LLMs</h3>
+        <div class="projects-grid">
+
+            <div class="project-card reveal">
+                <span class="card-number">04</span>
+                <h3>Multi-Persona RAG</h3>
+                <p>Retrieval-Augmented Generation system serving engineering vs marketing audiences. Compared retrievers, embeddings, prompts, and LLMs (Mistral, Cohere) across 78 questions.</p>
+                <div class="tags">
+                    <span class="tag">RAG</span>
+                    <span class="tag">LangChain</span>
+                    <span class="tag">Embeddings</span>
+                    <span class="tag">LLMs</span>
+                </div>
+                <a href="https://github.com/shika-s/shika-s.github.io/tree/main/multi_persona_rag/" class="project-link" target="_blank" rel="noopener">
+                    View Project <span class="arrow">→</span>
+                </a>
+            </div>
+
+            <div class="project-card reveal">
+                <span class="card-number">05</span>
+                <h3>Cybersecurity Policy Generation</h3>
+                <p>Ontology-grounded policy drafting using LLMs and Neo4j. Maps NIST CSF, SOC 2, and ISO 27001 into a knowledge graph and uses DPO / LoRA fine-tuning for retrieval-augmented generation.</p>
+                <div class="tags">
+                    <span class="tag">LLMs</span>
+                    <span class="tag">Neo4j</span>
+                    <span class="tag">Knowledge Graph</span>
+                    <span class="tag">DPO / LoRA</span>
+                </div>
+                <a href="https://github.com/shika-s/shika-s.github.io/tree/main/cybersecurity_policy_generation/" class="project-link" target="_blank" rel="noopener">
+                    View Project <span class="arrow">→</span>
+                </a>
+            </div>
+
+        </div>
+
+        <h3 class="project-group-title reveal">Modeling</h3>
+        <div class="projects-grid">
+
+            <div class="project-card reveal">
+                <span class="card-number">06</span>
+                <h3>Flight Delay Prediction</h3>
+                <p>Predicts whether a US domestic flight will see a ≥15-minute departure delay using only information available 2 hours before takeoff. Trained on 31.1M flights (2015–2019, DOT + NOAA) with a two-stage architecture from GBT through SparkXGBoost ensembles, optimizing F₂ to prioritize recall.</p>
+                <div class="tags">
+                    <span class="tag">PySpark</span>
+                    <span class="tag">XGBoost</span>
+                    <span class="tag">Time Series</span>
+                    <span class="tag">Feature Engineering</span>
+                </div>
+                <a href="https://github.com/shika-s/shika-s.github.io/tree/main/flight_delay_prediction/" class="project-link" target="_blank" rel="noopener">
+                    View Project <span class="arrow">→</span>
+                </a>
+            </div>
+
+            <div class="project-card reveal">
+                <span class="card-number">07</span>
+                <h3>Quantitative Finance Hackathon</h3>
+                <p>Team submission predicting 30-minute stock returns. I built the feature engineering pipeline (rolling 30-min stats, cross-sectional z-scores, 5-min bar features, sector-momentum signals from spectral-clustering pseudo-sectors) and the final LightGBM / RF / XGBoost ensemble that scored +0.0713 mean Spearman IC.</p>
+                <div class="tags">
+                    <span class="tag">Feature Engineering</span>
+                    <span class="tag">Spectral Clustering</span>
+                    <span class="tag">LightGBM</span>
+                    <span class="tag">XGBoost</span>
+                    <span class="tag">Finance</span>
+                </div>
+                <a href="https://github.com/shika-s/shika-s.github.io/tree/main/four_sigma_hackathon/" class="project-link" target="_blank" rel="noopener">
+                    View Project <span class="arrow">→</span>
+                </a>
+            </div>
+
+            <div class="project-card reveal">
+                <span class="card-number">08</span>
+                <h3>Bird Sounds Classification</h3>
+                <p>Deep learning classifier for the BirdCLEF 2025 Kaggle competition. Converts field audio recordings into mel-spectrograms, then trains CNN and Vision Transformer models to identify bird species from short clips.</p>
+                <div class="tags">
+                    <span class="tag">Deep Learning</span>
+                    <span class="tag">Keras</span>
+                    <span class="tag">CNN / ViT</span>
+                    <span class="tag">Audio</span>
+                    <span class="tag">Kaggle</span>
+                </div>
+                <a href="https://github.com/shika-s/shika-s.github.io/tree/main/bird_sound_classification/" class="project-link" target="_blank" rel="noopener">
+                    View Project <span class="arrow">→</span>
+                </a>
+            </div>
+
+            <div class="project-card reveal">
+                <span class="card-number">09</span>
+                <h3>Facial Emotion Detection</h3>
+                <p>CNN for facial emotion recognition, framed around depression screening. Custom architecture reached 84.4% accuracy and 0.964 AUC, outperforming VGG16, ResNet, and EfficientNet transfer-learning baselines. <em>Pre-MIDS coursework, 2023.</em></p>
+                <div class="tags">
+                    <span class="tag">Deep Learning</span>
+                    <span class="tag">CNN</span>
+                    <span class="tag">Computer Vision</span>
+                    <span class="tag">Transfer Learning</span>
+                </div>
+                <a href="https://github.com/shika-s/shika-s.github.io/tree/main/facial_emotion_detection/" class="project-link" target="_blank" rel="noopener">
+                    View Project <span class="arrow">→</span>
+                </a>
+            </div>
+
+        </div>
+
+        <h3 class="project-group-title reveal">Data Engineering &amp; Analytics</h3>
+        <div class="projects-grid">
+
+            <div class="project-card reveal">
+                <span class="card-number">10</span>
+                <h3>Neo4j Financial Portfolio</h3>
+                <p>Graph network analysis for portfolio diversification — Neo4j time-series graph with MongoDB and Redis. Applied Louvain community detection to weekly returns across investment pods (2020–2025) to surface four distinct investment communities and hidden correlations that Sharpe-ratio analysis misses.</p>
+                <div class="tags">
+                    <span class="tag">Neo4j</span>
+                    <span class="tag">Graph DB</span>
+                    <span class="tag">Louvain</span>
+                    <span class="tag">MongoDB</span>
+                    <span class="tag">Finance</span>
+                </div>
+                <a href="https://github.com/shika-s/shika-s.github.io/tree/main/neo4j_financial_portfolio/" class="project-link" target="_blank" rel="noopener">
+                    View Project <span class="arrow">→</span>
+                </a>
+            </div>
+
+            <div class="project-card reveal">
+                <span class="card-number">11</span>
+                <h3>Housing Price Analysis</h3>
+                <p>Team linear-modeling study of housing market drivers. Built in R with renv for reproducible environments and `sandwich`/`lmtest` for robust inference, organized in a cookiecutter-data-science layout with peer-reviewed deliverables.</p>
+                <div class="tags">
+                    <span class="tag">R</span>
+                    <span class="tag">Linear Regression</span>
+                    <span class="tag">renv</span>
+                    <span class="tag">Statistics</span>
+                </div>
+                <a href="https://github.com/shika-s/shika-s.github.io/tree/main/housing_price_analysis/" class="project-link" target="_blank" rel="noopener">
+                    View Project <span class="arrow">→</span>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+
+
+
+
+    <!-- Contact -->
+    <section id="contact" class="contact">
+        <p class="section-label reveal">Get in touch</p>
+        <h2 class="section-title reveal">Contact</h2>
+        <p class="reveal">Open to ML / AI engineering roles. Reach out about projects, opportunities, or collaboration.</p>
+        <div class="contact-links reveal">
+            <a href="mailto:shikhasharma@berkeley.edu" class="contact-btn primary">
+                Email
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        © 2026 Shikha Sharma
+    </footer>
+
+    <!-- Scroll Reveal Script -->
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                    }, index * 100);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+
+</body>
+</html>

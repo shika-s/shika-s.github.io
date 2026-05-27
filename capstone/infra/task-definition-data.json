@@ -1,0 +1,52 @@
+{
+  "family": "wfp-data-pipeline",
+  "networkMode": "awsvpc",
+  "requiresCompatibilities": ["FARGATE"],
+  "cpu": "2048",
+  "memory": "8192",
+  "executionRoleArn": "arn:aws:iam::__AWS_ACCOUNT_ID__:role/wfp-ecs-execution-role",
+  "taskRoleArn": "arn:aws:iam::__AWS_ACCOUNT_ID__:role/wfp-ecs-task-role",
+  "containerDefinitions": [
+    {
+      "name": "wfp-data-pipeline",
+      "image": "__AWS_ACCOUNT_ID__.dkr.ecr.us-east-1.amazonaws.com/wfp-data-pipeline:latest",
+      "essential": true,
+      "environment": [
+        {
+          "name": "S3_BUCKET",
+          "value": "s3://wfp-ml-pipeline-data-__AWS_ACCOUNT_ID__"
+        },
+        {
+          "name": "SNS_TOPIC_ARN",
+          "value": "arn:aws:sns:us-east-1:__AWS_ACCOUNT_ID__:wfp-pipeline-notifications"
+        }
+      ],
+      "secrets": [
+        {
+          "name": "FEWSNET_USER",
+          "valueFrom": "arn:aws:secretsmanager:us-east-1:__AWS_ACCOUNT_ID__:secret:wfp/fewsnet-credentials:FEWSNET_USER::"
+        },
+        {
+          "name": "FEWSNET_PWD",
+          "valueFrom": "arn:aws:secretsmanager:us-east-1:__AWS_ACCOUNT_ID__:secret:wfp/fewsnet-credentials:FEWSNET_PWD::"
+        },
+        {
+          "name": "ACLED_EMAIL",
+          "valueFrom": "arn:aws:secretsmanager:us-east-1:__AWS_ACCOUNT_ID__:secret:wfp/acled-credentials:ACLED_EMAIL::"
+        },
+        {
+          "name": "ACLED_PWD",
+          "valueFrom": "arn:aws:secretsmanager:us-east-1:__AWS_ACCOUNT_ID__:secret:wfp/acled-credentials:ACLED_PWD::"
+        }
+      ],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/wfp-data-pipeline",
+          "awslogs-region": "us-east-1",
+          "awslogs-stream-prefix": "data-pipeline"
+        }
+      }
+    }
+  ]
+}

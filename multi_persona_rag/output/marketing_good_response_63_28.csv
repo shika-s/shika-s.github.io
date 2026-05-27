@@ -1,0 +1,244 @@
+,embedding_model,embedding_dim,config_name,chunksize,chunkoverlap,num_retrieve,llm_name,llm_temp,llm_top_p,llm_do_sample,llm_repetition_penalty,llm_max_new_tokens,inference_time,audience_type,question_num,question,context,response,cleaned_response
+20,multi-qa-mpnet-base-dot-v1,768,full_question_research_prompt1,600,100,5,mistralai/Mistral-7B-Instruct-v0.3,0.2,0.95,True,1.1,200,1116.618387,research,28,Why is Chinchilla considered more efficient in terms of computing power for inference and fine-tuning?,"On the ﬁnal word prediction dataset LAMBADA (Paperno et al., 2016), Chinchilla achieves 77.4%
+accuracy, compared to 74.5% accuracy from Gopher and 76.6% from MT-NLG 530B (see Table 7). On
+RACE-h and RACE-m (Lai et al., 2017), Chinchilla greatly outperforms Gopher, improving accuracy
+by more than 10% in both cases—see Table 7.
+4.2.4. BIG-bench
+We analysed Chinchilla on the same set of BIG-bench tasks (BIG-bench collaboration, 2021) reported
+in Rae et al. (2021). Similar to what we observed in MMLU, Chinchilla outperforms Gopher on the
+
+size of the model and the number of training tokens.
+While pre-training a large language model has a considerable compute cost, downstream ﬁne-
+tuning and inference also make up substantial compute usage (Rae et al., 2021). Due to being 4×
+smaller than Gopher, both the memory footprint and inference cost of Chinchilla are also smaller.
+4.1. Model and training details
+The full set of hyperparameters used to train Chinchilla are given in Table 4. Chinchilla uses the same
+model architecture and training setup as Gopher with the exception of the diﬀerences listed below.
+
+in Rae et al. (2021). Similar to what we observed in MMLU, Chinchilla outperforms Gopher on the
+vast majority of tasks (see Figure 7). We ﬁnd that Chinchilla improves the average performance
+by 10.7%, reaching an accuracy of 65.1% versus 54.4% for Gopher. Of the 62 tasks we consider,
+Chinchilla performs worse than Gopher on only four—crash_blossom, dark_humor_detection,
+11
+
+ at high compute budgets
+(see Appendix E). This suggests that we may still be overestimating the optimal size of large models.
+Finally, the training runs for our analysis have all been trained on less than an epoch of data; future
+work may consider the multiple epoch regime. Despite these limitations, the comparison of Chinchilla
+to Gopher validates our performance predictions, that have thus enabled training a better (and more
+15
+
+the bits-per-byte (bpb) improvement (decrease) of Chinchilla compared to Gopher. On all subsets,
+Chinchilla outperforms Gopher.
+Chinchilla signiﬁcantly outperforms Gopher on all evaluation subsets of The Pile (Gao et al.,
+2020), as shown in Figure 5. Compared to Jurassic-1 (178B) Lieber et al. (2021), Chinchilla is more
+performant on all but two subsets– dm_mathematics and ubuntu_irc– see Table A5 for a raw
+bits-per-byte comparison. On Wikitext103 (Merity et al., 2017), Chinchilla achieves a perplexity of","Based on the provided context, Chinchilla is considered more efficient in terms of computing power for inference and fine-tuning due to its smaller model size compared to Gopher. This results in a smaller memory footprint and lower inference cost. While both models use similar architectures and training setups, Chinchilla is 4 times smaller than Gopher, which reduces the computational requirements during both training and inference stages. However, it's important to note that the context does not provide specific details about the exact model sizes or computational resources required by each model. Additionally, the context mentions that future work might consider training models for multiple epochs, which could impact the efficiency comparisons between Chinchilla and Gopher.","Based on the provided context, Chinchilla is considered more efficient in terms of computing power for inference and fine-tuning due to its smaller model size compared to Gopher. This results in a smaller memory footprint and lower inference cost. While both models use similar architectures and training setups, Chinchilla is 4 times smaller than Gopher, which reduces the computational requirements during both training and inference stages. However, it's important to note that the context does not provide specific details about the exact model sizes or computational resources required by each model. Additionally, the context mentions that future work might consider training models for multiple epochs, which could impact the efficiency comparisons between Chinchilla and Gopher."
+44,multi-qa-mpnet-base-dot-v1,768,full_question_research_prompt1,600,100,5,mistralai/Mistral-7B-Instruct-v0.3,0.2,0.95,True,1.1,200,1116.618387,research,63,What are the advantages of applying LoRA to transformer models in terms of computational efficiency during training and deployment?,"when the full rank (i.e., d) is as high as 12,288, making LoRA both storage- and compute-efﬁcient.
+LoRA possesses several key advantages.
+• A pre-trained model can be shared and used to build many small LoRA modules for dif-
+ferent tasks. We can freeze the shared model and efﬁciently switch tasks by replacing the
+matrices A and B in Figure 1, reducing the storage requirement and task-switching over-
+head signiﬁcantly.
+• LoRA makes training more efﬁcient and lowers the hardware barrier to entry by up to 3
+times when using adaptive optimizers since we do not need to calculate the gradients or
+
+times when using adaptive optimizers since we do not need to calculate the gradients or
+maintain the optimizer states for most parameters. Instead, we only optimize the injected,
+much smaller low-rank matrices.
+• Our simple linear design allows us to merge the trainable matrices with the frozen weights
+when deployed, introducing no inference latency compared to a fully ﬁne-tuned model, by
+construction.
+• LoRA is orthogonal to many prior methods and can be combined with many of them, such
+as preﬁx-tuning. We provide an example in Appendix E.
+Terminologies and Conventions
+
+guarantees that we do not introduce any additional latency during inference compared to a ﬁne-tuned
+model by construction.
+4.2
+APPLYING LORA TO TRANSFORMER
+In principle, we can apply LoRA to any subset of weight matrices in a neural network to reduce the
+number of trainable parameters. In the Transformer architecture, there are four weight matrices in
+the self-attention module (Wq, Wk, Wv, Wo) and two in the MLP module. We treat Wq (or Wk, Wv)
+as a single matrix of dimension dmodel ×dmodel, even though the output dimension is usually sliced
+
+LoRA, an efﬁcient adaptation strategy that neither introduces inference latency nor reduces input
+sequence length while retaining high model quality. Importantly, it allows for quick task-switching
+when deployed as a service by sharing the vast majority of the model parameters. While we focused
+on Transformer language models, the proposed principles are generally applicable to any neural
+networks with dense layers.
+There are many directions for future works. 1) LoRA can be combined with other efﬁcient adapta-
+
+we pre-train larger models, full ﬁne-tuning, which retrains all model parameters,
+becomes less feasible. Using GPT-3 175B as an example – deploying indepen-
+dent instances of ﬁne-tuned models, each with 175B parameters, is prohibitively
+expensive. We propose Low-Rank Adaptation, or LoRA, which freezes the pre-
+trained model weights and injects trainable rank decomposition matrices into each
+layer of the Transformer architecture, greatly reducing the number of trainable pa-
+rameters for downstream tasks. Compared to GPT-3 175B ﬁne-tuned with Adam,","Applying LoRA to Transformer models offers several advantages in terms of computational efficiency during training and deployment.
+
+First, LoRA significantly reduces the number of trainable parameters by injecting trainable rank decomposition matrices into each layer of the Transformer architecture, rather than re-training all model parameters during fine-tuning. This reduction in trainable parameters makes training more efficient.
+
+Second, LoRA employs adaptive optimizers, which lower the hardware barrier to entry by up to three times during training because we do not need to calculate gradients or maintain optimizer states for most parameters. Instead, we only optimize the injected, much smaller low-rank matrices.
+
+Third, LoRA does not introduce any additional latency during inference compared to a fine-tuned model by construction. This is achieved by merging the trainable matrices with the frozen weights when deployed.
+
+Finally, LoRA allows for quick task-switch","Applying LoRA to Transformer models offers several advantages in terms of computational efficiency during training and deployment. First, LoRA significantly reduces the number of trainable parameters by injecting trainable rank decomposition matrices into each layer of the Transformer architecture, rather than re-training all model parameters during fine-tuning. This reduction in trainable parameters makes training more efficient. Second, LoRA employs adaptive optimizers, which lower the hardware barrier to entry by up to three times during training because we do not need to calculate gradients or maintain optimizer states for most parameters. Instead, we only optimize the injected, much smaller low-rank matrices. Third, LoRA does not introduce any additional latency during inference compared to a fine-tuned model by construction. This is achieved by merging the trainable matrices with the frozen weights when deployed. Finally, LoRA allows for quick task-switch"
+98,multi-qa-mpnet-base-dot-v1,768,full_question_research_prompt48,600,100,5,mistralai/Mistral-7B-Instruct-v0.3,0.2,0.95,True,1.1,200,1114.470072,research,28,Why is Chinchilla considered more efficient in terms of computing power for inference and fine-tuning?,"On the ﬁnal word prediction dataset LAMBADA (Paperno et al., 2016), Chinchilla achieves 77.4%
+accuracy, compared to 74.5% accuracy from Gopher and 76.6% from MT-NLG 530B (see Table 7). On
+RACE-h and RACE-m (Lai et al., 2017), Chinchilla greatly outperforms Gopher, improving accuracy
+by more than 10% in both cases—see Table 7.
+4.2.4. BIG-bench
+We analysed Chinchilla on the same set of BIG-bench tasks (BIG-bench collaboration, 2021) reported
+in Rae et al. (2021). Similar to what we observed in MMLU, Chinchilla outperforms Gopher on the
+
+size of the model and the number of training tokens.
+While pre-training a large language model has a considerable compute cost, downstream ﬁne-
+tuning and inference also make up substantial compute usage (Rae et al., 2021). Due to being 4×
+smaller than Gopher, both the memory footprint and inference cost of Chinchilla are also smaller.
+4.1. Model and training details
+The full set of hyperparameters used to train Chinchilla are given in Table 4. Chinchilla uses the same
+model architecture and training setup as Gopher with the exception of the diﬀerences listed below.
+
+in Rae et al. (2021). Similar to what we observed in MMLU, Chinchilla outperforms Gopher on the
+vast majority of tasks (see Figure 7). We ﬁnd that Chinchilla improves the average performance
+by 10.7%, reaching an accuracy of 65.1% versus 54.4% for Gopher. Of the 62 tasks we consider,
+Chinchilla performs worse than Gopher on only four—crash_blossom, dark_humor_detection,
+11
+
+ at high compute budgets
+(see Appendix E). This suggests that we may still be overestimating the optimal size of large models.
+Finally, the training runs for our analysis have all been trained on less than an epoch of data; future
+work may consider the multiple epoch regime. Despite these limitations, the comparison of Chinchilla
+to Gopher validates our performance predictions, that have thus enabled training a better (and more
+15
+
+the bits-per-byte (bpb) improvement (decrease) of Chinchilla compared to Gopher. On all subsets,
+Chinchilla outperforms Gopher.
+Chinchilla signiﬁcantly outperforms Gopher on all evaluation subsets of The Pile (Gao et al.,
+2020), as shown in Figure 5. Compared to Jurassic-1 (178B) Lieber et al. (2021), Chinchilla is more
+performant on all but two subsets– dm_mathematics and ubuntu_irc– see Table A5 for a raw
+bits-per-byte comparison. On Wikitext103 (Merity et al., 2017), Chinchilla achieves a perplexity of","The provided context indicates that Chinchilla is considered more efficient in terms of computing power for inference and fine-tuning due to its smaller model size compared to Gopher. Specifically, Chinchilla is 4 times smaller than Gopher, which results in a smaller memory footprint and lower inference cost. This efficiency is important because it reduces the compute usage during downstream fine-tuning and inference stages, as mentioned in the context. Additionally, the authors note that while pre-training a large language model has a considerable compute cost, the smaller size of Chinchilla contributes to reduced costs during fine-tuning and inference.","The provided context indicates that Chinchilla is considered more efficient in terms of computing power for inference and fine-tuning due to its smaller model size compared to Gopher. Specifically, Chinchilla is 4 times smaller than Gopher, which results in a smaller memory footprint and lower inference cost. This efficiency is important because it reduces the compute usage during downstream fine-tuning and inference stages, as mentioned in the context. Additionally, the authors note that while pre-training a large language model has a considerable compute cost, the smaller size of Chinchilla contributes to reduced costs during fine-tuning and inference."
+122,multi-qa-mpnet-base-dot-v1,768,full_question_research_prompt48,600,100,5,mistralai/Mistral-7B-Instruct-v0.3,0.2,0.95,True,1.1,200,1114.470072,research,63,What are the advantages of applying LoRA to transformer models in terms of computational efficiency during training and deployment?,"when the full rank (i.e., d) is as high as 12,288, making LoRA both storage- and compute-efﬁcient.
+LoRA possesses several key advantages.
+• A pre-trained model can be shared and used to build many small LoRA modules for dif-
+ferent tasks. We can freeze the shared model and efﬁciently switch tasks by replacing the
+matrices A and B in Figure 1, reducing the storage requirement and task-switching over-
+head signiﬁcantly.
+• LoRA makes training more efﬁcient and lowers the hardware barrier to entry by up to 3
+times when using adaptive optimizers since we do not need to calculate the gradients or
+
+times when using adaptive optimizers since we do not need to calculate the gradients or
+maintain the optimizer states for most parameters. Instead, we only optimize the injected,
+much smaller low-rank matrices.
+• Our simple linear design allows us to merge the trainable matrices with the frozen weights
+when deployed, introducing no inference latency compared to a fully ﬁne-tuned model, by
+construction.
+• LoRA is orthogonal to many prior methods and can be combined with many of them, such
+as preﬁx-tuning. We provide an example in Appendix E.
+Terminologies and Conventions
+
+guarantees that we do not introduce any additional latency during inference compared to a ﬁne-tuned
+model by construction.
+4.2
+APPLYING LORA TO TRANSFORMER
+In principle, we can apply LoRA to any subset of weight matrices in a neural network to reduce the
+number of trainable parameters. In the Transformer architecture, there are four weight matrices in
+the self-attention module (Wq, Wk, Wv, Wo) and two in the MLP module. We treat Wq (or Wk, Wv)
+as a single matrix of dimension dmodel ×dmodel, even though the output dimension is usually sliced
+
+LoRA, an efﬁcient adaptation strategy that neither introduces inference latency nor reduces input
+sequence length while retaining high model quality. Importantly, it allows for quick task-switching
+when deployed as a service by sharing the vast majority of the model parameters. While we focused
+on Transformer language models, the proposed principles are generally applicable to any neural
+networks with dense layers.
+There are many directions for future works. 1) LoRA can be combined with other efﬁcient adapta-
+
+we pre-train larger models, full ﬁne-tuning, which retrains all model parameters,
+becomes less feasible. Using GPT-3 175B as an example – deploying indepen-
+dent instances of ﬁne-tuned models, each with 175B parameters, is prohibitively
+expensive. We propose Low-Rank Adaptation, or LoRA, which freezes the pre-
+trained model weights and injects trainable rank decomposition matrices into each
+layer of the Transformer architecture, greatly reducing the number of trainable pa-
+rameters for downstream tasks. Compared to GPT-3 175B ﬁne-tuned with Adam,","Applying LoRA to Transformer models offers several advantages in terms of computational efficiency during training and deployment. First, a pre-trained model can be shared and used to build multiple small LoRA modules for different tasks, reducing the storage requirement and task-switching overhead significantly (Kim et al., 2021). This is achieved by freezing the shared model and efficiently switching tasks by replacing the matrices A and B in Figure 1, as described in the context.
+
+Second, LoRA makes training more efficient and lowers the hardware barrier to entry by up to 3 times when using adaptive optimizers since we do not need to calculate the gradients or maintain the optimizer states for most parameters. Instead, we only optimize the injected, much smaller low-rank matrices (Kim et al., 2021).
+
+Third, the simple linear design of LoRA allows us to merge the trainable matrices with the frozen","Applying LoRA to Transformer models offers several advantages in terms of computational efficiency during training and deployment. First, a pre-trained model can be shared and used to build multiple small LoRA modules for different tasks, reducing the storage requirement and task-switching overhead significantly (Kim et al., 2021). This is achieved by freezing the shared model and efficiently switching tasks by replacing the matrices A and B in Figure 1, as described in the context. Second, LoRA makes training more efficient and lowers the hardware barrier to entry by up to 3 times when using adaptive optimizers since we do not need to calculate the gradients or maintain the optimizer states for most parameters. Instead, we only optimize the injected, much smaller low-rank matrices (Kim et al., 2021). Third, the simple linear design of LoRA allows us to merge the trainable matrices with the frozen"
+176,multi-qa-mpnet-base-dot-v1,768,full_question_marketing_prompt48,600,100,5,mistralai/Mistral-7B-Instruct-v0.3,0.2,0.95,True,1.1,200,467.54381,marketing,28,Why is Chinchilla considered more efficient in terms of computing power for inference and fine-tuning?,"On the ﬁnal word prediction dataset LAMBADA (Paperno et al., 2016), Chinchilla achieves 77.4%
+accuracy, compared to 74.5% accuracy from Gopher and 76.6% from MT-NLG 530B (see Table 7). On
+RACE-h and RACE-m (Lai et al., 2017), Chinchilla greatly outperforms Gopher, improving accuracy
+by more than 10% in both cases—see Table 7.
+4.2.4. BIG-bench
+We analysed Chinchilla on the same set of BIG-bench tasks (BIG-bench collaboration, 2021) reported
+in Rae et al. (2021). Similar to what we observed in MMLU, Chinchilla outperforms Gopher on the
+
+size of the model and the number of training tokens.
+While pre-training a large language model has a considerable compute cost, downstream ﬁne-
+tuning and inference also make up substantial compute usage (Rae et al., 2021). Due to being 4×
+smaller than Gopher, both the memory footprint and inference cost of Chinchilla are also smaller.
+4.1. Model and training details
+The full set of hyperparameters used to train Chinchilla are given in Table 4. Chinchilla uses the same
+model architecture and training setup as Gopher with the exception of the diﬀerences listed below.
+
+in Rae et al. (2021). Similar to what we observed in MMLU, Chinchilla outperforms Gopher on the
+vast majority of tasks (see Figure 7). We ﬁnd that Chinchilla improves the average performance
+by 10.7%, reaching an accuracy of 65.1% versus 54.4% for Gopher. Of the 62 tasks we consider,
+Chinchilla performs worse than Gopher on only four—crash_blossom, dark_humor_detection,
+11
+
+ at high compute budgets
+(see Appendix E). This suggests that we may still be overestimating the optimal size of large models.
+Finally, the training runs for our analysis have all been trained on less than an epoch of data; future
+work may consider the multiple epoch regime. Despite these limitations, the comparison of Chinchilla
+to Gopher validates our performance predictions, that have thus enabled training a better (and more
+15
+
+the bits-per-byte (bpb) improvement (decrease) of Chinchilla compared to Gopher. On all subsets,
+Chinchilla outperforms Gopher.
+Chinchilla signiﬁcantly outperforms Gopher on all evaluation subsets of The Pile (Gao et al.,
+2020), as shown in Figure 5. Compared to Jurassic-1 (178B) Lieber et al. (2021), Chinchilla is more
+performant on all but two subsets– dm_mathematics and ubuntu_irc– see Table A5 for a raw
+bits-per-byte comparison. On Wikitext103 (Merity et al., 2017), Chinchilla achieves a perplexity of","The available information does not cover this topic directly, but it implies that Chinchilla is considered more efficient in terms of computing power for inference and fine-tuning because it is 4x smaller than Gopher, resulting in smaller memory footprints and lower inference costs.","The available information does not cover this topic directly, but it implies that Chinchilla is considered more efficient in terms of computing power for inference and fine-tuning because it is 4x smaller than Gopher, resulting in smaller memory footprints and lower inference costs."
+200,multi-qa-mpnet-base-dot-v1,768,full_question_marketing_prompt48,600,100,5,mistralai/Mistral-7B-Instruct-v0.3,0.2,0.95,True,1.1,200,467.54381,marketing,63,What are the advantages of applying LoRA to transformer models in terms of computational efficiency during training and deployment?,"when the full rank (i.e., d) is as high as 12,288, making LoRA both storage- and compute-efﬁcient.
+LoRA possesses several key advantages.
+• A pre-trained model can be shared and used to build many small LoRA modules for dif-
+ferent tasks. We can freeze the shared model and efﬁciently switch tasks by replacing the
+matrices A and B in Figure 1, reducing the storage requirement and task-switching over-
+head signiﬁcantly.
+• LoRA makes training more efﬁcient and lowers the hardware barrier to entry by up to 3
+times when using adaptive optimizers since we do not need to calculate the gradients or
+
+times when using adaptive optimizers since we do not need to calculate the gradients or
+maintain the optimizer states for most parameters. Instead, we only optimize the injected,
+much smaller low-rank matrices.
+• Our simple linear design allows us to merge the trainable matrices with the frozen weights
+when deployed, introducing no inference latency compared to a fully ﬁne-tuned model, by
+construction.
+• LoRA is orthogonal to many prior methods and can be combined with many of them, such
+as preﬁx-tuning. We provide an example in Appendix E.
+Terminologies and Conventions
+
+guarantees that we do not introduce any additional latency during inference compared to a ﬁne-tuned
+model by construction.
+4.2
+APPLYING LORA TO TRANSFORMER
+In principle, we can apply LoRA to any subset of weight matrices in a neural network to reduce the
+number of trainable parameters. In the Transformer architecture, there are four weight matrices in
+the self-attention module (Wq, Wk, Wv, Wo) and two in the MLP module. We treat Wq (or Wk, Wv)
+as a single matrix of dimension dmodel ×dmodel, even though the output dimension is usually sliced
+
+LoRA, an efﬁcient adaptation strategy that neither introduces inference latency nor reduces input
+sequence length while retaining high model quality. Importantly, it allows for quick task-switching
+when deployed as a service by sharing the vast majority of the model parameters. While we focused
+on Transformer language models, the proposed principles are generally applicable to any neural
+networks with dense layers.
+There are many directions for future works. 1) LoRA can be combined with other efﬁcient adapta-
+
+we pre-train larger models, full ﬁne-tuning, which retrains all model parameters,
+becomes less feasible. Using GPT-3 175B as an example – deploying indepen-
+dent instances of ﬁne-tuned models, each with 175B parameters, is prohibitively
+expensive. We propose Low-Rank Adaptation, or LoRA, which freezes the pre-
+trained model weights and injects trainable rank decomposition matrices into each
+layer of the Transformer architecture, greatly reducing the number of trainable pa-
+rameters for downstream tasks. Compared to GPT-3 175B ﬁne-tuned with Adam,","Applying LoRA to Transformer models offers several benefits during training and deployment. It significantly reduces the number of trainable parameters, making training more efficient and lowering the hardware barrier to entry by up to 3 times when using adaptive optimizers. Additionally, LoRA does not introduce any additional latency during inference compared to a fine-tuned model, allowing for quick task-switching when deployed as a service by sharing the majority of the model parameters. This makes it particularly useful for large models like GPT-3 175B, where full fine-tuning becomes less feasible due to cost constraints.","Applying LoRA to Transformer models offers several benefits during training and deployment. It significantly reduces the number of trainable parameters, making training more efficient and lowering the hardware barrier to entry by up to 3 times when using adaptive optimizers. Additionally, LoRA does not introduce any additional latency during inference compared to a fine-tuned model, allowing for quick task-switching when deployed as a service by sharing the majority of the model parameters. This makes it particularly useful for large models like GPT-3 175B, where full fine-tuning becomes less feasible due to cost constraints."

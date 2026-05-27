@@ -1,0 +1,12 @@
+.git
+.github
+.k8s
+**/__pycache__
+**/.pytest_cache
+**/.venv
+mlapi/tests
+mlapi/trainer
+mlapi/.venv
+*.md
+load.js
+

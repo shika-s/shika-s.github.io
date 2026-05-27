@@ -1,0 +1,94 @@
+---
+name: Autograding Tests
+"on":
+  - push
+  - repository_dispatch
+
+env:
+  LAB_ASSIGNMENT: lab3
+
+permissions:
+  checks: write
+  actions: read
+  contents: read
+jobs:
+  run-autograding-tests:
+    runs-on: self-hosted
+    concurrency:
+      group: ${{ github.actor }}
+      cancel-in-progress: true
+
+    if: github.actor != 'github-classroom[bot]'
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ vars.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: "Install students lab3 directory"
+        run: poetry install --directory lab3 --no-root
+
+      - name: "Install poetry-core,kr8s, and testcontainers for tests"
+        run: poetry add --directory lab3 poetry-core 'testcontainers[k3s]' kr8s
+
+      - name: Download all autograder scripts
+        run: |
+          curl --header "X-API-Key:${{ secrets.AUTOGRADER_API_AUTH_KEY }}" -s ${{ vars.AUTOGRADER_API_URL }}/static/common/test_autograder_application.py --output lab3/tests/test_autograder_application.py
+          curl --header "X-API-Key:${{ secrets.AUTOGRADER_API_AUTH_KEY }}" -s ${{ vars.AUTOGRADER_API_URL }}/static/common/test_autograder_dependencies.py --output lab3/tests/test_autograder_dependencies.py
+          curl --header "X-API-Key:${{ secrets.AUTOGRADER_API_AUTH_KEY }}" -s ${{ vars.AUTOGRADER_API_URL }}/static/common/test_k8s.py --output lab3/tests/test_k8s.py
+          curl --header "X-API-Key:${{ secrets.AUTOGRADER_API_AUTH_KEY }}" -s ${{ vars.AUTOGRADER_API_URL }}/static/common/test_applications.sh --output test_applications.sh
+          curl --header "X-API-Key:${{ secrets.AUTOGRADER_API_AUTH_KEY }}" -s ${{ vars.AUTOGRADER_API_URL }}/static/common/test_containers.sh --output test_containers.sh
+          curl --header "X-API-Key:${{ secrets.AUTOGRADER_API_AUTH_KEY }}" -s ${{ vars.AUTOGRADER_API_URL }}/static/common/test_dependencies.sh --output test_dependencies.sh
+          chmod +x test_applications.sh test_dependencies.sh test_containers.sh
+
+      - name: Load preloaded images
+        run: |
+          timeout 30 bash -c 'until docker info >/dev/null 2>&1; do sleep 1; done'
+          for img in /preloaded-images/*.tar; do
+            echo "Loading $img..."
+            docker load -i "$img"
+          done
+
+
+      - name: lab3_test_dependencies
+        id: lab3_test_dependencies
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: lab3_test_dependencies
+          setup-command: ""
+          command: "export LAB_ASSIGNMENT='${{ env.LAB_ASSIGNMENT }}';bash test_dependencies.sh"
+          timeout: 10
+          max-score: 10
+
+      - name: lab3_application_requirements
+        id: lab3_application_requirements
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: lab3_application_requirements
+          setup-command: ""
+          command: "export LAB_ASSIGNMENT='${{ env.LAB_ASSIGNMENT }}';bash test_applications.sh"
+          timeout: 10
+          max-score: 10
+
+      - name: lab3_docker_requirements
+        id: lab3_docker_requirements
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: lab3_docker_requirements
+          setup-command: ""
+          command: "export LAB_ASSIGNMENT='${{ env.LAB_ASSIGNMENT }}';bash test_containers.sh"
+          timeout: 10
+          max-score: 10
+
+      - name: Autograding Reporter
+        uses: classroom-resources/autograding-grading-reporter@v1
+        env:
+          LAB3_TEST_DEPENDENCIES_RESULTS: "${{steps.lab3_test_dependencies.outputs.result}}"
+          LAB3_APPLICATION_REQUIREMENTS_RESULTS: "${{steps.lab3_application_requirements.outputs.result}}"
+          LAB3_DOCKER_REQUIREMENTS_RESULTS: "${{steps.lab3_docker_requirements.outputs.result}}"
+        with:
+          runners: lab3_test_dependencies,lab3_application_requirements,lab3_docker_requirements

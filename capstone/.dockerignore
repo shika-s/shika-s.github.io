@@ -1,0 +1,40 @@
+# Ignore large data files (mounted at runtime)
+data/
+!data/.gitkeep
+
+# Python caches
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+
+# Poetry virtual env (rebuilt in container)
+.venv/
+
+# IDE
+.vscode/
+.idea/
+
+# Git
+.git/
+.gitignore
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs (generated at runtime)
+logs/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# Large model files
+*.ubj
+*.cbm
+*.lgb
+*.joblib
+
+# CatBoost temp
+catboost_info/

@@ -1,0 +1,333 @@
+---
+title:  "Lab 2: Description Using Models"
+subtitle: "A descriptive statistical analysis of housing prices in Ames, Iowa" 
+date: today
+date-format: long 
+author: 
+ - name: Ben Robbins
+ - name: Micah Collins 
+ - name: Shikha Sharma
+ - name: Scott Stossel
+   affiliations: 
+   - name: UC Berkeley, School of Information
+     address: 102 South Hall Drive
+     city: Berkeley, CA 
+     postal-code: 94720
+format: 
+  html: default
+  pdf: 
+    documentclass: scrartcl
+toc: false 
+colorlinks: true
+cap-location: bottom
+execute: 
+  echo: false 
+  warning: false 
+  message: false 
+bibliography: references.bib
+citeproc: true
+biblio-title: References
+link-citations: true
+---
+
+```{r load packages, include=FALSE}
+library(tidyverse)
+library(patchwork)
+library(ggplot2)
+library(here)
+library(reshape2)
+library(sandwich) 
+library(stargazer)
+library(lmtest)
+library(caret)
+library(moments)
+library(car)
+```
+
+```{r set plotting theme, include=FALSE}
+theme_set(theme_minimal())
+
+#knitr::opts_chunk$set(echo=FALSE, warning=FALSE, message=FALSE)
+```
+
+```{r}
+get_robust_se <- function(vcov) { 
+  se_ <- sqrt(diag(vcov))
+  return(se_)
+  }
+```
+
+
+```{r clean-and-process-data,include=FALSE}
+source(file.path(here("src/Housing_Analysis_DataCleaning.r"))) #clean data
+source(file.path(here("src/Housing_Analysis_DataWrangling.r"))) #process data
+source(file.path(here("src/Housing_Analysis_DataVisualization.r"))) #visualize data
+```
+
+```{r load-processed-data,include=FALSE}
+suppressWarnings(explore_data <- read_csv(here("data/processed/explore_data.csv"), show_col_types = FALSE))
+suppressWarnings(confirm_data <- read_csv(here("data/processed/confirm_data.csv"), show_col_types = FALSE))
+
+```
+
+
+
+### 1. Introduction
+
+Accurately understanding the relationship between various aspects of a house and the sale price is a crucial first step for real estate investors to understand the underwriting process. As investors interested in single family houses in Ames, Iowa investigating certain factors affecting price, we wanted to answer the question: Does the total livable square footage, neighborhood, season of sale, number of bedrooms/baths, finished basement, and recent remodeling/upgrades correlate to the sale price in the real estate market of Ames, Iowa? We hypothesized that these six factors would have a positive correlation on sale price; however, we plan to study more variables within the dataset. Understanding these relationships help us improve our underwriting process and lay the foundation for further research to eventually make predictive and causal models.
+
+
+### 2. Data and Methodology
+
+This analysis uses a dataset from Kaggle [@deandecock2011] that contains property records collected through the Ames Assessor’s Office between 2006 and 2010. Each row represents a single home sale, with `r ncol(full_data) - 1` variables describing a variety of features that could influence price. These variables include characteristics such as location, lot area, and quality, which we assessed in the construction of our descriptive model. 
+
+
+The original data with `r full_data_rows` observations went through a number of data cleaning and wrangling steps prior to the construction of the model. First, we filtered  `r full_data_rows - filtered_by_year_rows`  observations from the data to only look at sales from 2006 and 2007 to avoid the edge case of the 2008 housing crisis. We further filtered by single family homes to avoid miscellaneous property types such as duplexes which were not well represented by the dataset, removing `r filtered_by_year_rows - full_data_filtered_rows` observations, leaving us with `r full_data_filtered_rows` samples. From here, we verified that all of the variables of interest were not missing any values. Some categorical variables, like neighborhood, included a large number of different categories which we grouped into broader ones to simplify the model and avoid overfitting. 
+
+In order to obtain a better understanding of the relation between the variables in the data, we generated a correlation matrix to help us identify which variables to select for our analysis. From the resulting heatmap, we selected variables that had a high level of correlation with Sale price like the Above ground living area, overall quality, overall condition, the year house was built, the year remodelling/additions were added, total basement area, number of full baths, kitchen quality, and the car capacity of garage. We also made note of the variables that had a high level of correlation with each other suggesting possible collinearity. This included lot size, total above ground area, number of full baths.
+
+
+```{r visualization-plots}
+#| fig-cap: In panel (A) we report the distribution of Total Living Area above ground, which has a long-right tail. In panel (B) we report the distribution of Single Family homes Sale Price, which presents an almost classic normal distribution with a slight skew to the right. In panel (C) we present the joint distribution of the two, together with Overall Quality of the house noting there is a non linear relationship. Finally, panel (D) overlays the final model predictions in red over the joint distribution  of the log10(actual sale price) and square root of house area. 
+#| fig-height: 4
+#| fig-pos: h
+#| label: fig-dist
+
+
+
+x_distribution <-
+ explore_data |>  
+    ggplot() + 
+    aes(x = GrLivArea/1000) + 
+     geom_histogram(aes(y = after_stat(density)),
+               colour = 1, fill = "white", bins=15) +
+  geom_density() + 
+    labs(
+      x = "Area(1000 sq.ft.)", 
+      y     = NULL)
+
+y_distribution <- 
+   explore_data |>
+  ggplot() +
+    aes(x=SalePrice/100000) +
+  geom_histogram(aes(y = after_stat(density)),
+               colour = 1, fill = "white", bins=15) +
+  geom_density()+
+    labs(
+      x = "Sale Price($100k)",
+      y     = NULL)
+
+xy_distribution <- 
+  explore_data |>  
+    ggplot() +
+    aes(x = GrLivArea/1000, y = SalePrice/100000, color = OverallQualCategory) + 
+    geom_point() + 
+    labs(
+      x = "Area(1000 sq.ft.)", 
+      y = "SalePrice($100k)",
+      color= "Overall Quality Category") 
+
+
+final_model <-  lm(log10(SalePrice) ~ log10(GrLivArea) + OverallQualCategory + TotalBsmtSFLogged + YearBuilt  + OverallCondCategory, data = explore_data)
+
+
+
+xyz_distribution <- 
+    ggplot() +
+    aes(x = log10(explore_data$GrLivArea), y = log10(explore_data$SalePrice), color = explore_data$OverallQualCategory) + 
+    geom_point( show.legend = FALSE) + 
+    geom_smooth(aes(x = log10(explore_data$GrLivArea), y = predict(final_model)), 
+                se=FALSE, color='red', show.legend = FALSE) +
+    labs(
+      x = "Log10( Area (sq. ft.))", 
+      y = "Log10(Sale Price)") 
+
+
+((x_distribution + y_distribution  )/ ( xy_distribution + xyz_distribution )) + 
+  plot_annotation(tag_levels = 'A') + 
+  plot_annotation(title = "Distributions of Key Variables")
+```
+
+To gain an understanding of the distributions of the variables, we explored univariate and bivariate distributions. As depicted in @fig-dist, panel A shows a more pronounced right skewed distribution for the total above ground living area than the skew shown by Sale Price in panel B. This contributes to the higher variance in our model residuals for the higher price range of larger homes. Panel C shows the joint distribution of both these variables and the Overall Quality of the houses which shows a linear relationship for lower size houses but the relationship appears to change to non linear for larger size homes. Finally, panel D shows the final model predictions overlayed on the actual sale price. As expected, there is high accuracy for lower house prices, but for higher house prices, the model is unable to capture some of the  non-linearity of the actual sale price. The effect of the data transformation is also visible by comparing panel C and panel D. 
+
+
+
+### 3. Model Specifications and Assumptions
+
+We explain the variation in house sale prices using a sequence of linear regression models operating on metric within our dataset. Our dependent variable is SalePrice, measured in U.S. dollars, transformed by a log function in order to stabilize variance and improve the normality of errors. We report robust standard errors due to heteroskedasticity concerns in the data. Our final model includes the independent variables: GrLivArea (living area above ground), which is transformed by a log function to represent the nonlinear and diminishing returns it has on SalePrice; TotalBsmtSF (Total Basement Square Footage), which is transformed by a log function to represent the nonlinear and diminishing returns it has on SalePrice; YearBuilt; OverallQual (Overall House Quality), which is an ordinal variable measured on a scale of 1 to 10 which we have split into categories of “low”, “med”, and “high”, with “low” being the basis category; and OverallCond (Overall House Condition) is also an ordinal variable split into those same categories.
+
+
+```{r estimate-models}
+initial_model   <- lm(log10(SalePrice) ~ GrLivArea, data = explore_data) 
+intermediate_model   <- lm(log10(SalePrice) ~ log10(GrLivArea) + OverallQualCategory, data = explore_data)
+final_model <- lm(log10(SalePrice) ~ log10(GrLivArea) + OverallQualCategory + TotalBsmtSFLogged + YearBuilt  + OverallCondCategory, data = explore_data)
+robust_se_initial <- vcovHC(initial_model, type = "HC1")
+robust_se_intermediate <- vcovHC(intermediate_model, type = "HC1")
+robust_se_final <- vcovHC(final_model, type = "HC1")
+```
+
+```{r report-models}
+#| results: asis
+#| tbl-cap: Comparison of initial, intermediate and Final Regression Models. 
+#| tbl-pos: t
+stargazer(
+  initial_model, intermediate_model, final_model, 
+  type = ifelse(knitr::is_latex_output(),"latex", "html"), 
+  covariate.labels = c("GrLivArea", "log(GrLivArea)", "OverallQualCategory", "log(TotalBsmtSF)","YearBuilt" , "OverallCondCategory","Intercept"), 
+  digits = 2, 
+  omit.stat = c('ser', 'f') ,
+  dep.var.labels = "Log10(SalePrice)",
+  column.labels = c("Initial Model", "Intermediate Model", "Advanced Model"),
+  se = list(get_robust_se(robust_se_initial), 
+            get_robust_se(robust_se_intermediate),
+            get_robust_se(robust_se_final)),
+  font.size='small',
+  single.row=TRUE
+)
+```
+
+```{r model-assumption-evaluation}
+
+#define the models with appropriate data
+model_final_confirm <- lm(log10(SalePrice) ~ log10(GrLivArea) + OverallQualCategory + TotalBsmtSFLogged + YearBuilt  + OverallCondCategory, data = confirm_data)
+initial_model <- lm(SalePrice ~ GrLivArea, data = explore_data)
+
+#generalized variance inflation factor
+max_vif <- max(vif(model_final_confirm)[,1])
+
+#bptest
+initial_bp <- (bptest(initial_model))$p.value
+final_bp <- (bptest(model_final_confirm))$p.value
+
+#residul tests for skewness and kurtosis
+kurtosis_initial <- kurtosis(initial_model$residuals)-3 #Fischer
+skewness_initial <- skewness(initial_model$residuals)
+kurtosis_final <- kurtosis(model_final_confirm$residuals)-3 #Fischer
+skewness_final <- skewness(model_final_confirm$residuals)
+```
+
+While the sample size (n=`r nrow(confirm_data)`) supports the Central Limit Theorem, we closely examined the key assumptions of linear regression.   In order to verify if the data is **IID**, we examined the residuals and applied log transformations to sale price and square footage to reduce the impact of large variations in house size and price. This transformation reduced clustering and the influence of extreme values, as seen in @fig-residuals. As we can observe from @fig-correlation, there is some collinearity between variables like lot area and house size and number of full baths. We chose only one of these variables in our model to avoid issues related to near perfect collinearity. In addition we ran a VIF test and the highest value `r max_vif`  is well below the allowed value of 4 thus satisfying the assumption of **No Perfect Collinearity** . The log-log model, created from the above-mentioned transformation, better satisfies the **linear conditional expectation** assumption, as it corrects for the curved residual patterns and improves fit across the range of sale prices.
+
+We also attempted to address the assumption of  **Constant Error Variance** with the log transformations in the final model, the p-value from the Breusch-Pagan test increased from `r initial_bp` to `r final_bp`, indicating some improvement, but still with heteroskedasticity present. Despite this,  @fig-residual-hist shows that the residual distribution appears to be nearly normal with a slight skew to the left.  Further, the Q-Q plots from @fig-residuals show reduction in the heavy tails for the residuals  and the skewness improved from `r skewness_initial` to `r skewness_final` , indicating near symmetry. While still leptokurtic, the kurtosis reduced from `r kurtosis_initial` to `r kurtosis_final` due to fewer extreme values. Based on these values, we can conclude that the residual distribution for the final model can be accepted as having **Normally Distributed Errors**.
+
+
+```{r residual-histogram}
+#| fig-cap: Residuals from Final Linear Model predicting Sale Price  
+#| fig-height: 1
+#| fig-pos: h
+#| label: fig-residual-hist
+
+layout(mat = matrix(c(1),
+                        nrow = 1,
+                        ncol = 1),
+      heights = c(0.5),    # Heights of the two rows
+      widths = c(0.25) # Widths of the two columns
+       )
+
+    ggplot() + 
+     aes(x = model_final_confirm$residuals) +
+   geom_histogram(colour = 1, fill = "white", bins=15) +
+    labs(
+      x = "Residuals",
+      y = "Count")
+```
+
+
+
+
+### 4. Model Results and Interpretation
+
+```{r final-model-confirm-summary}
+final_model_predictions <- predict(model_final_confirm)
+postResample(pred = final_model_predictions, obs = log10(confirm_data$SalePrice) )
+```
+
+
+The stargazer chart reports three models predicting log(SalePrice). Column 3 is our preferred “Advanced Model,” which explains 82.3% of the variance of log(SalePrice) within the training set and results in an adjusted R-squared value of 0.815. We transformed the above-ground living area with a log in the final model to account for the diminishing returns with price that this feature is associated with. Every variable other than medium overall cond was statistically significant with p-values under 0.05. Since the Studentized Breusch-Pagan test revealed heteroskedasticity, we used robust standard errors in our final model. This ensures more accurate significance results, despite the violation of the linear regression assumption of constant variance. When we apply the Advanced model to the test set (70% of the data), it achieves a Root Mean Square Error value of 0.066 and R-squared value of approximately 0.865.
+
+The results of the model largely match our intuition. Based on its coefficient of 0.54, a 1% increase in GrLivArea corresponds to a 0.54% increase in sale price, holding all else equal. Similarly, year built and basement size were statistically significant and positively correlated with sale price, indicating that newer homes and larger basements tend to sell for a higher price. The categorical variables for quality and condition show that while high quality was associated with higher prices, medium condition was not significantly distinguishable. 
+
+
+### 5. Discussion
+
+Our final descriptive model explains 86.5% of the variation within the test set for the log transform of sale prices by using variables such as the log of above-ground living area, basement size, year built, overall quality, and condition. The log-log form for above-ground living area captures the diminishing returns observed by the fact that larger homes increase non-proportionally in value, with all else held equal. While overall quality was a statistically significant predictor if the condition was high, it was not significant with other values, indicating that only homes in the best condition stand out in terms of price. 
+
+The coefficients were practically meaningful and aligned with expectations. Further improvements could involve additions such as collecting data on household income and grouping neighborhoods by their average income to better capture socioeconomic effects. Overall, the model provides a foundation for understanding the drivers of sale price in Ames and supports the improvement of the underwriting process for investment properties through data-driven decision making.
+
+
+
+# Appendix
+
+1.  **Data Source**
+[Anna Montoya and DataCanary. House Prices - Advanced Regression Techniques, 2016, Kaggle](https://kaggle.com/competitions/house-prices-advanced-regression-techniques)
+
+```{r heatmap-plot}
+#| fig-cap: Correlation Matrix  
+#| fig-height: 4
+#| fig-pos: h
+#| label: fig-correlation
+
+heatmap_plot 
+
+```
+
+
+
+2.  **A List of Model Specifications Tried.** 
+Specifications of Attempted Models:
+    1. SalePrice ~ GrLivArea
+Initial model, showed positive relationship between GrLivArea and SalePrice
+    2. SalePrice ~ GrLivArea + LotArea
+We discovered that LotArea is not a significant predictor of SalePrice
+    3. SalePrice ~ GrLivArea + FullBath + SeasonSold
+We discovered Seasonsold is not a significant predictor of SalePrice
+    4. SalePrice ~ sqrt(GrLivArea) + TotalBsmtSF + YearBuilt + GarageCars + KitchenQual
+We discovered GarageCars is not a significant predictor of SalePrice
+    5. log10(SalePrice) ~ sqrt(GrLivArea) + sqrt(TotalBsmtSF) + YearBuilt + KitchenQual
+ We discovered that KitchenQual in its baseline state was not a statistically significant predictor of the log of SalePrice.
+    6. log10(SalePrice) ~ GrLivArea
+We made an alternate version of our initial model with the new method of predicting the log of SalePrice, this model has considerably better fit than the original model without the transformation.
+    7. log10(SalePrice) ~ sqrt(GrLivArea)+sqrt(TotalBsmtSF) + YearBuilt + OverallQual + OverallCond
+Initial testing on linearity of OverallQual and OverallCond, they work nearly like a metric variable, however OverallQual has collinearity concerns if it is not converted into categories.
+    8. log10(SalePrice) ~ log10(GrLivArea) + TotalBsmtSFLogged + YearBuilt + OverallQualCategory + OverallCondCategory
+We grouped values of OverallQual and OverallCond into categories to better reflect them as ordinal variables. This considerably reduces collinearity concerns as evidenced by VIF testing. 
+
+3.  Residuals-vs-Fitted-values Plot
+
+
+```{r Residuals-vs-Fitted-values}
+#| fig-cap: Comparison of Inital(left) and Final(right) Model Residuals and QQ plot. 
+#| fig-height: 4
+#| fig-pos: h
+#| label: fig-residuals
+
+layout(mat = matrix(c(1, 2,3,4),
+                        nrow = 2,
+                        ncol = 2),
+      heights = c(1),    # Heights of the two rows
+      widths = c(1, 1) # Widths of the two columns
+       )
+par(mar=c(2,2,2,2))
+plot(initial_model, which=c(2,1))
+plot(model_final_confirm, which=c(2,1))
+
+```
+
+```{r final-model-summary}
+
+
+```
+
+
+# References
+
+::: {#refs}
+:::
+
+
+
+
+
+
+
+

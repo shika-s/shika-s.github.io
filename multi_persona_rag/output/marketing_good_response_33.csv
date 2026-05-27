@@ -1,0 +1,81 @@
+,embedding_model,embedding_dim,config_name,chunksize,chunkoverlap,num_retrieve,llm_name,llm_temp,llm_top_p,llm_do_sample,llm_repetition_penalty,llm_max_new_tokens,inference_time,audience_type,question_num,question,context,response,cleaned_response
+178,multi-qa-mpnet-base-dot-v1,768,full_question_marketing_prompt48,600,100,5,mistralai/Mistral-7B-Instruct-v0.3,0.2,0.95,True,1.1,200,467.54381,marketing,33,What assumptions must be met in order for the reparameterization of reward functions to be applied within the context of Plackett-Luce and Bradley-Terry models?,"we usually have to impose additional identifiability constraints to achieve any guarantees on the MLE
+estimates from Eq. 2 [4]. The second lemma states that all reward functions from the same class
+yield the same optimal policy, hence for our final objective, we are only interested in recovering an
+arbitrary reward function from the optimal class. We prove the following Theorem in Appendix A.6:
+Theorem 1. Under mild assumptions, all reward classes consistent with the Plackett-Luce
+(and Bradley-Terry in particular) models can be represented with the reparameterization
+r(x, y) = β log
+π(y|x)
+
+Specifically, we first take the logarithm of both sides of Eq. 4 and then with some algebra we obtain:
+r(x, y) = β log πr(y | x)
+πref(y | x) + β log Z(x).
+(5)
+We can apply this reparameterization to the ground-truth reward r∗and corresponding optimal model
+π∗. Fortunately, the Bradley-Terry model depends only on the difference of rewards between two
+completions, i.e., p∗(y1 ≻y2 | x) = σ(r∗(x, y1) −r∗(x, y2)). Substituting the reparameterization
+in Eq. 5 for r∗(x, y) into the preference model Eq. 1, the partition function cancels, and we can
+
+generality in our reward model from the proposed reparameterization.
+We can alternatively view Theorem 1 as specifying exactly which reward function within each
+equivalence class the DPO reparameterization selects, that is, the reward function satisfying:
+X
+y
+πref(y | x) exp
+ 1
+β r(x, y)
+
+|
+{z
+}
+=π(y|x), using Thm. 1 reparam.
+= 1,
+(9)
+i.e., π(y | x) is a valid distribution (probabilities are positive and sum to 1). However, following
+Eq. 4, we can see that Eq. 9 is the partition function of the optimal policy induced by the reward
+
+
+,
+After using the reward substitution of ˆrθ(x, y) = β log πθ(y|x)
+πref(y|x) we obtain the final form of the
+gradient from Section 4.
+A.5
+Proof of Lemma 1 and 2
+In this section, we will prove the two lemmas from Section 5.
+Lemma 1 Restated. Under the Plackett-Luce preference framework, and in particular the Bradley-
+Terry framework, two reward functions from the same equivalence class induce the same preference
+distribution.
+Proof. We say that two reward functions r(x, y) and r′(x, y) are from the same equivalence class
+
+p∗(τ|y1, . . . , yK, x) =
+K
+Y
+k=1
+exp(r∗(x, yτ(k)))
+PK
+j=k exp(r∗(x, yτ(j)))
+(18)
+Notice that when K = 2, Equation 18 reduces to the Bradley-Terry model. However, for the general
+Plackett-Luce model, we can still utilize the results of Eq. 5 and substitute the reward function
+parameterized by its optimal policy. Similarly to Appendix A.2, the normalization constant Z(x)
+cancels out and we’re left with:
+p∗(τ|y1, . . . , yK, x) =
+K
+Y
+k=1
+exp
+
+β log
+π∗(yτ(k)|x)
+πref(yτ(k)|x)
+
+PK
+j=k exp
+
+β log
+π∗(yτ(j)|x)
+πref(yτ(j)|x)
+
+(19)
+16","""The reparameterization of reward functions can be applied within the Plackett-Luce and Bradley-Terry models under mild assumptions, as long as the reward classes are consistent with these models.""","""The reparameterization of reward functions can be applied within the Plackett-Luce and Bradley-Terry models under mild assumptions, as long as the reward classes are consistent with these models."""

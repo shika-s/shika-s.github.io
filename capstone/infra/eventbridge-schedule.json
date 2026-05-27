@@ -1,0 +1,16 @@
+{
+  "RoleArn": "arn:aws:iam::__AWS_ACCOUNT_ID__:role/wfp-eventbridge-scheduler-role",
+  "Arn": "arn:aws:ecs:us-east-1:__AWS_ACCOUNT_ID__:cluster/wfp-ml-cluster",
+  "EcsParameters": {
+    "TaskDefinitionArn": "arn:aws:ecs:us-east-1:__AWS_ACCOUNT_ID__:task-definition/wfp-data-pipeline",
+    "TaskCount": 1,
+    "LaunchType": "FARGATE",
+    "NetworkConfiguration": {
+      "AwsvpcConfiguration": {
+        "Subnets": ["REPLACE_WITH_SUBNET_ID"],
+        "SecurityGroups": ["REPLACE_WITH_SECURITY_GROUP_ID"],
+        "AssignPublicIp": "ENABLED"
+      }
+    }
+  }
+}

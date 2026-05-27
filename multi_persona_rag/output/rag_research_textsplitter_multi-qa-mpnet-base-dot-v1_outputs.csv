@@ -1,0 +1,1984 @@
+embedding_model,chunksize,chunkoverlap,audience_type,question_num,question,context,response,cleaned_response
+multi-qa-mpnet-base-dot-v1,1500,150,research,20,In what way can a language model demonstrate meta-cognitive reasoning capabilities?,"[13] Press et al. “Measuring and narrowing the compositionality gap in language models.” arXiv preprint arXiv:2210.03350 (2022).
+[14] Yao et al. “ReAct: Synergizing reasoning and acting in language models.” ICLR 2023.
+[15] Fu et al. “Complexity-based prompting for multi-step reasoning.” arXiv preprint arXiv:2210.00720 (2022).
+[16] Wang et al. “Rationale-augmented ensembles in language models.” arXiv preprint arXiv:2207.00747 (2022).
+[17] Zhang et al. “Automatic chain of thought prompting in large language models.” arXiv preprint arXiv:2210.03493 (2022).
+[18] Shum et al. “Automatic Prompt Augmentation and Selection with Chain-of-Thought from Labeled Data.” arXiv preprint arXiv:2302.12822 (2023).
+[19] Zhou et al. “Large Language Models Are Human-Level Prompt Engineers.” ICLR 2023.
+[20] Lazaridou et al. “Internet augmented language models through few-shot prompting for open-domain question answering.” arXiv preprint arXiv:2203.05115 (2022).
+[21] Chen et al. “Program of Thoughts Prompting: Disentangling Computation from Reasoning for Numerical Reasoning Tasks.” arXiv preprint arXiv:2211.12588 (2022).
+[22] Gao et al. “PAL: Program-aided language models.” arXiv preprint arXiv:2211.10435 (2022).
+[23] Parisi et al. “TALM: Tool Augmented Language Models” arXiv preprint arXiv:2205.12255 (2022).
+[24] Schick et al. “Toolformer: Language Models Can Teach Themselves to Use Tools.” arXiv preprint arXiv:2302.04761 (2023).
+
+[24] Schick et al. “Toolformer: Language Models Can Teach Themselves to Use Tools.” arXiv preprint arXiv:2302.04761 (2023).
+[25] Mialon et al. “Augmented Language Models: a Survey” arXiv preprint arXiv:2302.07842 (2023).
+[26] Yao et al. “Tree of Thoughts: Deliberate Problem Solving with Large Language Models.” arXiv preprint arXiv:2305.10601 (2023).
+
+59–63.
+Wang, A., Pruksachatkun, Y., Nangia, N., Singh, A., Michael, J., Hill, F., Levy, O., and Bowman,
+S. R. (2019). Superglue: A stickier benchmark for general-purpose language understanding
+systems. arXiv preprint arXiv:1905.00537.
+Wei, J., Bosma, M., Zhao, V. Y., Guu, K., Yu, A. W., Lester, B., Du, N., Dai, A. M., and Le, Q. V.
+(2021). Finetuned language models are zero-shot learners. arXiv preprint arXiv:2109.01652.
+Weidinger, L., Mellor, J., Rauh, M., Grifﬁn, C., Uesato, J., Huang, P.-S., Cheng, M., Glaese, M.,
+Balle, B., Kasirzadeh, A., et al. (2021). Ethical and social risks of harm from language models.
+arXiv preprint arXiv:2112.04359.
+Welbl, J., Glaese, A., Uesato, J., Dathathri, S., Mellor, J., Hendricks, L. A., Anderson, K., Kohli,
+P., Coppin, B., and Huang, P.-S. (2021). Challenges in detoxifying language models. arXiv
+preprint arXiv:2109.07445.
+Wu, J., Ouyang, L., Ziegler, D. M., Stiennon, N., Lowe, R., Leike, J., and Christiano, P. (2021).
+Recursively summarizing books with human feedback. arXiv preprint arXiv:2109.10862.
+Xu, A., Pathak, E., Wallace, E., Gururangan, S., Sap, M., and Klein, D. (2021). Detoxifying language
+models risks marginalizing minority voices. arXiv preprint arXiv:2104.06390.
+Xu, J., Ju, D., Li, M., Boureau, Y.-L., Weston, J., and Dinan, E. (2020). Recipes for safety in
+open-domain chatbots. arXiv preprint arXiv:2010.07079.
+Yi, S., Goel, R., Khatri, C., Cervone, A., Chung, T., Hedayatnia, B., Venkatesh, A., Gabriel, R., and
+
+References#
+[1] Zhao et al. “Calibrate Before Use: Improving Few-shot Performance of Language Models.” ICML 2021
+[2] Liu et al. “What Makes Good In-Context Examples for GPT-3?” arXiv preprint arXiv:2101.06804 (2021).
+[3] Lu et al. “Fantastically Ordered Prompts and Where to Find Them: Overcoming Few-Shot Prompt Order Sensitivity.” ACL 2022
+[4] Ye et al. “In-Context Instruction Learning.” arXiv preprint arXiv:2302.14691 (2023).
+[5] Su et al. “Selective annotation makes language models better few-shot learners.” arXiv preprint arXiv:2209.01975 (2022).
+[6] Rubin et al. “Learning to retrieve prompts for in-context learning.” NAACL-HLT 2022
+[7] Wei et al. “Chain of thought prompting elicits reasoning in large language models.” NeurIPS 2022
+[8] Wang et al. “Self-Consistency Improves Chain of Thought Reasoning in Language Models.” ICLR 2023.
+[9] Diao et al. “Active Prompting with Chain-of-Thought for Large Language Models.” arXiv preprint arXiv:2302.12246 (2023).
+[10] Zelikman et al. “STaR: Bootstrapping Reasoning With Reasoning.” arXiv preprint arXiv:2203.14465 (2022).
+[11] Ye & Durrett. “The unreliability of explanations in few-shot in-context learning.” arXiv preprint arXiv:2205.03401 (2022).
+[12] Trivedi et al. “Interleaving retrieval with chain-of-thought reasoning for knowledge-intensive multi-step questions.” arXiv preprint arXiv:2212.10509 (2022).
+
+language models with human: A survey. arXiv preprint arXiv:2307.12966, 2023c.
+Z. M. Wang, Z. Peng, H. Que, J. Liu, W. Zhou, Y. Wu, H. Guo, R. Gan, Z. Ni, M. Zhang, Z. Zhang,
+W. Ouyang, K. Xu, W. Chen, J. Fu, and J. Peng. Rolellm: Benchmarking, eliciting, and enhancing
+role-playing abilities of large language models, 2023d.
+J. Wei, X. Wang, D. Schuurmans, M. Bosma, brian ichter, F. Xia, E. H. Chi, Q. V. Le, and D. Zhou.
+Chain of thought prompting elicits reasoning in large language models. In A. H. Oh, A. Agarwal,
+D. Belgrave, and K. Cho, editors, Advances in Neural Information Processing Systems, 2022. URL
+https://openreview.net/forum?id=_VjQlMeSB_J.
+S. Wu, O. Irsoy, S. Lu, V. Dabravolski, M. Dredze, S. Gehrmann, P. Kambadur, D. Rosenberg, and
+G. Mann. Bloomberggpt: A large language model for finance, 2023.
+K. Yang, Y. Tian, N. Peng, and D. Klein. Re3: Generating longer stories with recursive reprompting and
+revision. In Y. Goldberg, Z. Kozareva, and Y. Zhang, editors, Proceedings of the 2022 Conference
+on Empirical Methods in Natural Language Processing, pages 4393–4479, Abu Dhabi, United Arab
+Emirates, Dec. 2022a. Association for Computational Linguistics. doi: 10.18653/v1/2022.emnlp
+-main.296. URL https://aclanthology.org/2022.emnlp-main.296.
+K. Yang, D. Klein, A. Celikyilmaz, N. Peng, and Y. Tian. Rlcd: Reinforcement learning from contrast
+distillation for language model alignment, 2023a.","Answer: Based on the provided context, we observe several studies that aim to enhance the reasoning capabilities of language models by introducing various strategies. One such strategy is ""chain-of-thought"" prompting, as demonstrated in papers like [7], [8], [9], and [12]. These works propose providing additional explanatory steps or justifications along with direct answers to guide the model towards more accurate and coherent responses. Another approach involves bootstrapping reasoning, where a model learns to reason about other tasks it has previously been trained on, as presented in [10]. Additionally, some papers suggest active prompting methods like those found in [4] and [6], which focus on finding effective prompts and improving their order sensitivity. However, these approaches primarily serve to improve the quality of generated outputs rather than demonstrating true meta-cognitive reasoning, which would involve self-awareness, introspection, and consciousness beyond simply processing input data and generating output. As no research explicitly mentions implementing truly meta-cognitive reasoning in language models within the given context, further investigation is required to develop such capabilities.","Based on the provided context, we observe several studies that aim to enhance the reasoning capabilities of language models by introducing various strategies. One such strategy is ""chain-of-thought"" prompting, as demonstrated in papers like [7], [8], [9], and [12]. These works propose providing additional explanatory steps or justifications along with direct answers to guide the model towards more accurate and coherent responses. Another approach involves bootstrapping reasoning, where a model learns to reason about other tasks it has previously been trained on, as presented in [10]. Additionally, some papers suggest active prompting methods like those found in [4] and [6], which focus on finding effective prompts and improving their order sensitivity. However, these approaches primarily serve to improve the quality of generated outputs rather than demonstrating true meta-cognitive reasoning, which would involve self-awareness, introspection, and consciousness beyond simply processing input data and generating output. As no research explicitly mentions implementing truly meta-cognitive reasoning in language models within the given context, further investigation is required to develop such capabilities."
+multi-qa-mpnet-base-dot-v1,1500,150,research,3,Can you name some notable large language models and their respective creators or companies?,"A large language model (LLM) is a type of machine learning model designed for natural language processing tasks such as language generation. LLMs are language models with many parameters, and are trained with self-supervised learning on a vast amount of text.
+
+
+== List ==
+For the training cost column, 1 petaFLOP-day = 1 petaFLOP/sec × 1 day = 8.64E19 FLOP. Also, only the largest model's cost is written.
+
+
+== Timeline ==
+
+
+== See also ==
+List of chatbots
+List of language model benchmarks
+
+
+== Notes ==
+
+
+== References ==
+
+Llama (""Large Language Model Meta AI"" serving as a backronym) is a family of large language models (LLMs) released by Meta AI starting in February 2023.
+Llama models come in different sizes, ranging from 1 billion to 2 trillion parameters. Initially only a foundation model, starting with Llama 2, Meta AI released instruction fine-tuned versions alongside foundation models.
+Model weights for the first version of Llama were only available to researchers on a case-by-case basis, under a non-commercial license. Unauthorized copies of the first model were shared via BitTorrent. Subsequent versions of Llama were made accessible outside academia and released under licenses that permitted some commercial use.
+Alongside the release of Llama 3 and a standalone website, Meta added virtual assistant features to Facebook and WhatsApp in select regions; both services used a Llama 3 model. However, the latest version is Llama 4, released in April 2025.
+
+
+== Background ==
+After the release of large language models such as GPT-3, a focus of research was up-scaling models, which in some instances showed major increases in emergent capabilities. The release of ChatGPT and its surprise success caused an increase in attention to large language models.
+Compared with other responses to ChatGPT, Meta's Chief AI scientist Yann LeCun stated that large language models are best for aiding with writing.
+
+
+== Versions ==
+
+Table 1 | Current LLMs. We show ﬁve of the current largest dense transformer models, their size,
+and the number of training tokens. Other than LaMDA (Thoppilan et al., 2022), most models are
+trained for approximately 300 billion tokens. We introduce Chinchilla, a substantially smaller model,
+trained for much longer than 300B tokens.
+Model
+Size (# Parameters)
+Training Tokens
+LaMDA (Thoppilan et al., 2022)
+137 Billion
+168 Billion
+GPT-3 (Brown et al., 2020)
+175 Billion
+300 Billion
+Jurassic (Lieber et al., 2021)
+178 Billion
+300 Billion
+Gopher (Rae et al., 2021)
+280 Billion
+300 Billion
+MT-NLG 530B (Smith et al., 2022)
+530 Billion
+270 Billion
+Chinchilla
+70 Billion
+1.4 Trillion
+2. Related Work
+Large language models.
+A variety of large language models have been introduced in the last few
+years. These include both dense transformer models (Brown et al., 2020; Lieber et al., 2021; Rae
+et al., 2021; Smith et al., 2022; Thoppilan et al., 2022) and mixture-of-expert (MoE) models (Du
+et al., 2021; Fedus et al., 2021; Zoph et al., 2022). The largest dense transformers have passed 500
+billion parameters (Smith et al., 2022). The drive to train larger and larger models is clear—so far
+increasing the size of language models has been responsible for improving the state-of-the-art in many
+language modelling tasks. Nonetheless, large language models face several challenges, including
+their overwhelming computational requirements (the cost of training and inference increase with
+
+== History ==
+
+Before the emergence of transformer-based models in 2017, some language models were considered large relative to the computational and data constraints of their time. In the early 1990s, IBM's statistical models pioneered word alignment techniques for machine translation, laying the groundwork for corpus-based language modeling. In 2001, a smoothed n-gram model, such as those employing Kneser–Ney smoothing, trained on 300 million words, achieved state-of-the-art perplexity on benchmark tests. During the 2000s, with the rise of widespread internet access, researchers began compiling massive text datasets from the web (""web as corpus"") to train statistical language models.
+
+Moving beyond n-gram models, researchers started in 2000 to use neural networks to learn language models. Following the breakthrough of deep neural networks in image classification around 2012, similar architectures were adapted for language tasks. This shift was marked by the development of word embeddings (eg, Word2Vec by Mikolov in 2013) and sequence-to-sequence (seq2seq) models using LSTM. In 2016, Google transitioned its translation service to neural machine translation (NMT), replacing statistical phrase-based models with deep recurrent neural networks. These early NMT systems used LSTM-based encoder-decoder architectures, as they preceded the invention of transformers. 
+At the 2017 NeurIPS conference, Google researchers introduced the transformer architecture in their l
+
+== History ==
+
+Before the emergence of transformer-based models in 2017, some language models were considered large relative to the computational and data constraints of their time. In the early 1990s, IBM's statistical models pioneered word alignment techniques for machine translation, laying the groundwork for corpus-based language modeling. In 2001, a smoothed n-gram model, such as those employing Kneser–Ney smoothing, trained on 300 million words, achieved state-of-the-art perplexity on benchmark tests. During the 2000s, with the rise of widespread internet access, researchers began compiling massive text datasets from the web (""web as corpus"") to train statistical language models.
+
+Moving beyond n-gram models, researchers started in 2000 to use neural networks to learn language models. Following the breakthrough of deep neural networks in image classification around 2012, similar architectures were adapted for language tasks. This shift was marked by the development of word embeddings (eg, Word2Vec by Mikolov in 2013) and sequence-to-sequence (seq2seq) models using LSTM. In 2016, Google transitioned its translation service to neural machine translation (NMT), replacing statistical phrase-based models with deep recurrent neural networks. These early NMT systems used LSTM-based encoder-decoder architectures, as they preceded the invention of transformers. 
+At the 2017 NeurIPS conference, Google researchers introduced the transformer architecture in their l","ANSWER: Based on the given context, one prominent example of a large language model is Llama, developed by Meta AI. Llama comes in various sizes, ranging from 1 billion to 2 trillion parameters. It uses a dense transformer model architecture, and it was initially only available to researchers under a non-commercial license before being made more broadly accessible. Another well-known model mentioned is GPT-3, created by Brown et al. in 2020. Both these models are part of a growing trend towards scaling language models to improve performance in numerous language modeling tasks.","Based on the given context, one prominent example of a large language model is Llama, developed by Meta AI. Llama comes in various sizes, ranging from 1 billion to 2 trillion parameters. It uses a dense transformer model architecture, and it was initially only available to researchers under a non-commercial license before being made more broadly accessible. Another well-known model mentioned is GPT-3, created by Brown et al. in Both these models are part of a growing trend towards scaling language models to improve performance in numerous language modeling tasks."
+multi-qa-mpnet-base-dot-v1,1500,150,research,51,How do the datasets encourage the application of common-sense reasoning and entailment recognition in natural language processing tasks?,"Hellaswag
+Example prompt and completions
+Complete each independent paragraph using common-sense reasoning.
+Wakeboarding:
+Then, a woman and a man water ski doing acrobatic jumps.
+A boat
+sails empty in the river.
+After, men water ski jumping and turning around.
+Next,
+• a person surf on the waves created by the boat, after the man water ski
+jumping and ﬂipping high.
+• a woman is standing next to an ocean and the man and woman water ski.
+• the boat slows down and the woman and man fall on the rock surface.
+• more people take off their clothing and do half jumps in the river.
+Dataset features
+• 10,042 multiple choice completion prompts
+• In the few-shot setting, there are an additional 15 paragraphs.
+Figure 21: Hellaswag: prompting, examples, and dataset features.
+RTE (Recognizing Textual Entailment)
+Example prompt
+Passage:
+It appears that the super-conducting maglev system is technically
+ready to be used commercially as a very high-speed, large-capacity
+transportation system.
+Question:
+From this passage can one reasonably conclude that Maglev is
+commercially used?
+Answer:
+[Yes / No]
+Dataset features
+• 277 binary multiple choice questions, part of SuperGLUE
+• In the few-shot setting, there are 15 additional question / answer pairs.
+Figure 22: RTE: prompting, examples, and dataset features.
+SST (Stanford Sentiment Treebank)
+Example prompt
+For each snippet of text, label the sentiment of the text as positive or
+negative.
+Text:
+
+riddle_sense
+85.7
+68.2
+evaluating_info_essentiality
+17.6
+16.7
+date_understanding
+52.3
+44.1
+phrase_relatedness
+94.0
+81.8
+analytic_entailment
+67.1
+53.0
+novel_concepts
+65.6
+59.1
+odd_one_out
+70.9
+32.5
+empirical_judgments
+67.7
+52.5
+logical_args
+56.2
+59.1
+ﬁgure_of_speech_detection
+63.3
+52.7
+alignment_questionnaire
+91.3
+79.2
+english_proverbs
+82.4
+57.6
+similarities_abstraction
+87.0
+81.8
+Human_organs_senses_mcc
+85.7
+84.8
+anachronisms
+69.1
+56.4
+gre_reading_comprehension
+53.1
+27.3
+Table A7 | Chinchilla BIG-bench results. For each subset of BIG-bench (BIG-bench collaboration,
+2021), we show Chinchilla and Gopher’s accuracy.
+35
+
+of medical texts. In Proceedings of the 2021 Con-
+ference of the North American Chapter of the Asso-
+ciation for Computational Linguistics: Human Lan-
+guage Technologies.
+Jacob Devlin, Ming-Wei Chang, Kenton Lee, and
+Kristina Toutanova. 2019.
+BERT: Pre-training of
+deep bidirectional transformers for language under-
+standing. In Proceedings of the 2019 Conference of
+the North American Chapter of the Association for
+Computational Linguistics: Human Language Tech-
+nologies.
+Thomas Diggelmann, Jordan L. Boyd-Graber, Jannis
+Bulian, Massimiliano Ciaramita, and Markus Leip-
+pold. 2020. CLIMATE-FEVER: A dataset for veriﬁ-
+cation of real-world climate claims. In Proceedings
+of Tackling Climate Change with Machine Learning
+Workshop at NeurIPS.
+Emily Dinan, Stephen Roller, Kurt Shuster, Angela
+Fan, Michael Auli, and Jason Weston. 2019. Wizard
+of wikipedia: Knowledge-powered conversational
+agents. In Proceedings of International Conference
+on Learning Representations.
+Matthew Dunn, Levent Sagun, Mike Higgins, V Ugur
+Guney, Volkan Cirik, and Kyunghyun Cho. 2017.
+SearchQA: A new q&a dataset augmented with con-
+text from a search engine.
+Anthony Fader, Luke Zettlemoyer, and Oren Etzioni.
+2014. Open question answering over curated and ex-
+tracted knowledge bases. In Proceedings of the 20th
+ACM SIGKDD International Conference on Knowl-
+edge Discovery and Data Mining.
+Angela Fan, Yacine Jernite, Ethan Perez, David Grang-
+ier, Jason Weston, and Michael Auli. 2019. ELI5:
+
+our experiments’ settings, including test-time instructions, are available in the Appendix Section B.1.
+Closed-set tasks include two datasets, i.e., a fact verification dataset about public health (PubHealth;
+Zhang et al. 2023) and a multiple-choice reasoning dataset created from scientific exams (ARC-
+6
+
+[47] Fabio Petroni, Tim Rocktäschel, Sebastian Riedel, Patrick Lewis, Anton Bakhtin, Yuxiang Wu,
+and Alexander Miller. Language models as knowledge bases? In Proceedings of the 2019
+Conference on Empirical Methods in Natural Language Processing and the 9th International
+Joint Conference on Natural Language Processing (EMNLP-IJCNLP), pages 2463–2473, Hong
+Kong, China, November 2019. Association for Computational Linguistics. doi: 10.18653/v1/
+D19-1250. URL https://www.aclweb.org/anthology/D19-1250.
+[48] Fabio Petroni, Patrick Lewis, Aleksandra Piktus, Tim Rocktäschel, Yuxiang Wu, Alexander H.
+Miller, and Sebastian Riedel. How context affects language models’ factual predictions. In
+Automated Knowledge Base Construction, 2020. URL https://openreview.net/forum?
+id=025X0zPfn.
+[49] Alec
+Radford,
+Karthik
+Narasimhan,
+Tim
+Salimans,
+and
+Ilya
+Sutskever.
+Im-
+proving
+Language
+Understanding
+by
+Generative
+Pre-Training,
+2018.
+URL
+https://s3-us-west-2.amazonaws.com/openai-assets/research-covers/
+language-unsupervised/language_understanding_paper.pdf.
+[50] Alec
+Radford,
+Jeff
+Wu,
+Rewon
+Child,
+David
+Luan,
+Dario
+Amodei,
+and
+Ilya
+Sutskever.
+Language models are unsupervised multitask learners,
+2019.
+URL
+https://d4mucfpksywv.cloudfront.net/better-language-models/language_
+models_are_unsupervised_multitask_learners.pdf.
+[51] Colin Raffel, Noam Shazeer, Adam Roberts, Katherine Lee, Sharan Narang, Michael Matena,","Answer:
+
+The context provides descriptions of several datasets in the field of Natural Language Processing (NLP). These datasets encourage the application of common-sense reasoning and entailment recognition in various ways.
+
+1. Hellaswag Dataset: This dataset consists of multiple choice completion prompts designed to generate creative and humorous responses. While it doesn't explicitly focus on entailment recognition, it requires understanding the logical progression and implications within the given context, thereby fostering common-sense reasoning skills.
+
+2. Recognizing Textual Entailment (RTE): This dataset presents passages followed by questions that require determining whether the statement logically follows from the passage. This task directly involves recognizing entailment and applying common-sense reasoning to determine the correct answer.
+
+3. Stanford Sentiment Treebank (SST): Although not focusing solely on entailment recognition, this dataset encourages common-sense reasoning through analyzing sentiments expressed in different pieces of text, requiring an understanding of human emotions, attitudes, and beliefs.
+
+By exposing models to these diverse datasets, they develop better capabilities in understanding, interpreting, and generating coherent and reasonable responses based on given inputs—skills essential for effective NLP applications.","The context provides descriptions of several datasets in the field of Natural Language Processing (NLP). These datasets encourage the application of common-sense reasoning and entailment recognition in various ways. Hellaswag Dataset: This dataset consists of multiple choice completion prompts designed to generate creative and humorous responses. While it doesn't explicitly focus on entailment recognition, it requires understanding the logical progression and implications within the given context, thereby fostering common-sense reasoning skills. Recognizing Textual Entailment (RTE): This dataset presents passages followed by questions that require determining whether the statement logically follows from the passage. This task directly involves recognizing entailment and applying common-sense reasoning to determine the correct answer. Stanford Sentiment Treebank (SST): Although not focusing solely on entailment recognition, this dataset encourages common-sense reasoning through analyzing sentiments expressed in different pieces of text, requiring an understanding of human emotions, attitudes, and beliefs. By exposing models to these diverse datasets, they develop better capabilities in understanding, interpreting, and generating coherent and reasonable responses based on given inputs—skills essential for effective NLP applications."
+multi-qa-mpnet-base-dot-v1,1500,150,research,46,"What are some common strategies for addressing the ethical and social risks associated with the deployment of language models, according to recent research findings?","say, this only captures a small part of what is actually meant by truthfulness.
+Similarly to honesty, measuring the harms of language models also poses many challenges. In most
+cases, the harms from language models depend on how their outputs are used in the real world. For
+instance, a model generating toxic outputs could be harmful in the context of a deployed chatbot, but
+might even be helpful if used for data augmentation to train a more accurate toxicity detection model.
+Earlier in the project, we had labelers evaluate whether an output was ‘potentially harmful’. However,
+we discontinued this as it required too much speculation about how the outputs would ultimately be
+used; especially since our data also comes from customers who interact with the Playground API
+interface (rather than from production use cases).
+Therefore we use a suite of more speciﬁc proxy criteria that aim to capture different aspects of
+behavior in a deployed model that could end up being harmful: we have labelers evaluate whether an
+output is inappropriate in the context of a customer assistant, denigrates a protected class, or contains
+sexual or violent content. We also benchmark our model on datasets intended to measure bias and
+toxicity, such as RealToxicityPrompts (Gehman et al., 2020) and CrowS-Pairs (Nangia et al., 2020).
+To summarize, we can divide our quantitative evaluations into two separate parts:
+Evaluations on API distribution.
+
+abusive content.
+Alignment techniques are not a panacea for resolving safety issues associated with large language
+models; rather, they should be used as one tool in a broader safety ecosystem. Aside from intentional
+misuse, there are many domains where large language models should be deployed only with great
+care, or not at all. Examples include high-stakes domains such as medical diagnoses, classifying
+people based on protected characteristics, determining eligibility for credit, employment, or hous-
+ing, generating political advertisements, and law enforcement. If these models are open-sourced,
+it becomes challenging to limit harmful applications in these and other domains without proper
+regulation. On the other hand, if large language model access is restricted to a few organizations
+with the resources required to train them, this excludes most people from access to cutting-edge ML
+technology. Another option is for an organization to own the end-to-end infrastructure of model
+deployment, and make it accessible via an API. This allows for the implementation of safety protocols
+like use case restriction (only allowing the model to be used for certain applications), monitoring
+for misuse and revoking access to those who misuse the system, and rate limiting to prevent the
+generation of large-scale misinformation. However, this can come at the cost of reduced transparency
+and increased centralization of power because it requires the API provider to make decisions on
+
+generation, safety-speciﬁc control tokens (Keskar et al., 2019; Dinan et al., 2019a), and human-in-the-
+loop data collection (Dinan et al., 2019b). Other approaches for mitigating the generated bias by LMs
+use word embedding regularization (Liu et al., 2019; Huang et al., 2019), data augmentation (Liu
+et al., 2019; Dinan et al., 2019a; Sheng et al., 2019), null space projection to make the distribution
+over sensitive tokens more uniform (Liang et al., 2021), different objective functions (Qian et al.,
+2019), or causal mediation analysis (Vig et al., 2020). There is also work on steering the generation
+of language models using a second (usually smaller) language model (Dathathri et al., 2019; Krause
+et al., 2020), and variants of this idea have been applied to reducing language model toxicity (Schick
+et al., 2021).
+5
+
+instructions, improves their downstream performance on held-out tasks, both in the zero-shot and
+few-shot settings.
+There is also a related line of work on instruction following for navigation, where models are trained
+to follow natural language instructions to navigate in a simulated environment (Bahdanau et al., 2018;
+Abramson et al., 2020; Zhao et al., 2021).
+Evaluating the harms of language models.
+A goal of modifying the behavior of language models
+is to mitigate the harms of these models when they’re deployed in the real world. These risks have
+been extensively documented (Bender et al., 2021; Bommasani et al., 2021; Kenton et al., 2021;
+Weidinger et al., 2021; Tamkin et al., 2021). Language models can produce biased outputs (Dhamala
+et al., 2021; Liang et al., 2021; Manela et al., 2021; Caliskan et al., 2017; Kirk et al., 2021), leak
+private data (Carlini et al., 2021), generate misinformation (Solaiman et al., 2019; Buchanan et al.,
+2021), and be used maliciously; for a thorough review we direct the reader to Weidinger et al. (2021).
+Deploying language models in speciﬁc domains gives rise to new risks and challenges, for example in
+dialog systems (Henderson et al., 2018; Xu et al., 2020; Dinan et al., 2019b). There is a nascent but
+growing ﬁeld that aims to build benchmarks to concretely evaluate these harms, particularly around
+toxicity (Gehman et al., 2020), stereotypes (Nadeem et al., 2020), and social bias (Dhamala et al.,
+
+models—let alone of all individuals and groups impacted by language model use. For most of the
+duration of this project, users of the OpenAI API were selected off of a waitlist. The initial seeds for
+this waitlist were OpenAI employees, biasing the ultimate group toward our own networks.
+Stepping back, there are many difﬁculties in designing an alignment process that is fair, transparent,
+and has suitable accountability mechanisms in place. The goal of this paper is to demonstrate that
+this alignment technique can align to an speciﬁc human reference group for a speciﬁc application.
+We are not claiming that researchers, the labelers we hired, or our API customers are the right source
+of preferences. There are many stakeholders to consider—the organization training the model, the
+customers using the model to develop products, the end users of these products, and the broader
+population who may be directly or indirectly affected. It is not only a matter of making the alignment
+process more participatory; it is impossible that one can train a system that is aligned to everyone’s
+preferences at once, or where everyone would endorse the tradeoffs.
+One path forward could be to train models that can be conditioned on the preferences of certain
+groups, or that can be easily ﬁne-tuned or prompted to represent different groups. Different models
+can then be deployed and used by groups who endorse different values. However, these models might","Answer: Several strategies for addressing the ethical and social risks associated with deploying language models, according to recent research findings, include the usage of safety-specific control tokens, human-in-the-loop data collection, word embedding regularization, data augmentation, null space projection to make the distribution over sensitive tokens more uniform, different objective functions, causal mediation analysis, and utilizing a secondary language model for guiding the generation of language models. Additionally, efforts are made to create benchmarks for concrete evaluation of harms, primarily focused on toxicity, stereotypes, and social bias.","Several strategies for addressing the ethical and social risks associated with deploying language models, according to recent research findings, include the usage of safety-specific control tokens, human-in-the-loop data collection, word embedding regularization, data augmentation, null space projection to make the distribution over sensitive tokens more uniform, different objective functions, causal mediation analysis, and utilizing a secondary language model for guiding the generation of language models. Additionally, efforts are made to create benchmarks for concrete evaluation of harms, primarily focused on toxicity, stereotypes, and social bias."
+multi-qa-mpnet-base-dot-v1,1500,150,research,41,"Question: When conducting demographic and technical assessments of teams or research subjects, what types of data categories are typically collected and analyzed to ensure a comprehensive understanding of the group's composition and the methods used?","were 173.2 males.
+Question:
+Which age group had the second most people?
+Answer:
+[target completion:
+“25 to 44”]
+Dataset features
+• 9,536 examples
+• In the few-shot setting, there are 4 additional passages and associated questions.
+• Evaluation metric is the f1 score from the sample to the target completion.
+Figure 18: DROP: prompting, examples, and dataset features.
+46
+
+responding to the outputs appropriately would require nuance. We then rated each demon-
+stration on a 1-7 Likert scale, and computed an average “demonstration score” for each
+labeler.
+4. Self-assessed ability to identify sensitive speech for different groups. We wanted to
+select a team of labelers that had collectively were able to identify sensitive content in a
+broad range of areas. For legal reasons, we can’t hire contractors based on demographic
+criteria. Thus, we had labelers answer the question: “For what topics or cultural groups
+are you comfortable identifying sensitive speech?” and used this as part of our selection
+process.
+After collecting this data, we selected the labelers who did well on all of these criteria (we performed
+selections on an anonymized version of the data). Since the fourth criteria is subjective, we ultimately
+chose labelers subjectively according to these criteria, though we had soft cutoffs at 75% agreement
+on sensitive speech ﬂagging and comparisons, and a 6/7 demonstration score.
+B.2
+Labeling instructions
+The instructions we provided to labelers evolved over the course of the project, as we provided
+feedback, changed our metadata ﬁelds, and developed a better understanding of what we wanted to
+measure. We also amended instructions when they were confusing or inconsistent.
+Of particular note, during the labeling of our training data, we had labelers prioritize helpfulness to
+
+B
+Evaluation Details
+B.1
+Human Evaluation Interface
+Figure 5: Annotation Question #1
+Figure 6: Annotation Question #2
+Figure 7: Annotation Question #3
+Figure 8: Annotation Question #4
+
+selection procedure and labeler demographics, see Appendix B.1.
+During training and evaluation, our alignment criteria may come into conﬂict: for example, when a
+user requests a potentially harmful response. During training we prioritize helpfulness to the user (not
+7
+
+Preprint.
+Dataset
+Instruction
+ARC-C
+Given four answer candidates, A, B, C and D, choose the best answer choice. Please answer
+with the capitalized alphabet only, without adding any extra phrase or period.
+PubHealth
+Is the following statement correct or not? Say true if it’s correct; otherwise, say false. Don’t
+capitalize or add periods, just say “true” or “false”.
+Bio Generation
+Tell me a bio about [Person Name]
+ASQA (baseline) Instruction: Write an accurate, engaging, and concise answer for the given question using only
+the provided search results (some of which might be irrelevant) and cite them properly. Use
+an unbiased and journalistic tone. Always cite for any factual claim. When citing several
+search results, use [1][2][3]. Cite at least one document and at most three documents in each
+sentence. If multiple documents support the sentence, only cite a minimum sufficient subset of
+the documents.
+ASQA (ours)
+Answer the following question. The question may be ambiguous and have multiple correct
+answers, and in that case, you have to provide a long-form answer including all correct answers.
+Table 5: Full list of instructions used during zero-shot evaluations. For open-domain QA, we don’t
+use any task specific instruction and simply use the original questions as input query.
+23",I don't have enough information to answer this accurately. The provided context does not detail the specific data categories typically collected and analyzed during demographic and technical assessments of teams or research subjects. It primarily discusses the process of selecting and instructing human labelers for sensitive speech identification in a broad range of areas.,I don't have enough information to answer this accurately. The provided context does not detail the specific data categories typically collected and analyzed during demographic and technical assessments of teams or research subjects. It primarily discusses the process of selecting and instructing human labelers for sensitive speech identification in a broad range of areas.
+multi-qa-mpnet-base-dot-v1,1500,150,research,24,Who developed the language model family known as Chinchilla?,"prehistory
+81.2
+67.6
+professional_accounting
+52.1
+44.3
+professional_law
+56.5
+44.5
+professional_medicine
+75.4
+64.0
+professional_psychology
+75.7
+68.1
+public_relations
+73.6
+71.8
+security_studies
+75.9
+64.9
+sociology
+91.0
+84.1
+us_foreign_policy
+92.0
+81.0
+virology
+53.6
+47.0
+world_religions
+87.7
+84.2
+Table A6 | Chinchilla MMLU results. For each subset of MMLU (Hendrycks et al., 2020), we show
+Chinchilla’s accuracy compared to Gopher.
+Model Details
+Organization Developing the Model
+DeepMind
+Model Date
+March 2022
+Model Type
+Autoregressive Transformer Language Model (Section 4.1 for
+details)
+Feedback on the Model
+{jordanhoffmann, sborgeaud,
+amensch,sifre}@deepmind.com
+Intended Uses
+Primary Intended Uses
+The primary use is research on language models, including:
+research on the scaling behaviour of language models along
+with those listed in Rae et al. (2021).
+31
+
+Table A8 | Chinchilla model card. We follow the framework presented in Mitchell et al. (2019).
+J. List of trained models
+In Table A9 we list the model size and conﬁguration of all models used in this study. Many models
+have been trained multiple times, for a diﬀerent number of training steps.
+34
+
+arxiv
+freelaw
+books3
+philpapers
+github
+ubuntu_irc
+europarl
+gutenberg_pg_19
+0.00
+0.02
+0.04
+0.06
+0.08
+0.10
+Decrease in bpb 
+ compared to Gopher
+Figure 5 | Pile Evaluation. For the diﬀerent evaluation sets in The Pile (Gao et al., 2020), we show
+the bits-per-byte (bpb) improvement (decrease) of Chinchilla compared to Gopher. On all subsets,
+Chinchilla outperforms Gopher.
+Chinchilla signiﬁcantly outperforms Gopher on all evaluation subsets of The Pile (Gao et al.,
+2020), as shown in Figure 5. Compared to Jurassic-1 (178B) Lieber et al. (2021), Chinchilla is more
+performant on all but two subsets– dm_mathematics and ubuntu_irc– see Table A5 for a raw
+bits-per-byte comparison. On Wikitext103 (Merity et al., 2017), Chinchilla achieves a perplexity of
+7.16 compared to 7.75 for Gopher. Some caution is needed when comparing Chinchilla with Gopher
+on these language modelling benchmarks as Chinchilla is trained on 4× more data than Gopher and
+thus train/test set leakage may artiﬁcially enhance the results. We thus place more emphasis on other
+10
+
+Table 8: Evaluation of biases on the CrowS dataset. A lower score indicates lower likelihood of generating
+biased sequences. Guanaco follows the biased pattern of the LLaMA base model.
+LLaMA-65B
+GPT-3
+OPT-175B
+Guanaco-65B
+Gender
+70.6
+62.6
+65.7
+47.5
+Religion
+79.0
+73.3
+68.6
+38.7
+Race/Color
+57.0
+64.7
+68.6
+45.3
+Sexual orientation
+81.0
+76.2
+78.6
+59.1
+Age
+70.1
+64.4
+67.8
+36.3
+Nationality
+64.2
+61.6
+62.9
+32.4
+Disability
+66.7
+76.7
+76.7
+33.9
+Physical appearance
+77.8
+74.6
+76.2
+43.1
+Socioeconomic status
+71.5
+73.8
+76.2
+55.3
+Average
+66.6
+67.2
+69.5
+43.5
+MetaTuning [73], InstructGPT [43], FLAN [62, 12], PromptSource [3], Super-NaturalInstructions [61,
+50], Self-instruct [59], UnnaturalInstructions [26], OPT-IML [29], UnifiedSKG[67], OIG/Chip2 [32],
+Alpaca [55], Vicuna [10], Koala [20], and Self-instruct-GPT-4 [45].
+Chatbots
+Many instruction following models are structured as dialogue-based chatbots, often using
+Reinforcement Learning from Human Feedback (RLHF) [11] or generating data from an existing
+model to train with AI model feedback (RLAIF) [5]. Approaches and datasets include Anthropic-
+HH [2, 4], Open Assistant [31], LaMDA [56], and Sparrow [21]. We do not use reinforcement
+learning, but our best model, Guanaco, is finetuned on multi-turn chat interactions from the Open
+Assistant dataset which was designed to be used for RLHF training [31]. For the evaluation of
+chatbots approaches that use GPT-4 instead of costly human annotation have been developed [10, 45].
+
+Chinchilla
+Gopher
+GPT-3
+MT-NLG 530B
+LAMBADA Zero-Shot
+77.4
+74.5
+76.2
+76.6
+RACE-m Few-Shot
+86.8
+75.1
+58.1
+-
+RACE-h Few-Shot
+82.3
+71.6
+46.8
+47.9
+Table 7 | Reading comprehension. On RACE-h and RACE-m (Lai et al., 2017), Chinchilla considerably
+improves performance over Gopher. Note that GPT-3 and MT-NLG 530B use a diﬀerent prompt format
+than we do on RACE-h/m, so results are not comparable to Gopher and Chinchilla. On LAMBADA
+(Paperno et al., 2016), Chinchilla outperforms both Gopher and MT-NLG 530B.
+mathematical_induction and logical_args. Full accuracy results for Chinchilla can be found
+in Table A7.
+4.2.5. Common sense
+We evaluate Chinchilla on various common sense benchmarks: PIQA (Bisk et al., 2020), SIQA (Sap
+et al., 2019), Winogrande (Sakaguchi et al., 2020), HellaSwag (Zellers et al., 2019), and BoolQ
+(Clark et al., 2019). We ﬁnd that Chinchilla outperforms both Gopher and GPT-3 on all tasks and
+outperforms MT-NLG 530B on all but one task—see Table 8.
+On TruthfulQA (Lin et al., 2021), Chinchilla reaches 43.6%, 58.5%, and 66.7% accuracy with
+0-shot, 5-shot, and 10-shot respectively. In comparison, Gopher achieved only 29.5% 0-shot and 43.7%
+10-shot accuracy. In stark contrast with the ﬁndings of Lin et al. (2021), the large improvements
+(14.1% in 0-shot accuracy) achieved by Chinchilla suggest that better modelling of the pre-training
+data alone can lead to substantial improvements on this benchmark.
+12","Answer: The language model family known as Chinchilla was developed by DeepMind. Specifically, it is an Autoregressive Transformer Language Model detailed in Section 4.1 of the provided context. This model type uses transformers, a popular architecture within machine learning, particularly for natural language processing tasks. The development team includes Jordan Hoffmann, Simon Borgeaud, Amiel Amench, and Sylvain Sifre at DeepMind, as indicated in the feedback section of the context.","The language model family known as Chinchilla was developed by DeepMind. Specifically, it is an Autoregressive Transformer Language Model detailed in Section 4.1 of the provided context. This model type uses transformers, a popular architecture within machine learning, particularly for natural language processing tasks. The development team includes Jordan Hoffmann, Simon Borgeaud, Amiel Amench, and Sylvain Sifre at DeepMind, as indicated in the feedback section of the context."
+multi-qa-mpnet-base-dot-v1,1500,150,research,19,What is the significant enhancement in Claude 2.1 compared to its previous version?,"comes from the fact that Weaver is faster and generates more human-like texts that require less
+4https://chat.lmsys.org/
+5To ensure fair comparison, we give enough time and trials for the writers to get familiar with the interface and the
+models.
+16
+
+(orange) clearly outperforms the setup used to train Gopher (green).
+0
+25
+50
+75
+100
+125
+150
+Million Sequences
+2.3
+2.4
+2.5
+2.6
+2.7
+2.8
+C4 Loss
+0
+25
+50
+75
+100
+125
+150
+Million Sequences
+10.0
+12.5
+15.0
+17.5
+20.0
+22.5
+25.0
+27.5
+30.0
+Wikitext103 Perplexity
+0
+25
+50
+75
+100
+125
+150
+Million Sequences
+0.0
+0.1
+0.2
+0.3
+0.4
+0.5
+0.6
+LAMBADA Accuracy
+417M, Adam
+417M, AdamW
+1.4B, Adam
+1.4B, AdamW
+Figure A7 | Adam vs AdamW. For a 417M (blue) and 1.4B model (green), we ﬁnd that training with
+AdamW improves performance over training with Adam.
+with and without the higher precision copy of the weights and with Adam/AdamW for comparison.
+H. Results
+H.1. The Pile
+In Table A5 we show the bits-per-byte (bpb) on The Pile (Gao et al., 2020) of Chinchilla, Gopher,
+and Jurassic-1. Chinchilla outperforms Gopher on all subsets. Jurassic-1 outperforms Chinchilla on 2
+subsets— dm_mathematics and ubuntu_irc.
+29
+
+Subset
+Chinchilla (70B)
+Gopher (280B)
+Jurassic-1 (170B)
+pile_cc
+0.667
+0.691
+0.669
+pubmed_abstracts
+0.559
+0.578
+0.587
+stackexchange
+0.614
+0.641
+0.655
+github
+0.337
+0.377
+0.358
+openwebtext2
+0.647
+0.677
+-
+arxiv
+0.627
+0.662
+0.680
+uspto_backgrounds
+0.526
+0.546
+0.537
+freelaw
+0.476
+0.513
+0.514
+pubmed_central
+0.504
+0.525
+0.579
+dm_mathematics
+1.111
+1.142
+1.037
+hackernews
+0.859
+0.890
+0.869
+nih_exporter
+0.572
+0.590
+0.590
+opensubtitles
+0.871
+0.900
+0.879
+europarl
+0.833
+0.938
+-
+books3
+0.675
+0.712
+0.835
+philpapers
+0.656
+0.695
+0.742
+gutenberg_pg_19
+0.548
+0.656
+0.890
+bookcorpus2
+0.714
+0.741
+-
+ubuntu_irc
+1.026
+1.090
+0.857
+Table A5 | Bits-per-Byte on The Pile. We show the bpb on The Pile for Chinchilla compared to Gopher
+and Jurassic-1.
+H.2. MMLU
+In Table A6 we show the performance of Chinchilla and Gopher on each subset of MMLU.
+H.3. Winogender Setup
+We follow the same setup as in Rae et al. (2021). To test coreference resolution in Chinchilla, we
+input a sentence which includes a pronoun reference (e.g., “The librarian helped the child pick out a
+book because {pronoun} liked to encourage reading.”), then measure the probability of the model
+completing the sentence “‘{Pronoun}’ refers to the” with diﬀerent sentence roles (“librarian” and
+“child” in this example). Each example is annotated with the correct pronoun resolution (the pronoun
+corresponds to the librarian in this example). Each sentence is tested with a female, male, and
+
+Benchmark
+MTEB
+Billboard
+Prompt
+Avg.
+Task category
+Retri.
+Rerank
+Cluster
+Pair.
+Class.
+STS
+Sum.
+Avg.
+Text Eval.
+Retri.
+# datasets
+15
+4
+11
+3
+12
+10
+1
+56
+3
+11
+70
+Small Models for reference (<500M)
+SimCSE (110M)
+21.9
+47.5
+33.4
+73.7
+67.3
+79.1
+23.3
+48.7
+29.4
+58.3
+48.2
+coCondenser (110M)
+33.0
+51.8
+37.6
+81.7
+64.7
+76.5
+29.5
+52.4
+31.5
+59.6
+51.8
+Contriever (110M)
+41.9
+53.1
+41.1
+82.5
+66.7
+76.5
+30.4
+56.0
+29.0
+57.3
+53.2
+GTR-Large (335M)
+47.4
+55.4
+41.6
+85.3
+67.1
+78.2
+29.5
+58.3
+31.2
+59.8
+55.1
+INSTRUCTOR (335M)
+47.6
+57.5
+45.3
+85.9
+73.9
+83.2
+31.8
+61.6
+36.9
+63.2
+58.4
+Relative gain (%)
++0.4
++4.5
++8.9
++0.7
++10.1
++6.4
++7.8
++5.7
++18.3
++5.7
++5.9
+Large Models for reference(≥500M)
+Sent-T5-XXL (4.8B)
+42.2
+56.4
+43.7
+85.1
+73.4
+82.6
+30.1
+59.5
+33.9
+61.5
+56.5
+GTR-XXL (4.8B)
+48.1
+56.7
+42.4
+86.1
+67.4
+78.4
+30.6
+58.9
+32.0
+60.8
+55.8
+SGPT-NLI (5.8B)
+32.3
+52.3
+37.0
+77.0
+70.1
+80.5
+30.4
+53.7
+29.6
+57.9
+51.9
+GTR-XL (1.5B)
+48.0
+56.0
+41.5
+86.1
+67.1
+77.8
+30.2
+58.4
+32.0
+60.4
+55.5
+INSTRUCTOR-XL (1.5B)
+49.3
+57.3
+44.7
+86.6
+73.2
+83.1
+32.0
+61.8
+34.1
+68.6
+58.8
+Relative gain (%)
++2.7
++2.3
++7.7
++0.6
++9.1
++6.9
++6.0
++5.8
++6.6
++13.6
++5.9
+Table 2: Results on the massive text embedding benchmark (MTEB; Muennighoff et al., 2022), Billboard (Kasai
+et al., 2022a), and prompt retrieval (Su et al., 2022). The last column averages performance scores over 9 categories
+(7 from MTEB, 1 from Billboard, and 1 from prompt retrieval). Out of the 70 evaluation datasets, 66 (50 from
+
+Advantages: No additional training is required, making it easy to deploy
+and maintain. It is best for general purpose tasks or when exploring potential
+applications without high upfront costs.
+Drawbacks: Limited performance on domain specific queries or tasks that
+need high levels of customization.
+Table 1: Decision Framework for Choosing Between Fine-Tuning, RAG, and
+Base Models
+Factors
+Fine-Tuning
+RAG
+Base Models
+Nature
+of
+the
+Task
+Highly
+specialized
+tasks,
+domain
+spe-
+cific language
+Dynamic tasks need-
+ing real time infor-
+mation retrieval
+General tasks, proto-
+typing, broad appli-
+cability
+Data
+Require-
+ments
+Static or proprietary
+data
+that
+rarely
+changes
+Access to up-to-date
+or
+external
+large
+knowledge bases
+Does
+not
+require
+specialized or up-to-
+date information
+Resource
+Con-
+straints
+High computational
+resources needed for
+training
+Higher inference cost
+and
+infrastructure
+complexity
+Low
+resource
+de-
+mand,
+quick
+to
+deploy
+Performance
+Goals
+Maximizing
+pre-
+cision
+and
+adapt-
+ability
+to
+specific
+language
+Providing
+accu-
+rate,
+context-aware
+responses from dy-
+namic sources
+Optimizing
+speed
+and
+cost
+efficiency
+over precision
+To conclude, the decision framework outlined in Table[1] offers practitioners
+a guide to selecting the most suitable method based on their project’s specific
+needs. Fine-Tuning is the best option for specialized, high-precision tasks with
+stable data; RAG should be used when access to dynamic, large-scale data is","ANSWER: In the given context, there is no explicit mention of a new version of Claude being discussed. However, comparisons are made between several models such as Chinchilla, Gopher, and Jurassic-1 on various benchmarks like The Pile and MMLU. While improvements can be observed among these models, no direct upgrade from one version of Claude to another is mentioned. Therefore, I cannot precisely identify the significant enhancement in Claude 2.1 compared to its previous version based solely on the provided context.","In the given context, there is no explicit mention of a new version of Claude being discussed. However, comparisons are made between several models such as Chinchilla, Gopher, and Jurassic-1 on various benchmarks like The Pile and MMLU. While improvements can be observed among these models, no direct upgrade from one version of Claude to another is mentioned. Therefore, I cannot precisely identify the significant enhancement in Claude 2.1 compared to its previous version based solely on the provided context."
+multi-qa-mpnet-base-dot-v1,1500,150,research,101,"What innovative approaches are being explored to enhance language model's reasoning capabilities, specifically for complex reasoning tasks?","A reasoning model, also known as reasoning language models (RLMs) or large reasoning models (LRMs), is a type of large language model (LLM) that has been specifically trained to solve complex tasks requiring multiple steps of logical reasoning. These models demonstrate superior performance on logic, mathematics, and programming tasks compared to standard LLMs. They possess the ability to revisit and revise earlier reasoning steps and utilize additional computation during inference as a method to scale performance, complementing traditional scaling approaches based on training data size, model parameters, and training compute.
+
+[13] Press et al. “Measuring and narrowing the compositionality gap in language models.” arXiv preprint arXiv:2210.03350 (2022).
+[14] Yao et al. “ReAct: Synergizing reasoning and acting in language models.” ICLR 2023.
+[15] Fu et al. “Complexity-based prompting for multi-step reasoning.” arXiv preprint arXiv:2210.00720 (2022).
+[16] Wang et al. “Rationale-augmented ensembles in language models.” arXiv preprint arXiv:2207.00747 (2022).
+[17] Zhang et al. “Automatic chain of thought prompting in large language models.” arXiv preprint arXiv:2210.03493 (2022).
+[18] Shum et al. “Automatic Prompt Augmentation and Selection with Chain-of-Thought from Labeled Data.” arXiv preprint arXiv:2302.12822 (2023).
+[19] Zhou et al. “Large Language Models Are Human-Level Prompt Engineers.” ICLR 2023.
+[20] Lazaridou et al. “Internet augmented language models through few-shot prompting for open-domain question answering.” arXiv preprint arXiv:2203.05115 (2022).
+[21] Chen et al. “Program of Thoughts Prompting: Disentangling Computation from Reasoning for Numerical Reasoning Tasks.” arXiv preprint arXiv:2211.12588 (2022).
+[22] Gao et al. “PAL: Program-aided language models.” arXiv preprint arXiv:2211.10435 (2022).
+[23] Parisi et al. “TALM: Tool Augmented Language Models” arXiv preprint arXiv:2205.12255 (2022).
+[24] Schick et al. “Toolformer: Language Models Can Teach Themselves to Use Tools.” arXiv preprint arXiv:2302.04761 (2023).
+
+[24] Schick et al. “Toolformer: Language Models Can Teach Themselves to Use Tools.” arXiv preprint arXiv:2302.04761 (2023).
+[25] Mialon et al. “Augmented Language Models: a Survey” arXiv preprint arXiv:2302.07842 (2023).
+[26] Yao et al. “Tree of Thoughts: Deliberate Problem Solving with Large Language Models.” arXiv preprint arXiv:2305.10601 (2023).
+
+models: Investigating effectiveness of parametric and non-parametric
+memories,” in ACL, 2023.
+[180] Z. Jiang, J. Araki, H. Ding, and G. Neubig, “How can we know When
+language models know? on the calibration of language models for
+question answering,” TACL, 2021.
+[181] N. Kandpal, H. Deng, A. Roberts et al., “Large language models
+struggle to learn long-tail knowledge,” in ICML, 2023.
+[182] R. Ren, Y. Wang, Y. Qu et al., “Investigating the factual knowledge
+boundary of large language models with retrieval augmentation,”
+arxiv:2307.11019, 2023.
+[183] Y. Wang, P. Li, M. Sun, and Y. Liu, “Self-knowledge guided retrieval
+augmentation for large language models,” in EMNLP Findings, 2023.
+[184] H. Ding, L. Pang, Z. Wei et al., “Retrieve only when it needs: Adaptive
+retrieval augmentation for hallucination mitigation in large language
+models,” arXiv:2402.10612, 2024.
+[185] S. Jeong, J. Baek, S. Cho et al., “Adaptive-rag: Learning to adapt
+retrieval-augmented large language models through question complex-
+ity,” arXiv:2403.14403, 2024.
+[186] F. Zhang, B. Chen et al., “Repocoder: Repository-level code completion
+through iterative retrieval and generation,” in EMNLP, 2023.
+[187] Z. Shao, Y. Gong, Y. Shen et al., “Enhancing retrieval-augmented
+large language models with iterative retrieval-generation synergy,” in
+EMNLP Findings, 2023.
+[188] X. Cheng, D. Luo, X. Chen et al., “Lift yourself up: Retrieval-
+augmented text generation with self-memory,” in NeurIPS, 2023.
+[189] Z.
+Wang,
+A.
+Liu,
+
+language models with human: A survey. arXiv preprint arXiv:2307.12966, 2023c.
+Z. M. Wang, Z. Peng, H. Que, J. Liu, W. Zhou, Y. Wu, H. Guo, R. Gan, Z. Ni, M. Zhang, Z. Zhang,
+W. Ouyang, K. Xu, W. Chen, J. Fu, and J. Peng. Rolellm: Benchmarking, eliciting, and enhancing
+role-playing abilities of large language models, 2023d.
+J. Wei, X. Wang, D. Schuurmans, M. Bosma, brian ichter, F. Xia, E. H. Chi, Q. V. Le, and D. Zhou.
+Chain of thought prompting elicits reasoning in large language models. In A. H. Oh, A. Agarwal,
+D. Belgrave, and K. Cho, editors, Advances in Neural Information Processing Systems, 2022. URL
+https://openreview.net/forum?id=_VjQlMeSB_J.
+S. Wu, O. Irsoy, S. Lu, V. Dabravolski, M. Dredze, S. Gehrmann, P. Kambadur, D. Rosenberg, and
+G. Mann. Bloomberggpt: A large language model for finance, 2023.
+K. Yang, Y. Tian, N. Peng, and D. Klein. Re3: Generating longer stories with recursive reprompting and
+revision. In Y. Goldberg, Z. Kozareva, and Y. Zhang, editors, Proceedings of the 2022 Conference
+on Empirical Methods in Natural Language Processing, pages 4393–4479, Abu Dhabi, United Arab
+Emirates, Dec. 2022a. Association for Computational Linguistics. doi: 10.18653/v1/2022.emnlp
+-main.296. URL https://aclanthology.org/2022.emnlp-main.296.
+K. Yang, D. Klein, A. Celikyilmaz, N. Peng, and Y. Tian. Rlcd: Reinforcement learning from contrast
+distillation for language model alignment, 2023a.","ANSWER: To enhance language models' reasoning capabilities for complex tasks, several novel strategies are under investigation. One approach involves the use of parametric and non-parametric memories [179]. Another strategy is automatic prompt augmentation and selection with Chain-of-Thought from labeled data [18], which helps disentangle computations from reasoning for numerical tasks. Additionally, Tree of Thoughts [26] delivers deliberate problem solving by allowing large language models to think systematically about problems. Furthermore, Toolformer [24] enables language models to teach themselves how to use tools, thereby improving their problem-solving skills. Lastly, Retrieve Only When It Needs [184] presents an adaptive retrieval augmentation technique for reducing hallucinations in large language models. These methods demonstrate the ongoing efforts to advance language model's reasoning abilities for intricate reasoning tasks.","To enhance language models' reasoning capabilities for complex tasks, several novel strategies are under investigation. One approach involves the use of parametric and non-parametric memories [179]. Another strategy is automatic prompt augmentation and selection with Chain-of-Thought from labeled data [18], which helps disentangle computations from reasoning for numerical tasks. Additionally, Tree of Thoughts [26] delivers deliberate problem solving by allowing large language models to think systematically about problems. Furthermore, Toolformer [24] enables language models to teach themselves how to use tools, thereby improving their problem-solving skills. Lastly, Retrieve Only When It Needs [184] presents an adaptive retrieval augmentation technique for reducing hallucinations in large language models. These methods demonstrate the ongoing efforts to advance language model's reasoning abilities for intricate reasoning tasks."
+multi-qa-mpnet-base-dot-v1,1500,150,research,17,What is the meaning of the term alignment tax in the context of AI development?,"$$
+\begin{aligned}
+\mathbf{c}_t &= \sum_{i=1}^n \alpha_{t,i} \boldsymbol{h}_i & \small{\text{; Context vector for output }y_t}\\
+\alpha_{t,i} &= \text{align}(y_t, x_i) & \small{\text{; How well two words }y_t\text{ and }x_i\text{ are aligned.}}\\
+&= \frac{\exp(\text{score}(\boldsymbol{s}_{t-1}, \boldsymbol{h}_i))}{\sum_{i'=1}^n \exp(\text{score}(\boldsymbol{s}_{t-1}, \boldsymbol{h}_{i'}))} & \small{\text{; Softmax of some predefined alignment score.}}.
+\end{aligned}
+$$
+
+The alignment model assigns a score $\alpha_{t,i}$ to the pair of input at position i and output at position t, $(y_t, x_i)$, based on how well they match. The set of $\{\alpha_{t, i}\}$ are weights defining how much of each source hidden state should be considered for each output. In Bahdanau’s paper, the alignment score $\alpha$ is parametrized by a feed-forward network with a single hidden layer and this network is jointly trained with other parts of the model. The score function is therefore in the following form, given that tanh is used as the non-linear activation function:
+
+$$
+\text{score}(\boldsymbol{s}_t, \boldsymbol{h}_i) = \mathbf{v}_a^\top \tanh(\mathbf{W}_a[\boldsymbol{s}_t; \boldsymbol{h}_i])
+$$
+
+where both $\mathbf{v}_a$ and $\mathbf{W}_a$ are weight matrices to be learned in the alignment model.
+The matrix of alignment scores is a nice byproduct to explicitly show the correlation between source and target words.
+
+instructions used). We ﬁne-tune them on approximately 1 million examples respectively and choose
+the checkpoint which obtains the highest reward model score on the validation set. See Appendix C
+for more training details.
+3.6
+Evaluation
+To evaluate how “aligned” our models are, we ﬁrst need to clarify what alignment means in this
+context. The deﬁnition of alignment has historically been a vague and confusing topic, with various
+6To obtain this preﬁx, authors RL and DA held a preﬁx-ﬁnding competition: each spent an hour interacting
+with GPT-3 to come up with their two best preﬁxes. The winning preﬁx was the one that led GPT-3 to attain the
+highest RM score on the prompt validation set. DA won.
+9
+
+technique.
+4. We’ve validated alignment techniques from research in the real world. Alignment
+research has historically been rather abstract, focusing on either theoretical results (Soares
+et al., 2015), small synthetic domains (Christiano et al., 2018; Leike et al., 2017), or training
+ML models on public NLP datasets (Ziegler et al., 2019; Stiennon et al., 2020). Our work
+provides grounding for alignment research in AI systems that are being used in production in
+17
+
+Alignment matrix of ""L'accord sur l'Espace économique européen a été signé en août 1992"" (French) and its English translation ""The agreement on the European Economic Area was signed in August 1992"". (Image source: Fig 3 in Bahdanau et al., 2015)
+
+Check out this nice tutorial by Tensorflow team for more implementation instructions.
+A Family of Attention Mechanisms#
+With the help of the attention, the dependencies between source and target sequences are not restricted by the in-between distance anymore! Given the big improvement by attention in machine translation, it soon got extended into the computer vision field (Xu et al. 2015) and people started exploring various other forms of attention mechanisms (Luong, et al., 2015; Britz et al., 2017; Vaswani, et al., 2017).
+Summary#
+Below is a summary table of several popular attention mechanisms and corresponding alignment score functions:
+
+
+
+Name
+Alignment score function
+Citation
+
+
+
+
+Content-base attention
+$\text{score}(\boldsymbol{s}_t, \boldsymbol{h}_i) = \text{cosine}[\boldsymbol{s}_t, \boldsymbol{h}_i]$
+Graves2014
+
+
+Additive(*)
+$\text{score}(\boldsymbol{s}_t, \boldsymbol{h}_i) = \mathbf{v}_a^\top \tanh(\mathbf{W}_a[\boldsymbol{s}_{t-1}; \boldsymbol{h}_i])$
+Bahdanau2015
+
+
+Location-Base
+$\alpha_{t,i} = \text{softmax}(\mathbf{W}_a \boldsymbol{s}_t)$Note: This simplifies the softmax alignment to only depend on the target position.
+Luong2015
+
+Model Alignment as Prospect Theoretic Optimization
+man et al., 2023) and Llama-{7B, 13B, 30B} (Touvron
+et al., 2023). This permits us to see how LLM alignment
+scales within a model family (Llama-2 lacks a 30B model,
+hence our use of Llama). Later experiments (§4.3) are done
+on Mistral-7B derivatives (Jiang et al., 2023) and Llama-3
+(Dubey et al., 2024). The models are trained on a combina-
+tion of Anthropic-HH (Ganguli et al., 2022), OpenAssistant
+(K¨opf et al., 2023), and SHP (Ethayarajh et al., 2022).
+All models are aligned under identical settings on the same
+data, save for hyperparameters unique to them. Similar to
+Rafailov et al. (2023), the target sequences for SFT are a
+subset of {yw}. We use GPT-4-0613 to judge whether
+the aligned model’s response is better than the SFT target
+for a given test input with respect to helpfulness, harmless-
+ness, and conciseness, a now standard practice (Zheng et al.,
+2023; Li et al., 2023).5 Note that while the SFT target is
+considered a desirable output for x, it is by no means the
+best output, meaning that an aligned model can certainly
+achieve a winrate above 50%, although this is difficult given
+that many of the target sequences are human-written.
+In Figure 2, we see the results of this analysis:
+• HALOs either match or outperform non-HALOs
+at every scale, though the gap is only significant (p <
+0.05) at 13B+ model sizes after correcting for multiple
+comparisons (Holm, 1979). In fact, only the HALO-","I don't have enough information to answer this accurately since there is no mention of an ""alignment tax"" concept in the provided context related to AI development.","I don't have enough information to answer this accurately since there is no mention of an ""alignment tax"" concept in the provided context related to AI development."
+multi-qa-mpnet-base-dot-v1,1500,150,research,80,What is the significance of the term open-domain in the context of question answering?,"What is Open-Domain Question Answering?#
+Open-domain Question Answering (ODQA) is a type of language tasks, asking a model to produce answers to factoid questions in natural language. The true answer is objective, so it is simple to evaluate model performance.
+For example,
+Question: What did Albert Einstein win the Nobel Prize for?
+Answer: The law of the photoelectric effect.
+The “open-domain” part refers to the lack of the relevant context for any arbitrarily asked factual question. In the above case, the model only takes as the input the question but no article about “why Einstein didn’t win a Nobel Prize for the theory of relativity” is provided, where the term “the law of the photoelectric effect” is likely mentioned. In the case when both the question and the context are provided, the task is known as Reading comprehension (RC).
+An ODQA model may work with or without access to an external source of knowledge (e.g. Wikipedia) and these two conditions are referred to as open-book or closed-book question answering, respectively.
+When considering different types of open-domain questions, I like the classification by Lewis, et al., 2020, in increasing order of difficulty:
+
+How to Build an Open-Domain Question Answering System?
+    
+Date: October 29, 2020  |  Estimated Reading Time: 33 min  |  Author: Lilian Weng
+
+
+
+[Updated on 2020-11-12: add an example on closed-book factual QA using OpenAI API (beta).
+A model that can answer any question with regard to factual knowledge can lead to many useful and practical applications, such as working as a chatbot or an AI assistantü§ñ. In this post, we will review several common approaches for building such an open-domain question answering system.
+Disclaimers given so many papers in the wild:
+
+Assume we have access to a powerful pretrained language model.
+We do not cover how to use structured knowledge base (e.g. Freebase, WikiData) here.
+We only focus on a single-turn QA instead of a multi-turn conversation style QA.
+We mostly focus on QA models that contain neural networks, specially Transformer-based language models.
+I admit that I missed a lot of papers with architectures designed specifically for QA tasks between 2017-2019üòî
+
+Yes
+
+
+T5 + SSM
+–
+T5
+SSM on CommonCrawl data + Fine-tuning on QA data
+Yes
+
+
+GPT3
+–
+GPT3
+NSP on CommonCrawl data
+Yes
+
+
+RAG
+DPR retriever
+BART
+
+Yes
+
+
+Fusion-in-Decoder
+BM25 / DPR retriever
+Tranformer
+
+No
+
+
+
+
+
+A comparison of performance of several QA models on common QA datasets. On TriviaQA, two columns of results are reported, on the open domain test set (left) and on the hidden test set (right). (Image source: Izacard & Grave, 2020).
+
+Citation#
+Cited as:
+
+Weng, Lilian. (Oct 2020). How to build an open-domain question answering system? Lil’Log. https://lilianweng.github.io/posts/2020-10-29-odqa/.
+
+Or
+@article{weng2020odqa,
+  title   = ""How to Build an Open-Domain Question Answering System?"",
+  author  = ""Weng, Lilian"",
+  journal = ""lilianweng.github.io"",
+  year    = ""2020"",
+  month   = ""Oct""
+  url     = ""https://lilianweng.github.io/posts/2020-10-29-odqa/""
+}
+Appendix: QA Datasets#
+
+References#
+[1] Danqi Chen & Scott Yih. “ACL2020 Tutorial: Open-Domain Question Answering” July 2020.
+[2] Danqi Chen, et al. “Reading Wikipedia to Answer Open-Domain Questions” ACL 2017. | code
+[3] Shuohang Wang, et al. “R^3: Reinforced Ranker-Reader for Open-Domain Question Answering” AAAI 2018.
+[4] Jimmy Lin. “The neural hype and comparisons against weak baselines.” ACM SIGIR Forum. Vol. 52. No. 2. 2019.
+[5] Wei Yang, et al. “End-to-End Open-Domain Question Answering with BERTserini” NAACL 2019.
+[6] Christopher Clark & Matt Gardner. “Simple and Effective Multi-Paragraph Reading Comprehension.” arXiv:1710.10723 (2017).
+[7] Rodrigo Nogueira & Kyunghyun Cho. “Passage Re-ranking with BERT.” arXiv preprint arXiv:1901.04085 (2019). | code
+[8] Zhiguo Wang, et al. “Multi-passage BERT: A globally normalized BERT model for open-domain question answering.” EMNLP 2019.
+[9] Minjoon Seo et al. “Real-time open-domain question answering with dense-sparse phrase index.” ACL 2019.
+[10] Kenton Lee, et al. “Latent Retrieval for Weakly Supervised Open Domain Question Answering” ACL 2019.
+[11] Kelvin Guu, et al. “REALM: Retrieval-Augmented Language Model Pre-Training” arXiv:2002.08909 (2020).
+[12] Vladimir Karpukhin et al. “Dense passage retrieval for open-domain question answering.”. EMNLP 2020. | code
+[13] Patrick Lewis et al. “Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks” arXiv:2005.11401 (2020).
+
+answer aligns with the initial question or instruc-
+tion.
+Context relevance
+The context c(q) is consid-
+ered relevant to the extent that it exclusively con-
+tains information that is needed to answer the ques-
+tion. In particular, this metric aims to penalise the","Response:
+
+In the context of question answering, ""open-domain"" refers to a type of language task where a model produces answers to arbitrary factoid questions in natural language. These questions typically require the model to retrieve and understand information from various sources due to the lack of specific context related to each question. This contrasts with reading comprehension tasks where the context is explicitly provided along with the question. When considering different types of open-domain questions, there exists a hierarchy of complexity, with one proposed categorization by Lewis, et al., 2020, being: factoid, list, yes/no, definition, and reasoning. Building an open-domain question answering system involves training a model, often based on transformer architecture like T5 or BART, either through fine-tuning on question answering data or leveraging additional components such as retrievers or re-rankers.","In the context of question answering, ""open-domain"" refers to a type of language task where a model produces answers to arbitrary factoid questions in natural language. These questions typically require the model to retrieve and understand information from various sources due to the lack of specific context related to each question. This contrasts with reading comprehension tasks where the context is explicitly provided along with the question. When considering different types of open-domain questions, there exists a hierarchy of complexity, with one proposed categorization by Lewis, et al., 2020, being: factoid, list, yes/no, definition, and reasoning. Building an open-domain question answering system involves training a model, often based on transformer architecture like T5 or BART, either through fine-tuning on question answering data or leveraging additional components such as retrievers or re-rankers."
+multi-qa-mpnet-base-dot-v1,1500,150,research,7,What licensing terms are associated with source-available models like Mistral AI's language models?,"Llama (""Large Language Model Meta AI"" serving as a backronym) is a family of large language models (LLMs) released by Meta AI starting in February 2023.
+Llama models come in different sizes, ranging from 1 billion to 2 trillion parameters. Initially only a foundation model, starting with Llama 2, Meta AI released instruction fine-tuned versions alongside foundation models.
+Model weights for the first version of Llama were only available to researchers on a case-by-case basis, under a non-commercial license. Unauthorized copies of the first model were shared via BitTorrent. Subsequent versions of Llama were made accessible outside academia and released under licenses that permitted some commercial use.
+Alongside the release of Llama 3 and a standalone website, Meta added virtual assistant features to Facebook and WhatsApp in select regions; both services used a Llama 3 model. However, the latest version is Llama 4, released in April 2025.
+
+
+== Background ==
+After the release of large language models such as GPT-3, a focus of research was up-scaling models, which in some instances showed major increases in emergent capabilities. The release of ChatGPT and its surprise success caused an increase in attention to large language models.
+Compared with other responses to ChatGPT, Meta's Chief AI scientist Yann LeCun stated that large language models are best for aiding with writing.
+
+
+== Versions ==
+
+== Versions ==
+
+
+=== Initial release ===
+The first version of Llama (stylized as LLaMA and sometimes referred to as Llama 1) was announced on February 24, 2023, via a blog post and a paper describing the model's training, architecture, and performance. The inference code used to run the model was publicly released under the open-source GPLv3 license. Access to the model's weights was managed by an application process, with access to be granted ""on a case-by-case basis to academic researchers; those affiliated with organizations in government, civil society, and academia; and industry research laboratories around the world"".
+Llama was trained on only publicly available information, and was trained at various model sizes, with the intention to make it more accessible to different hardware. The model was exclusively a foundation model, although the paper contained examples of instruction fine-tuned versions of the model.
+Meta AI reported the 13B parameter model performance on most NLP benchmarks exceeded that of the much larger GPT-3 (with 175B parameters), and the largest 65B model was competitive with state of the art models such as PaLM and Chinchilla.
+
+Mistral 7B
+Albert Q. Jiang, Alexandre Sablayrolles, Arthur Mensch, Chris Bamford,
+Devendra Singh Chaplot, Diego de las Casas, Florian Bressand, Gianna Lengyel,
+Guillaume Lample, Lucile Saulnier, Lélio Renard Lavaud, Marie-Anne Lachaux,
+Pierre Stock, Teven Le Scao, Thibaut Lavril, Thomas Wang, Timothée Lacroix,
+William El Sayed
+Abstract
+We introduce Mistral 7B, a 7–billion-parameter language model engineered for
+superior performance and efficiency. Mistral 7B outperforms the best open 13B
+model (Llama 2) across all evaluated benchmarks, and the best released 34B
+model (Llama 1) in reasoning, mathematics, and code generation. Our model
+leverages grouped-query attention (GQA) for faster inference, coupled with sliding
+window attention (SWA) to effectively handle sequences of arbitrary length with a
+reduced inference cost. We also provide a model fine-tuned to follow instructions,
+Mistral 7B – Instruct, that surpasses Llama 2 13B – chat model both on human and
+automated benchmarks. Our models are released under the Apache 2.0 license.
+Code: https://github.com/mistralai/mistral-src
+Webpage: https://mistral.ai/news/announcing-mistral-7b/
+1
+Introduction
+In the rapidly evolving domain of Natural Language Processing (NLP), the race towards higher model
+performance often necessitates an escalation in model size. However, this scaling tends to increase
+computational costs and inference latency, thereby raising barriers to deployment in practical,
+
+Generative artificial intelligence (Generative AI, or GenAI) is a subfield of artificial intelligence that uses generative models to produce text, images, videos, audio, software code or other forms of data. These models learn the underlying patterns and structures of their training data and use them to produce new data based on the input, which often comes in the form of natural language prompts.
+Generative AI tools have become more common since the AI boom in the 2020s. This boom was made possible by improvements in deep neural networks, particularly large language models (LLMs), which are based on the transformer architecture. Major tools include LLM-based chatbots such as ChatGPT, Claude, Copilot, DeepSeek, Google Gemini and Grok, and ; text-to-image models such as Stable Diffusion, Midjourney, and DALL-E; and text-to-video models such as Veo and Sora. Technology companies developing generative AI include Alibaba, Anthropic, Baidu, DeepSeek, Google, Meta AI, Microsoft, Mistral AI, OpenAI, Perplexity AI, xAI, and Yandex.
+Generative AI is used across many industries, including software development, healthcare, finance, entertainment, customer service, sales and marketing, art, writing, fashion, and product design.
+
+Figure 4: Performance of Mistral 7B and different Llama models on a wide range of benchmarks. All
+models were re-evaluated on all metrics with our evaluation pipeline for accurate comparison. Mistral 7B
+significantly outperforms Llama 2 7B and Llama 2 13B on all benchmarks. It is also vastly superior to Llama 1
+34B in mathematics, code generation, and reasoning benchmarks.
+Model
+Modality MMLU HellaSwag WinoG PIQA
+Arc-e
+Arc-c
+NQ
+TriviaQA HumanEval MBPP MATH GSM8K
+LLaMA 2 7B
+Pretrained 44.4%
+77.1%
+69.5% 77.9% 68.7% 43.2% 24.7%
+63.8%
+11.6%
+26.1%
+3.9%
+16.0%
+LLaMA 2 13B
+Pretrained 55.6%
+80.7%
+72.9% 80.8% 75.2% 48.8% 29.0%
+69.6%
+18.9%
+35.4%
+6.0%
+34.3%
+Code-Llama 7B Finetuned
+36.9%
+62.9%
+62.3% 72.8% 59.4% 34.5% 11.0%
+34.9%
+31.1%
+52.5%
+5.2%
+20.8%
+Mistral 7B
+Pretrained 60.1%
+81.3%
+75.3% 83.0% 80.0% 55.5% 28.8%
+69.9%
+30.5%
+47.5% 13.1%
+52.2%
+Table 2: Comparison of Mistral 7B with Llama. Mistral 7B outperforms Llama 2 13B on all metrics, and
+approaches the code performance of Code-Llama 7B without sacrificing performance on non-code benchmarks.
+Size and Efficiency. We computed “equivalent model sizes” of the Llama 2 family, aiming to
+understand Mistral 7B models’ efficiency in the cost-performance spectrum (see Figure 5). When
+evaluated on reasoning, comprehension, and STEM reasoning (specifically MMLU), Mistral 7B
+mirrored performance that one might expect from a Llama 2 model with more than 3x its size. On","Answer: The source-available models like Mistral AI's language models are released under the Apache 2.0 license. This means they can be freely distributed, modified, and used commercially while respecting certain conditions outlined in the license, such as maintaining attribution and providing the original copyright notice. Unlike the initial release of Llama, subsequent versions were made accessible outside academia under these licenses that allowed some commercial usage.","The source-available models like Mistral AI's language models are released under the Apache 2.0 license. This means they can be freely distributed, modified, and used commercially while respecting certain conditions outlined in the license, such as maintaining attribution and providing the original copyright notice. Unlike the initial release of Llama, subsequent versions were made accessible outside academia under these licenses that allowed some commercial usage."
+multi-qa-mpnet-base-dot-v1,1500,150,research,108,How does the Pointer Network differ from standard seq2seq models in dealing with sequential data?,"The architecture of a Pointer Network model. (Image source: Vinyals, et al. 2015)
+
+The Ptr-Net outputs a sequence of integer indices, $\boldsymbol{c} = (c_1, \dots, c_m)$ given a sequence of input vectors $\boldsymbol{x} = (x_1, \dots, x_n)$ and $1 \leq c_i \leq n$. The model still embraces an encoder-decoder framework. The encoder and decoder hidden states are denoted as $(\boldsymbol{h}_1, \dots, \boldsymbol{h}_n)$ and $(\boldsymbol{s}_1, \dots, \boldsymbol{s}_m)$, respectively. Note that $\mathbf{s}_i$ is the output gate after cell activation in the decoder. The Ptr-Net applies additive attention between states and then normalizes it by softmax to model the output conditional probability:
+
+$$
+\begin{aligned}
+y_i &= p(c_i \vert c_1, \dots, c_{i-1}, \boldsymbol{x}) \\
+    &= \text{softmax}(\text{score}(\boldsymbol{s}_t; \boldsymbol{h}_i)) = \text{softmax}(\mathbf{v}_a^\top \tanh(\mathbf{W}_a[\boldsymbol{s}_t; \boldsymbol{h}_i]))
+\end{aligned}
+$$
+
+The complete process of generating the attention vector $\mathbf{w}_t$ at time step t is illustrated in All the parameters produced by the controller are unique for each head. If there are multiple read and write heads in parallel, the controller would output multiple sets.
+
+
+Flow diagram of the addressing mechanisms in Neural Turing Machine. (Image source: Graves, Wayne & Danihelka, 2014)
+
+Pointer Network#
+In problems like sorting or travelling salesman, both input and output are sequential data. Unfortunately, they cannot be easily solved by classic seq-2-seq or NMT models, given that the discrete categories of output elements are not determined in advance, but depends on the variable input size. The Pointer Net (Ptr-Net; Vinyals, et al. 2015) is proposed to resolve this type of problems: When the output elements correspond to positions in an input sequence. Rather than using attention to blend hidden units of an encoder into a context vector (See Fig. 8), the Pointer Net applies attention over the input elements to pick one as the output at each decoder step.
+
+
+The architecture of a Pointer Network model. (Image source: Vinyals, et al. 2015)
+
+One word ""attends"" to other words in the same sentence differently.
+
+In a nutshell, attention in deep learning can be broadly interpreted as a vector of importance weights: in order to predict or infer one element, such as a pixel in an image or a word in a sentence, we estimate using the attention vector how strongly it is correlated with (or “attends to” as you may have read in many papers) other elements and take the sum of their values weighted by the attention vector as the approximation of the target.
+What’s Wrong with Seq2Seq Model?#
+The seq2seq model was born in the field of language modeling (Sutskever, et al. 2014). Broadly speaking, it aims to transform an input sequence (source) to a new one (target) and both sequences can be of arbitrary lengths. Examples of transformation tasks include machine translation between multiple languages in either text or audio, question-answer dialog generation, or even parsing sentences into grammar trees.
+The seq2seq model normally has an encoder-decoder architecture, composed of:
+
+An encoder processes the input sequence and compresses the information into a context vector (also known as sentence embedding or “thought” vector) of a fixed length. This representation is expected to be a good summary of the meaning of the whole source sequence.
+A decoder is initialized with the context vector to emit the transformed output. The early work only used the last state of the encoder network as the decoder initial state.
+
+The attention mechanism is simplified, as Ptr-Net does not blend the encoder states into the output with attention weights. In this way, the output only responds to the positions but not the input content.
+Transformer#
+“Attention is All you Need”
+(Vaswani, et al., 2017), without a doubt, is one of the most impactful and interesting paper in 2017. It presented a lot of improvements to the soft attention and make it possible to do seq2seq modeling without recurrent network units. The proposed “transformer” model is entirely built on the self-attention mechanisms without using sequence-aligned recurrent architecture.
+The secret recipe is carried in its model architecture.
+Key, Value and Query#
+The major component in the transformer is the unit of multi-head self-attention mechanism. The transformer views the encoded representation of the input as a set of key-value pairs, $(\mathbf{K}, \mathbf{V})$, both of dimension $n$ (input sequence length); in the context of NMT, both the keys and values are the encoder hidden states. In the decoder, the previous output is compressed into a query ($\mathbf{Q}$ of dimension $m$) and the next output is produced by mapping this query and the set of keys and values.
+The transformer adopts the scaled dot-product attention: the output is a weighted sum of the values, where the weight assigned to each value is determined by the dot-product of the query with all the keys:
+
+The overview of R^3 (reinforced ranker-reader) architecture. Both components share the same Match-LSTM module. (Image source: Wang, et al., 2017)
+
+The retriever runs a max-pooling operation per passage and then aggregates to output a probability of each passage entailing the answer.
+
+$$
+\begin{aligned}
+\mathbf{u}_i &= \text{max-pooling}(\mathbf{H}^\text{rank}_i) \in \mathbb{R}^l \\
+\mathbf{C} &= \text{tanh}(\mathbf{W}^c[\mathbf{u}_1;\dots;\mathbf{u}_N] + \mathbf{b}^c \otimes \mathbf{e}_N) \in \mathbb{R}^{l \times n} \\
+\gamma &= \text{softmax}(\mathbf{w}^c \mathbf{C}) \in \mathbb{R}^n
+\end{aligned}
+$$
+
+Finally, the retriever is viewed as a policy to output action to sample a passage according to predicted $\gamma$,
+
+$$
+\pi(z \vert x; \theta^\gamma) = \gamma_z
+$$
+
+The reader predicts the start position $\beta^s$ and the end position $\beta^e$ of the answer span. Two positions are computed in the same way, with independent parameters to learn. There are $V$ words in all the passages involved.","Answer:
+
+In contrast to standard seq2seq models, Pointer Network (Ptr-Net) addresses problems involving sequential data where both input and output are sequences, particularly those requiring discrete categorization of output elements whose number depends on the varying input size. Unlike traditional seq2seq models which employ attention to blend encoder states into a single context vector, Ptr-Net uses attention to selectively focus on specific input elements within the sequence at each decoder step during prediction/inference. This allows the model to directly respond to the positions rather than considering the overall input content. The main difference lies in the application of attention: while traditional methods use attention to understand the relationship between encoder states and the final context vector, Ptr-Net utilizes it to weigh the relevance of individual input elements when selecting the output at each timestep.","In contrast to standard seq2seq models, Pointer Network (Ptr-Net) addresses problems involving sequential data where both input and output are sequences, particularly those requiring discrete categorization of output elements whose number depends on the varying input size. Unlike traditional seq2seq models which employ attention to blend encoder states into a single context vector, Ptr-Net uses attention to selectively focus on specific input elements within the sequence at each decoder step during prediction/inference. This allows the model to directly respond to the positions rather than considering the overall input content. The main difference lies in the application of attention: while traditional methods use attention to understand the relationship between encoder states and the final context vector, Ptr-Net utilizes it to weigh the relevance of individual input elements when selecting the output at each timestep."
+multi-qa-mpnet-base-dot-v1,1500,150,research,102,How can external tools and APIs be integrated with language models to extend their capabilities and applications?,"[24] Schick et al. “Toolformer: Language Models Can Teach Themselves to Use Tools.” arXiv preprint arXiv:2302.04761 (2023).
+[25] Mialon et al. “Augmented Language Models: a Survey” arXiv preprint arXiv:2302.07842 (2023).
+[26] Yao et al. “Tree of Thoughts: Deliberate Problem Solving with Large Language Models.” arXiv preprint arXiv:2305.10601 (2023).
+
+models—let alone of all individuals and groups impacted by language model use. For most of the
+duration of this project, users of the OpenAI API were selected off of a waitlist. The initial seeds for
+this waitlist were OpenAI employees, biasing the ultimate group toward our own networks.
+Stepping back, there are many difﬁculties in designing an alignment process that is fair, transparent,
+and has suitable accountability mechanisms in place. The goal of this paper is to demonstrate that
+this alignment technique can align to an speciﬁc human reference group for a speciﬁc application.
+We are not claiming that researchers, the labelers we hired, or our API customers are the right source
+of preferences. There are many stakeholders to consider—the organization training the model, the
+customers using the model to develop products, the end users of these products, and the broader
+population who may be directly or indirectly affected. It is not only a matter of making the alignment
+process more participatory; it is impossible that one can train a system that is aligned to everyone’s
+preferences at once, or where everyone would endorse the tradeoffs.
+One path forward could be to train models that can be conditioned on the preferences of certain
+groups, or that can be easily ﬁne-tuned or prompted to represent different groups. Different models
+can then be deployed and used by groups who endorse different values. However, these models might
+
+1
+Retrieval-Augmented Generation for Large
+Language Models: A Survey
+Yunfan Gaoa, Yun Xiongb, Xinyu Gaob, Kangxiang Jiab, Jinliu Panb, Yuxi Bic, Yi Daia, Jiawei Suna, Meng
+Wangc, and Haofen Wang a,c
+aShanghai Research Institute for Intelligent Autonomous Systems, Tongji University
+bShanghai Key Laboratory of Data Science, School of Computer Science, Fudan University
+cCollege of Design and Innovation, Tongji University
+Abstract—Large Language Models (LLMs) showcase impres-
+sive capabilities but encounter challenges like hallucination,
+outdated knowledge, and non-transparent, untraceable reasoning
+processes. Retrieval-Augmented Generation (RAG) has emerged
+as a promising solution by incorporating knowledge from external
+databases. This enhances the accuracy and credibility of the
+generation, particularly for knowledge-intensive tasks, and allows
+for continuous knowledge updates and integration of domain-
+specific information. RAG synergistically merges LLMs’ intrin-
+sic knowledge with the vast, dynamic repositories of external
+databases. This comprehensive review paper offers a detailed
+examination of the progression of RAG paradigms, encompassing
+the Naive RAG, the Advanced RAG, and the Modular RAG.
+It meticulously scrutinizes the tripartite foundation of RAG
+frameworks, which includes the retrieval, the generation and the
+augmentation techniques. The paper highlights the state-of-the-
+art technologies embedded in each of these critical components,
+
+[11] Nakano et al. “Webgpt: Browser-assisted question-answering with human feedback.” arXiv preprint arXiv:2112.09332 (2021).
+[12] Parisi et al. “TALM: Tool Augmented Language Models”
+[13] Schick et al. “Toolformer: Language Models Can Teach Themselves to Use Tools.” arXiv preprint arXiv:2302.04761 (2023).
+[14] Weaviate Blog. Why is Vector Search so fast? Sep 13, 2022.
+[15] Li et al. “API-Bank: A Benchmark for Tool-Augmented LLMs” arXiv preprint arXiv:2304.08244 (2023).
+[16] Shen et al. “HuggingGPT: Solving AI Tasks with ChatGPT and its Friends in HuggingFace” arXiv preprint arXiv:2303.17580 (2023).
+[17] Bran et al. “ChemCrow: Augmenting large-language models with chemistry tools.” arXiv preprint arXiv:2304.05376 (2023).
+[18] Boiko et al. “Emergent autonomous scientific research capabilities of large language models.” arXiv preprint arXiv:2304.05332 (2023).
+[19] Joon Sung Park, et al. “Generative Agents: Interactive Simulacra of Human Behavior.” arXiv preprint arXiv:2304.03442 (2023).
+[20] AutoGPT. https://github.com/Significant-Gravitas/Auto-GPT
+[21] GPT-Engineer. https://github.com/AntonOsika/gpt-engineer
+
+[169] H. Jiang, Q. Wu, C. Lin et al., “Llmlingua: Compressing prompts for
+accelerated inference of large language models,” in EMNLP, 2023.
+[170] N. F. Liu, K. Lin, J. Hewitt et al., “Lost in the middle: How language
+models use long contexts,” arxiv:2307.03172, 2023.
+[171] T. Ahmed, K. S. Pai, P. Devanbu, and E. T. Barr, “Automatic semantic
+augmentation of language model prompts (for code summarization),”
+arXiv:2304.06815, 2024.
+[172] Z. Xu, Z. Liu, Y. Liu et al., “Activerag: Revealing the treasures of
+knowledge via active learning,” arXiv:2402.13547, 2024.
+[173] E. Nijkamp, B. Pang, H. Hayashi et al., “A conversational paradigm
+for program synthesis,” arxiv:2203.13474, 2022.
+[174] Y. He, M. Xia, H. Chen et al., “Animate-a-story: Storytelling with
+retrieval-augmented video generation,” arXiv:2307.06940, 2023.
+[175] E. J. Hu, Y. Shen, P. Wallis et al., “Lora: Low-rank adaptation of large
+language models,” in ICLR, 2022.
+[176] C. Liu, P. C¸ etin, Y. Patodia et al., “Automated code editing with search-
+generate-modify,” arXiv:2306.06490, 2023.
+[177] H. Joshi, J. P. C. S´anchez, S. Gulwani et al., “Repair is nearly
+generation: Multilingual program repair with llms,” in AAAI, 2023.
+[178] Z. Jiang, F. F. Xu, L. Gao et al., “Active retrieval augmented genera-
+tion,” arXiv:2305.06983, 2023.
+[179] A. Mallen, A. Asai, V. Zhong et al., “When not to trust language
+models: Investigating effectiveness of parametric and non-parametric
+memories,” in ACL, 2023.","Answer: Based on the provided context, the integration of external tools and APIs with language models can be achieved through various methodologies such as Tool Augmented Language Models (TALM) [12], Webgpt [11], and Retrieval-Augmented Generation (RAG) [11]. These approaches involve utilizing APIs to fetch relevant data and incorporate them into the language model's responses, thus extending its capabilities and applicability. Specifically, RAG combines the inherent knowledge of language models with extensive databases, allowing for accurate and reliable generations, especially in knowledge-intensive tasks. Furthermore, the Tripartite foundation of RAG frameworks consists of retrieval, generation, and augmentation techniques, which play crucial roles in implementing these systems effectively.","Based on the provided context, the integration of external tools and APIs with language models can be achieved through various methodologies such as Tool Augmented Language Models (TALM) [12], Webgpt [11], and Retrieval-Augmented Generation (RAG) [11]. These approaches involve utilizing APIs to fetch relevant data and incorporate them into the language model's responses, thus extending its capabilities and applicability. Specifically, RAG combines the inherent knowledge of language models with extensive databases, allowing for accurate and reliable generations, especially in knowledge-intensive tasks. Furthermore, the Tripartite foundation of RAG frameworks consists of retrieval, generation, and augmentation techniques, which play crucial roles in implementing these systems effectively."
+multi-qa-mpnet-base-dot-v1,1500,150,research,39,How does the uniqueness of a reparameterized reward function within an equivalence class impact the selection of optimal policies in constrained reinforcement learning problems?,"a single maximum likelihood objective. Note the optimization objective Eq. 5 is equivalent to a
+Bradley-Terry model with a reward parameterization r∗(x, y) = β log π∗
+θ(y|x)
+πref(y|x) and we optimize our
+parametric model πθ, equivalently to the reward model optimization in Eq. 2 under the change of
+variables. In this section we will build the theory behind this reparameterization, show that it does
+not constrain the class of learned reward models, and allows for the exact recovery of the optimal
+policy. We begin with by defining an equivalence relation between reward functions.
+Definition 1. We say that two reward functions r(x, y) and r′(x, y) are equivalent iff
+r(x, y) −r′(x, y) = f(x) for some function f.
+It is easy to see that this is indeed an equivalence relation, which partitions the set of reward functions
+into classes. We can state the following two lemmas:
+Lemma 1. Under the Plackett-Luce, and in particular the Bradley-Terry, preference framework, two
+reward functions from the same class induce the same preference distribution.
+Lemma 2. Two reward functions from the same equivalence class induce the same optimal policy
+under the constrained RL problem.
+The proofs are straightforward and we defer them to Appendix A.5. The first lemma is a well-known
+under-specification issue with the Plackett-Luce family of models [32]. Due to this under-specification,
+5
+
+Lemma 2 Restated. Two reward functions from the same equivalence class induce the same optimal
+policy under the constrained RL problem.
+Proof. Let us consider two reward functions from the same class, such that r′(x, y) = r(x, y) + f(x)
+and, let us denote as πr and πr′ the corresponding optimal policies. By Eq. 4, for all x, y we have
+πr′(y|x) =
+1
+P
+y πref(y|x) exp
+
+1
+β r′(x, y)
+πref(y|x) exp
+ 1
+β r′(x, y)
+
+=
+1
+P
+y πref(y|x) exp
+
+1
+β (r(x, y) + f(x))
+πref(y|x) exp
+ 1
+β (r(x, y) + f(x))
+
+=
+1
+exp
+
+1
+β f(x)
+ P
+y πref(y|x) exp
+
+1
+β r(x, y)
+πref(y|x) exp
+ 1
+β r(x, y)
+
+exp
+ 1
+β f(x)
+
+=
+1
+P
+y πref(y|x) exp
+
+1
+β r(x, y)
+πref(y|x) exp
+ 1
+β r(x, y)
+
+= πr(y|x),
+which completes the proof.
+A.6
+Proof of Theorem 1
+In this section, we will expand on the results of Theorem 1.
+Theorem 1 Restated. Assume, we have a reference model, such that πref(y|x) > 0 for all pairs of
+prompts x and answers y and a parameter β > 0. All reward equivalence classes, as defined in
+Section 5 can be represented with the reparameterization r(x, y) = β log
+π(y|x)
+πref(y|x) for some model
+π(y|x).
+Proof. Consider any reward function r(x, y), which induces an optimal model πr(y|x) under the
+KL-constrained RL problem, with solution given by 4. Following Eq. 5, when we log-linearize both
+sides we obtain:
+r(x, y) = β log πr(y|x)
+πref(y|x) + β log Z(x)
+where Z(x) = P
+y πref(y|x) exp
+
+1
+β r(x, y)
+
+(notice that Z(x) also depends on the reward function
+
+holds for any reward function), we have f(r; πref, β)(x, y) = β log πr(y|x)
+πref(y|x). That is, the projection
+f produces a member of the equivalence class of r with the desired form, and we do not lose any
+generality in our reward model from the proposed reparameterization.
+We can alternatively view Theorem 1 as specifying exactly which reward function within each
+equivalence class the DPO reparameterization selects, that is, the reward function satisfying:
+X
+y
+πref(y | x) exp
+ 1
+β r(x, y)
+
+|
+{z
+}
+=π(y|x), using Thm. 1 reparam.
+= 1,
+(9)
+i.e., π(y | x) is a valid distribution (probabilities are positive and sum to 1). However, following
+Eq. 4, we can see that Eq. 9 is the partition function of the optimal policy induced by the reward
+function r(x, y). The key insight of the DPO algorithm is that we can impose certain constraints on
+the under-constrained Plackett-Luce (and Bradley-Terry in particular) family of preference models,
+such that we preserve the class of representable reward models, but explicitly make the optimal policy
+in Eq. 4 analytically tractable for all prompts x.
+5.2
+Instability of Actor-Critic Algorithms
+We can also use our framework to diagnose instabilities with standard actor-critic algorithms used
+for the RLHF, such as PPO. We follow the RLHF pipeline and focus on the RL fine-tuning step
+outlined in Section 3. We can draw connections to the control as inference framework [22] for the
+
+we usually have to impose additional identifiability constraints to achieve any guarantees on the MLE
+estimates from Eq. 2 [4]. The second lemma states that all reward functions from the same class
+yield the same optimal policy, hence for our final objective, we are only interested in recovering an
+arbitrary reward function from the optimal class. We prove the following Theorem in Appendix A.6:
+Theorem 1. Under mild assumptions, all reward classes consistent with the Plackett-Luce
+(and Bradley-Terry in particular) models can be represented with the reparameterization
+r(x, y) = β log
+π(y|x)
+πref(y|x) for some model π(y | x) and a given reference model πref(y | x).
+Proof Sketch. Consider any reward function r(x, y), which induces a corresponding optimal model
+πr(y | x), specified by Eq. 4. We will show that a reward function from the equivalence class of r
+can be represented using the reparameterization given above. We define the projection f as
+f(r; πref, β)(x, y) = r(x, y) −β log
+X
+y
+πref(y | x) exp
+ 1
+β r(x, y)
+
+(8)
+The operator f simply normalizes the reward function with the logarithm of the partition function
+of πr. Since the added normalization term is only a function of the prefix x, f(r; πref, β)(x, y) is a
+reward function in the equivalence class of r(x, y). Finally, replacing r with the RHS of Eq. 5 (which
+holds for any reward function), we have f(r; πref, β)(x, y) = β log πr(y|x)
+πref(y|x). That is, the projection
+
+outlined in Section 3. We can draw connections to the control as inference framework [22] for the
+constrained RL problem outlined in 3. We assume a parameterized model πθ(y | x) and minimize
+DKL[πθ(y|x) || π∗(y | x)] where π∗is the optimal policy from Eq. 7 induced by the reward function
+rϕ(y, x). With some algebra this leads to the optimization objective:
+max
+πθ Eπθ(y|x)
+
+rϕ(x, y) −β log
+X
+y
+πref(y | x) exp
+ 1
+β rϕ(x, y)
+
+|
+{z
+}
+f(rϕ,πref,β)
+−β log πθ(y | x)
+πref(y | x)
+|
+{z
+}
+KL
+
+(10)
+This is the same objective optimized in prior works [51, 40, 1, 28] using the DPO-equivalent reward
+for the reward class of rϕ. In this setting, we can interpret the normalization term in f(rϕ, πref, β)
+as the soft value function of the reference policy πref. While this term does not affect the optimal
+solution, without it, the policy gradient of the objective could have high variance, making learning
+unstable. We can accommodate for the normalization term using a learned value function, but that
+can also be difficult to optimize. Alternatively, prior works have normalized rewards using a human
+completion baseline, essentially a single sample Monte-Carlo estimate of the normalizing term. In
+contrast the DPO reparameterization yields a reward function that does not require any baselines.
+6","Answer: Within the context provided, the unique representation of a reparameterized reward function within an equivalence class has significant implications for selecting optimal policies in constrained reinforcement learning problems. Specifically, Lemma 2 states that two reward functions from the same equivalence class induce the same optimal policy. This means that for our final objective, we are only concerned with recovering an arbitrary reward function from the optimal class. The DPO reparameterization, as described in Theorem 1, provides a method to represent all reward classes consistent with the Plackett-Luce (and Bradley-Terry in particular) models using the reparameterization r(x, y) = β log π(y|x) πref(y|x) for some model π(y | x) and a given reference model πref(y | x). This representation ensures that we can identify an optimal policy regardless of the specific choice of reward function within its equivalence class.","Within the context provided, the unique representation of a reparameterized reward function within an equivalence class has significant implications for selecting optimal policies in constrained reinforcement learning problems. Specifically, Lemma 2 states that two reward functions from the same equivalence class induce the same optimal policy. This means that for our final objective, we are only concerned with recovering an arbitrary reward function from the optimal class. The DPO reparameterization, as described in Theorem 1, provides a method to represent all reward classes consistent with the Plackett-Luce (and Bradley-Terry in particular) models using the reparameterization r(x, y) = β log π(y|x) πref(y|x) for some model π(y | x) and a given reference model πref(y | x). This representation ensures that we can identify an optimal policy regardless of the specific choice of reward function within its equivalence class."
+multi-qa-mpnet-base-dot-v1,1500,150,research,43,How does the evaluation process determine the level of alignment in the models being tested?,"instructions used). We ﬁne-tune them on approximately 1 million examples respectively and choose
+the checkpoint which obtains the highest reward model score on the validation set. See Appendix C
+for more training details.
+3.6
+Evaluation
+To evaluate how “aligned” our models are, we ﬁrst need to clarify what alignment means in this
+context. The deﬁnition of alignment has historically been a vague and confusing topic, with various
+6To obtain this preﬁx, authors RL and DA held a preﬁx-ﬁnding competition: each spent an hour interacting
+with GPT-3 to come up with their two best preﬁxes. The winning preﬁx was the one that led GPT-3 to attain the
+highest RM score on the prompt validation set. DA won.
+9
+
+Model Alignment as Prospect Theoretic Optimization
+man et al., 2023) and Llama-{7B, 13B, 30B} (Touvron
+et al., 2023). This permits us to see how LLM alignment
+scales within a model family (Llama-2 lacks a 30B model,
+hence our use of Llama). Later experiments (§4.3) are done
+on Mistral-7B derivatives (Jiang et al., 2023) and Llama-3
+(Dubey et al., 2024). The models are trained on a combina-
+tion of Anthropic-HH (Ganguli et al., 2022), OpenAssistant
+(K¨opf et al., 2023), and SHP (Ethayarajh et al., 2022).
+All models are aligned under identical settings on the same
+data, save for hyperparameters unique to them. Similar to
+Rafailov et al. (2023), the target sequences for SFT are a
+subset of {yw}. We use GPT-4-0613 to judge whether
+the aligned model’s response is better than the SFT target
+for a given test input with respect to helpfulness, harmless-
+ness, and conciseness, a now standard practice (Zheng et al.,
+2023; Li et al., 2023).5 Note that while the SFT target is
+considered a desirable output for x, it is by no means the
+best output, meaning that an aligned model can certainly
+achieve a winrate above 50%, although this is difficult given
+that many of the target sequences are human-written.
+In Figure 2, we see the results of this analysis:
+• HALOs either match or outperform non-HALOs
+at every scale, though the gap is only significant (p <
+0.05) at 13B+ model sizes after correcting for multiple
+comparisons (Holm, 1979). In fact, only the HALO-
+
+$$
+\begin{aligned}
+\mathbf{c}_t &= \sum_{i=1}^n \alpha_{t,i} \boldsymbol{h}_i & \small{\text{; Context vector for output }y_t}\\
+\alpha_{t,i} &= \text{align}(y_t, x_i) & \small{\text{; How well two words }y_t\text{ and }x_i\text{ are aligned.}}\\
+&= \frac{\exp(\text{score}(\boldsymbol{s}_{t-1}, \boldsymbol{h}_i))}{\sum_{i'=1}^n \exp(\text{score}(\boldsymbol{s}_{t-1}, \boldsymbol{h}_{i'}))} & \small{\text{; Softmax of some predefined alignment score.}}.
+\end{aligned}
+$$
+
+The alignment model assigns a score $\alpha_{t,i}$ to the pair of input at position i and output at position t, $(y_t, x_i)$, based on how well they match. The set of $\{\alpha_{t, i}\}$ are weights defining how much of each source hidden state should be considered for each output. In Bahdanau’s paper, the alignment score $\alpha$ is parametrized by a feed-forward network with a single hidden layer and this network is jointly trained with other parts of the model. The score function is therefore in the following form, given that tanh is used as the non-linear activation function:
+
+$$
+\text{score}(\boldsymbol{s}_t, \boldsymbol{h}_i) = \mathbf{v}_a^\top \tanh(\mathbf{W}_a[\boldsymbol{s}_t; \boldsymbol{h}_i])
+$$
+
+where both $\mathbf{v}_a$ and $\mathbf{W}_a$ are weight matrices to be learned in the alignment model.
+The matrix of alignment scores is a nice byproduct to explicitly show the correlation between source and target words.
+
+Model Alignment as Prospect Theoretic Optimization
+Table 4. KTO alignment with only desirable/positive examples (i.e., the same data that would be used for SFT), yields similar results to
+SFT when β is small; this is intuitive because it is less bound to the reference model. λD is fixed at 1.
+Dataset (→)
+MMLU
+GSM8k
+HumanEval
+BBH
+TydiQA
+AlpacaEval 2
+Avg.
+Setup (→)
+0-shot
+8-shot, CoT
+0-shot, Synth.
+3-Shot, CoT
+1-Shot, GP
+0-shot
+Metric (→)
+EM
+EM
+pass@1
+EM
+F1
+% Win
+SFT
+57.2
+1.0
+54.4
+33.2
+25.4
+7.17
+29.7
+KTO (β = 0.1)
+57.8
+12.5
+53.2
+29.5
+28.0
+5.46
+31.1
+KTO (β = 0.01)
+57.3
+1.5
+53.7
+33.4
+26.5
+5.31
+29.6
+Figure 6. AlpacaEval 2 winrates of Mistral7B aligned with various methods on the OpenAssistant dataset. GPT-4-turbo with chain-of-
+thought is used as the LM judge. KTO outperforms the SFT and DPO-aligned models at all temperatures.
+Table 5. Results from aligning Zephyr-β-SFT (Tunstall et al., 2023) on UltraFeedback. Note that the base model had not been finetuned
+on UltraFeedback but a similar dataset called UltraChat; the first row here denotes the finetuning results. All the methods below see
+exactly 1 epoch of UltraFeedback, for an apples-to-apples comparison. AlpacaEval 2 was run using GPT4 Turbo CoT as the LM judge.
+All evaluations were run with sampling temperature 0.7. Among the KTO variants: “one-y-per-x” denotes training standard KTO with
+
+Table 10: Accuracy and F1 for the ChatGPT and Llama 3 auto-evaluation models.
+Accuracy
+Precision
+Recall
+F1 score
+ChatGPT
+Llama 3
+ChatGPT
+Llama 3
+ChatGPT
+Llama 3
+ChatGPT
+Llama 3
+Accurate
+94.1
+98.6
+98.8
+98.5
+92.2
+99.3
+92.0
+98.9
+Incorrect
+94.1
+98.6
+86.8
+98.7
+97.8
+97.2
+92.0
+97.9
+Missing
+100.0
+100.0
+100.0
+100.0
+100.0
+100.0
+100.0
+100.0
+Average
+96.1
+99.1
+95.2
+99.1
+96.7
+98.8
+94.7
+98.9
+wrong numbers, or other significant factual errors). The answer is irrelevant to the user’s
+request. Answers in a category, location, or time window that is significantly different from
+the user’s request, if any. There is a significant structural/formatting error. The response is
+otherwise a total structural/functional failure and does not contain sufficient well-formed
+content that can be used to determine accuracy
+• Accuracy = 2 (Acceptable). It covers the following situations. The answer is acceptably
+correct and relevant to the user’s request, but may miss some information, i.e. accurate but
+not complete, or mostly accurate with minor issues. The answer may contain some minor
+hallucination that doesn’t significantly alter the overall meaning. “Minor hallucination”
+means the answer addressed the user’s question but might be off on some additional details.
+The rule of thumb is to see if the answer serves the purpose of the user’s question, and
+whether the hallucination could mislead the users on what they were asking.","Answer: To evaluate the alignment of models, the approach outlined in the context involves several steps. First, the definition of alignment is clarified, considering it as Prospect Theoretic Optimization (Man et al., 2023). Models are then trained on a combination of datasets such as Anthropic-HH, OpenAssistant, and SHP.
+
+Subsequently, these models are aligned using Score-based Fine-tuning (SFT) or Knowledge Transfer Optimization (KTO). For SFT, the target sequences for alignment are a subset of {yw}, where y represents the desired output for a given input x, w is the output generated by the model without fine-tuning.
+
+For KTO, the alignment is performed with positive examples only, aiming to maximize the expected utility of the aligned model over the original one. The methodology uses a softmax algorithm to compute the alignment scores between words, and the score function is parameterized by a feed-forward network with a single hidden layer.
+
+Finally, the performance of the aligned models is compared against a baseline model like GPT-4-0613. The difference in helpfulness, harmlessness, and conciseness determines the level of alignment achieved by the models.","To evaluate the alignment of models, the approach outlined in the context involves several steps. First, the definition of alignment is clarified, considering it as Prospect Theoretic Optimization (Man et al., 2023). Models are then trained on a combination of datasets such as Anthropic-HH, OpenAssistant, and SHP. Subsequently, these models are aligned using Score-based Fine-tuning (SFT) or Knowledge Transfer Optimization (KTO). For SFT, the target sequences for alignment are a subset of {yw}, where y represents the desired output for a given input x, w is the output generated by the model without fine-tuning. For KTO, the alignment is performed with positive examples only, aiming to maximize the expected utility of the aligned model over the original one. The methodology uses a softmax algorithm to compute the alignment scores between words, and the score function is parameterized by a feed-forward network with a single hidden layer. Finally, the performance of the aligned models is compared against a baseline model like GPT-4-The difference in helpfulness, harmlessness, and conciseness determines the level of alignment achieved by the models."

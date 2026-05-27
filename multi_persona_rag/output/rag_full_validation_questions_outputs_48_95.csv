@@ -1,0 +1,189 @@
+,embedding_model,embedding_dim,config_name,chunksize,chunkoverlap,num_retrieve,llm_name,llm_temp,llm_top_p,llm_do_sample,llm_repetition_penalty,llm_max_new_tokens,inference_time,audience_type,question_num,question,context,response,cleaned_response
+33,multi-qa-mpnet-base-dot-v1,768,full_question_research,600,100,6,mistralai/Mistral-7B-Instruct-v0.3,0.2,0.95,True,1.1,200,1175.239846,research,48,What criteria were used to select labelers to ensure they can effectively detect and rate sensitive content?,"stration on a 1-7 Likert scale, and computed an average “demonstration score” for each
+labeler.
+4. Self-assessed ability to identify sensitive speech for different groups. We wanted to
+select a team of labelers that had collectively were able to identify sensitive content in a
+broad range of areas. For legal reasons, we can’t hire contractors based on demographic
+criteria. Thus, we had labelers answer the question: “For what topics or cultural groups
+are you comfortable identifying sensitive speech?” and used this as part of our selection
+process.
+
+are you comfortable identifying sensitive speech?” and used this as part of our selection
+process.
+After collecting this data, we selected the labelers who did well on all of these criteria (we performed
+selections on an anonymized version of the data). Since the fourth criteria is subjective, we ultimately
+chose labelers subjectively according to these criteria, though we had soft cutoffs at 75% agreement
+on sensitive speech ﬂagging and comparisons, and a 6/7 demonstration score.
+B.2
+Labeling instructions
+
+to sensitive content.
+More speciﬁcally, from an initial pool of labeler candidates, we selected our training labelers
+according to the following criteria:
+1. Agreement on sensitive speech ﬂagging. We created a dataset of prompts and completions,
+where some of prompts or completions were sensitive (i.e. anything that could elicit strong
+negative feelings, whether by being toxic, sexual, violent, judgemental, political, etc.). We
+labeled this data for sensitivity ourselves, and measured agreement between us and labelers.
+
+labeled this data for sensitivity ourselves, and measured agreement between us and labelers.
+2. Agreement on rankings. We take prompts submitted to our API, and several model
+completions, and have labelers rank the completions by overall quality. We measure their
+agreement with researcher labels.
+3. Sensitive demonstration writing. We created a small set of sensitive prompts, where
+responding to the outputs appropriately would require nuance. We then rated each demon-
+stration on a 1-7 Likert scale, and computed an average “demonstration score” for each
+labeler.
+
+potentially harmful. Thus, we conducted a screening test designed to measure labeler performance
+on these axes. We selected labelers who performed well on this test; for more information about our
+selection procedure and labeler demographics, see Appendix B.1.
+During training and evaluation, our alignment criteria may come into conﬂict: for example, when a
+user requests a potentially harmful response. During training we prioritize helpfulness to the user (not
+7
+
+doing so requires making some difﬁcult design decisions that we leave to future work; see Section 5.4
+for more discussion). However, in our ﬁnal evaluations we asked labelers prioritize truthfulness and
+harmlessness (since this is what we really care about).
+As in Stiennon et al. (2020), we collaborate closely with labelers over the course of the project. We
+have an onboarding process to train labelers on the project, write detailed instructions for each task
+(see Appendix B.2), and answer labeler questions in a shared chat room.","The criteria used to select labelers to effectively detect and rate sensitive content included agreement on sensitive speech flagging, agreement on rankings of model completions, and a sensitive demonstration writing test. Labelers were selected based on their performance in these tests, with soft cutoffs at 75% agreement on sensitive speech flagging and comparisons, and a 6/7 demonstration score. The sensitive speech flagging was determined by creating a dataset of prompts and completions, where some of them were sensitive, and measuring agreement between the researchers' labels and the labelers'. The ranking of model completions was done by having labelers rank the completions by overall quality and measuring their agreement with researcher labels. The sensitive demonstration writing test involved rating each demonstration on a 1-7 Likert scale and computing an average ""demonstration score"" for each labeler.","The criteria used to select labelers to effectively detect and rate sensitive content included agreement on sensitive speech flagging, agreement on rankings of model completions, and a sensitive demonstration writing test. Labelers were selected based on their performance in these tests, with soft cutoffs at 75% agreement on sensitive speech flagging and comparisons, and a 6/7 demonstration score. The sensitive speech flagging was determined by creating a dataset of prompts and completions, where some of them were sensitive, and measuring agreement between the researchers' labels and the labelers'. The ranking of model completions was done by having labelers rank the completions by overall quality and measuring their agreement with researcher labels. The sensitive demonstration writing test involved rating each demonstration on a 1-7 Likert scale and computing an average ""demonstration score"" for each labeler."
+67,multi-qa-mpnet-base-dot-v1,768,full_question_research,600,100,6,mistralai/Mistral-7B-Instruct-v0.3,0.2,0.95,True,1.1,200,1175.239846,research,95,What are the primary techniques involved in steering the behavior of language models without modifying their underlying architectures?,"for example, it may be beneﬁcial to use language models to generate toxic outputs as part of a data
+augmentation pipeline. Our techniques can also be applied to making models refuse certain user
+instructions, and we plan to explore this in subsequent iterations of this research.
+Getting models to do what we want is directly related to the steerability and controllability litera-
+ture (Dathathri et al., 2019; Krause et al., 2020). A promising future path is combining RLHF with
+other methods of steerability, for example using control codes (Keskar et al., 2019), or modifying the
+
+After the success of many large-scale general language models, many QA models embrace the following approach:
+
+model text from under-represented groups, due to prejudicial correlations in the training data (Xu
+et al., 2021).
+Modifying the behavior of language models to mitigate harms.
+There are many ways to change
+the generation behavior of language models. Solaiman and Dennison (2021) ﬁne-tune LMs on a
+small, value-targeted dataset, which improves the models’ ability to adhere to these values on a
+question answering task. Ngo et al. (2021) ﬁlter the pretraining dataset by removing documents on
+which a language model has a high conditional likelihood of generating a set of researcher-written
+
+some simple baselines, and their scaling properties.
+Training language models to follow instructions.
+Our work is also related to research on cross-
+task generalization in language models, where LMs are ﬁne-tuned on a broad range of public NLP
+datasets (usually preﬁxed with an appropriate instruction) and evaluated on a different set of NLP
+tasks. There has been a range of work in this domain (Yi et al., 2019; Mishra et al., 2021; Wei
+et al., 2021; Khashabi et al., 2020; Sanh et al., 2021; Aribandi et al., 2021), which differ in training
+
+[92] D. Zhou, N. Sch¨arli, L. Hou, J. Wei, N. Scales, X. Wang, D. Schu-
+urmans, C. Cui, O. Bousquet, Q. Le et al., “Least-to-most prompting
+enables complex reasoning in large language models,” arXiv preprint
+arXiv:2205.10625, 2022.
+[93] S. Dhuliawala, M. Komeili, J. Xu, R. Raileanu, X. Li, A. Celikyilmaz,
+and J. Weston, “Chain-of-verification reduces hallucination in large
+language models,” arXiv preprint arXiv:2309.11495, 2023.
+[94] X. Li and J. Li, “Angle-optimized text embeddings,” arXiv preprint
+arXiv:2309.12871, 2023.
+[95] VoyageAI, “Voyage’s embedding models,” https://docs.voyageai.com/
+
+accelerated inference of large language models,” in EMNLP, 2023.
+[170] N. F. Liu, K. Lin, J. Hewitt et al., “Lost in the middle: How language
+models use long contexts,” arxiv:2307.03172, 2023.
+[171] T. Ahmed, K. S. Pai, P. Devanbu, and E. T. Barr, “Automatic semantic
+augmentation of language model prompts (for code summarization),”
+arXiv:2304.06815, 2024.
+[172] Z. Xu, Z. Liu, Y. Liu et al., “Activerag: Revealing the treasures of
+knowledge via active learning,” arXiv:2402.13547, 2024.
+[173] E. Nijkamp, B. Pang, H. Hayashi et al., “A conversational paradigm","The primary techniques involved in steering the behavior of language models without modifying their underlying architectures include fine-tuning Language Models (LMs) on a small, value-targeted dataset (Solaiman & Dennison, 2021), filtering the pretraining dataset by removing documents on which a language model has a high conditional likelihood of generating a set of researcher-written outputs (Ngo et al., 2021), and using control codes to modify the generation behavior of language models (Keskar et al., 2019). These techniques aim to adjust the models' output to align with specific values or guidelines, improving their performance on various tasks. However, the context does not provide further details about the specific methodologies or technical implementations of these techniques.","The primary techniques involved in steering the behavior of language models without modifying their underlying architectures include fine-tuning Language Models (LMs) on a small, value-targeted dataset (Solaiman & Dennison, 2021), filtering the pretraining dataset by removing documents on which a language model has a high conditional likelihood of generating a set of researcher-written outputs (Ngo et al., 2021), and using control codes to modify the generation behavior of language models (Keskar et al., 2019). These techniques aim to adjust the models' output to align with specific values or guidelines, improving their performance on various tasks. However, the context does not provide further details about the specific methodologies or technical implementations of these techniques."
+111,multi-qa-mpnet-base-dot-v1,768,full_question_marketing,600,100,6,mistralai/Mistral-7B-Instruct-v0.3,0.2,0.95,True,1.1,200,502.763132,marketing,48,What criteria were used to select labelers to ensure they can effectively detect and rate sensitive content?,"stration on a 1-7 Likert scale, and computed an average “demonstration score” for each
+labeler.
+4. Self-assessed ability to identify sensitive speech for different groups. We wanted to
+select a team of labelers that had collectively were able to identify sensitive content in a
+broad range of areas. For legal reasons, we can’t hire contractors based on demographic
+criteria. Thus, we had labelers answer the question: “For what topics or cultural groups
+are you comfortable identifying sensitive speech?” and used this as part of our selection
+process.
+
+are you comfortable identifying sensitive speech?” and used this as part of our selection
+process.
+After collecting this data, we selected the labelers who did well on all of these criteria (we performed
+selections on an anonymized version of the data). Since the fourth criteria is subjective, we ultimately
+chose labelers subjectively according to these criteria, though we had soft cutoffs at 75% agreement
+on sensitive speech ﬂagging and comparisons, and a 6/7 demonstration score.
+B.2
+Labeling instructions
+
+to sensitive content.
+More speciﬁcally, from an initial pool of labeler candidates, we selected our training labelers
+according to the following criteria:
+1. Agreement on sensitive speech ﬂagging. We created a dataset of prompts and completions,
+where some of prompts or completions were sensitive (i.e. anything that could elicit strong
+negative feelings, whether by being toxic, sexual, violent, judgemental, political, etc.). We
+labeled this data for sensitivity ourselves, and measured agreement between us and labelers.
+
+labeled this data for sensitivity ourselves, and measured agreement between us and labelers.
+2. Agreement on rankings. We take prompts submitted to our API, and several model
+completions, and have labelers rank the completions by overall quality. We measure their
+agreement with researcher labels.
+3. Sensitive demonstration writing. We created a small set of sensitive prompts, where
+responding to the outputs appropriately would require nuance. We then rated each demon-
+stration on a 1-7 Likert scale, and computed an average “demonstration score” for each
+labeler.
+
+potentially harmful. Thus, we conducted a screening test designed to measure labeler performance
+on these axes. We selected labelers who performed well on this test; for more information about our
+selection procedure and labeler demographics, see Appendix B.1.
+During training and evaluation, our alignment criteria may come into conﬂict: for example, when a
+user requests a potentially harmful response. During training we prioritize helpfulness to the user (not
+7
+
+doing so requires making some difﬁcult design decisions that we leave to future work; see Section 5.4
+for more discussion). However, in our ﬁnal evaluations we asked labelers prioritize truthfulness and
+harmlessness (since this is what we really care about).
+As in Stiennon et al. (2020), we collaborate closely with labelers over the course of the project. We
+have an onboarding process to train labelers on the project, write detailed instructions for each task
+(see Appendix B.2), and answer labeler questions in a shared chat room.","To select labelers who can effectively detect and rate sensitive content, we evaluated them based on their agreement on sensitive speech flagging, their ability to rank model completions by overall quality, and their performance on a demonstration writing test measuring their ability to respond appropriately to sensitive prompts.","To select labelers who can effectively detect and rate sensitive content, we evaluated them based on their agreement on sensitive speech flagging, their ability to rank model completions by overall quality, and their performance on a demonstration writing test measuring their ability to respond appropriately to sensitive prompts."
+145,multi-qa-mpnet-base-dot-v1,768,full_question_marketing,600,100,6,mistralai/Mistral-7B-Instruct-v0.3,0.2,0.95,True,1.1,200,502.763132,marketing,95,What are the primary techniques involved in steering the behavior of language models without modifying their underlying architectures?,"for example, it may be beneﬁcial to use language models to generate toxic outputs as part of a data
+augmentation pipeline. Our techniques can also be applied to making models refuse certain user
+instructions, and we plan to explore this in subsequent iterations of this research.
+Getting models to do what we want is directly related to the steerability and controllability litera-
+ture (Dathathri et al., 2019; Krause et al., 2020). A promising future path is combining RLHF with
+other methods of steerability, for example using control codes (Keskar et al., 2019), or modifying the
+
+After the success of many large-scale general language models, many QA models embrace the following approach:
+
+model text from under-represented groups, due to prejudicial correlations in the training data (Xu
+et al., 2021).
+Modifying the behavior of language models to mitigate harms.
+There are many ways to change
+the generation behavior of language models. Solaiman and Dennison (2021) ﬁne-tune LMs on a
+small, value-targeted dataset, which improves the models’ ability to adhere to these values on a
+question answering task. Ngo et al. (2021) ﬁlter the pretraining dataset by removing documents on
+which a language model has a high conditional likelihood of generating a set of researcher-written
+
+some simple baselines, and their scaling properties.
+Training language models to follow instructions.
+Our work is also related to research on cross-
+task generalization in language models, where LMs are ﬁne-tuned on a broad range of public NLP
+datasets (usually preﬁxed with an appropriate instruction) and evaluated on a different set of NLP
+tasks. There has been a range of work in this domain (Yi et al., 2019; Mishra et al., 2021; Wei
+et al., 2021; Khashabi et al., 2020; Sanh et al., 2021; Aribandi et al., 2021), which differ in training
+
+[92] D. Zhou, N. Sch¨arli, L. Hou, J. Wei, N. Scales, X. Wang, D. Schu-
+urmans, C. Cui, O. Bousquet, Q. Le et al., “Least-to-most prompting
+enables complex reasoning in large language models,” arXiv preprint
+arXiv:2205.10625, 2022.
+[93] S. Dhuliawala, M. Komeili, J. Xu, R. Raileanu, X. Li, A. Celikyilmaz,
+and J. Weston, “Chain-of-verification reduces hallucination in large
+language models,” arXiv preprint arXiv:2309.11495, 2023.
+[94] X. Li and J. Li, “Angle-optimized text embeddings,” arXiv preprint
+arXiv:2309.12871, 2023.
+[95] VoyageAI, “Voyage’s embedding models,” https://docs.voyageai.com/
+
+accelerated inference of large language models,” in EMNLP, 2023.
+[170] N. F. Liu, K. Lin, J. Hewitt et al., “Lost in the middle: How language
+models use long contexts,” arxiv:2307.03172, 2023.
+[171] T. Ahmed, K. S. Pai, P. Devanbu, and E. T. Barr, “Automatic semantic
+augmentation of language model prompts (for code summarization),”
+arXiv:2304.06815, 2024.
+[172] Z. Xu, Z. Liu, Y. Liu et al., “Activerag: Revealing the treasures of
+knowledge via active learning,” arXiv:2402.13547, 2024.
+[173] E. Nijkamp, B. Pang, H. Hayashi et al., “A conversational paradigm","The primary techniques involved in steering the behavior of language models without modifying their underlying architectures include fine-tuning on small, value-targeted datasets (Solaiman & Dennison, 2021), using control codes (Keskar et al., 2019), and employing least-to-most prompting (Zhou et al., 2022). These methods help make language models adhere to specific values and follow given instructions more accurately.","The primary techniques involved in steering the behavior of language models without modifying their underlying architectures include fine-tuning on small, value-targeted datasets (Solaiman & Dennison, 2021), using control codes (Keskar et al., 2019), and employing least-to-most prompting (Zhou et al., 2022). These methods help make language models adhere to specific values and follow given instructions more accurately."

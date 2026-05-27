@@ -1,0 +1,1173 @@
+embedding_model,embedding_dim,config_name,chunksize,chunkoverlap,num_retrieve,llm_name,llm_temp,llm_top_p,llm_do_sample,llm_repetition_penalty,llm_max_new_tokens,inference_time,audience_type,question_num,question,context,response,cleaned_response
+multi-qa-mpnet-base-dot-v1,768,research_prompt_48,512,100,5,Cohere,0.2,0.95,True,1.1,200,5.489332,research,0,What defines a large language model in the context of natural language processing tasks?,"language modelling tasks. Nonetheless, large language models face several challenges, including
+their overwhelming computational requirements (the cost of training and inference increase with
+model size) (Rae et al., 2021; Thoppilan et al., 2022) and the need for acquiring more high-quality
+training data. In fact, in this work we ﬁnd that larger, high quality datasets will play a key role in any
+further scaling of language models.
+Modelling the scaling behavior.
+
+A large language model (LLM) is a language model trained with self-supervised machine learning on a vast amount of text, designed for natural language processing tasks, especially language generation. The largest and most capable LLMs are generative pre-trained transformers (GPTs) and provide the core capabilities of modern chatbots. LLMs can be fine-tuned for specific tasks or guided by prompt engineering. These models acquire predictive power regarding syntax, semantics, and ontologies inherent in human
+
+175 Billion
+3.85e+24
+6.7
+3.7 Trillion
+280 Billion
+9.90e+24
+17.2
+5.9 Trillion
+520 Billion
+3.43e+25
+59.5
+11.0 Trillion
+1 Trillion
+1.27e+26
+221.3
+21.2 Trillion
+10 Trillion
+1.30e+28
+22515.9
+216.2 Trillion
+large language models are considerably over-sized, given their respective compute budgets, as shown
+in Figure 1. For example, we ﬁnd that a 175 billion parameter model should be trained with a compute
+budget of 4.41 × 1024 FLOPs and on over 4.2 trillion tokens. A 280 billion Gopher-like model is the
+
+The amount of computation used for training big language models of different sizes is getting big. (Image source: Brown et al., 2020).
+
+A large language model (LLM) is a type of machine learning model designed for natural language processing tasks such as language generation. LLMs are language models with many parameters, and are trained with self-supervised learning on a vast amount of text.
+
+
+== List ==
+For the training cost column, 1 petaFLOP-day = 1 petaFLOP/sec × 1 day = 8.64E19 FLOP. Also, only the largest model's cost is written.
+
+
+== Timeline ==
+
+
+== See also ==
+List of chatbots
+List of language model benchmarks
+
+
+== Notes ==","A large language model (LLM) in the context of natural language processing tasks is defined as a language model with a vast number of parameters, trained using self-supervised machine learning on an extensive corpus of text. These models are specifically designed for tasks such as language generation and are characterized by their ability to acquire predictive power regarding syntax, semantics, and ontologies inherent in human language. LLMs, particularly generative pre-trained transformers (GPTs), are fine-tuned for specific tasks or guided by prompt engineering. The training of such models requires substantial computational resources, with larger models demanding increasing compute budgets and high-quality training data, as exemplified by models with parameter counts in the billions requiring training on trillions of tokens and compute budgets in the order of 10²⁴ FLOPs. The scaling behavior of these models highlights the critical role of larger, high-quality datasets in further advancements.","A large language model (LLM) in the context of natural language processing tasks is defined as a language model with a vast number of parameters, trained using self-supervised machine learning on an extensive corpus of text. These models are specifically designed for tasks such as language generation and are characterized by their ability to acquire predictive power regarding syntax, semantics, and ontologies inherent in human language. LLMs, particularly generative pre-trained transformers (GPTs), are fine-tuned for specific tasks or guided by prompt engineering. The training of such models requires substantial computational resources, with larger models demanding increasing compute budgets and high-quality training data, as exemplified by models with parameter counts in the billions requiring training on trillions of tokens and compute budgets in the order of 10²⁴ FLOPs. The scaling behavior of these models highlights the critical role of larger, high-quality datasets in further advancements."
+multi-qa-mpnet-base-dot-v1,768,research_prompt_48,512,100,5,Cohere,0.2,0.95,True,1.1,200,5.489332,research,7,What licensing terms are associated with source-available models like Mistral AI's language models?,"reduced inference cost. We also provide a model fine-tuned to follow instructions,
+Mistral 7B – Instruct, that surpasses Llama 2 13B – chat model both on human and
+automated benchmarks. Our models are released under the Apache 2.0 license.
+Code: https://github.com/mistralai/mistral-src
+Webpage: https://mistral.ai/news/announcing-mistral-7b/
+1
+Introduction
+In the rapidly evolving domain of Natural Language Processing (NLP), the race towards higher model
+
+been extensively documented (Bender et al., 2021; Bommasani et al., 2021; Kenton et al., 2021;
+Weidinger et al., 2021; Tamkin et al., 2021). Language models can produce biased outputs (Dhamala
+et al., 2021; Liang et al., 2021; Manela et al., 2021; Caliskan et al., 2017; Kirk et al., 2021), leak
+private data (Carlini et al., 2021), generate misinformation (Solaiman et al., 2019; Buchanan et al.,
+2021), and be used maliciously; for a thorough review we direct the reader to Weidinger et al. (2021).
+
+misuse, there are many domains where large language models should be deployed only with great
+care, or not at all. Examples include high-stakes domains such as medical diagnoses, classifying
+people based on protected characteristics, determining eligibility for credit, employment, or hous-
+ing, generating political advertisements, and law enforcement. If these models are open-sourced,
+it becomes challenging to limit harmful applications in these and other domains without proper
+
+2017.
+L. Weidinger, J. Mellor, M. Rauh, C. Griﬃn, J. Uesato, P.-S. Huang, M. Cheng, M. Glaese, B. Balle,
+A. Kasirzadeh, Z. Kenton, S. Brown, W. Hawkins, T. Stepleton, C. Biles, A. Birhane, J. Haas, L. Rimell,
+L. A. Hendricks, W. Isaac, S. Legassick, G. Irving, and I. Gabriel. Ethical and social risks of harm
+from language models. arXiv submission, 2021.
+20
+
+eralization of language models as generic plug-in.
+arXiv preprint arXiv:2305.17331.
+Ruochen Zhao, Hailin Chen, Weishi Wang, Fangkai
+Jiao, Xuan Long Do, Chengwei Qin, Bosheng
+Ding, Xiaobao Guo, Minzhi Li, Xingxuan Li, et al.","The Mistral AI language models, including Mistral 7B – Instruct, are released under the **Apache 2.0 license**, a permissive open-source license that allows for free use, modification, and distribution of the software, including for commercial purposes, with minimal restrictions. This license requires the preservation of copyright notices and disclaimers but does not impose copyleft provisions, enabling integration into proprietary systems. The models are accessible via the provided GitHub repository (https://github.com/mistralai/mistral-src) and further details are available on the official webpage (https://mistral.ai/news/announcing-mistral-7b/). No additional implementation details or methodologies regarding licensing are specified in the context.","The Mistral AI language models, including Mistral 7B – Instruct, are released under the Apache 2.0 license, a permissive open-source license that allows for free use, modification, and distribution of the software, including for commercial purposes, with minimal restrictions. This license requires the preservation of copyright notices and disclaimers but does not impose copyleft provisions, enabling integration into proprietary systems. The models are accessible via the provided GitHub repository (https://github.com/mistralai/mistral-src) and further details are available on the official webpage (https://mistral.ai/news/announcing-mistral-7b/). No additional implementation details or methodologies regarding licensing are specified in the context."
+multi-qa-mpnet-base-dot-v1,768,research_prompt_48,512,100,5,Cohere,0.2,0.95,True,1.1,200,5.489332,research,11,Which components have allowed large language models to surpass their predecessors?,"After the success of many large-scale general language models, many QA models embrace the following approach:
+
+== Background ==
+After the release of large language models such as GPT-3, a focus of research was up-scaling models, which in some instances showed major increases in emergent capabilities. The release of ChatGPT and its surprise success caused an increase in attention to large language models.
+Compared with other responses to ChatGPT, Meta's Chief AI scientist Yann LeCun stated that large language models are best for aiding with writing.
+
+
+== Versions ==
+
+techniques like reinforcement learning from human feedback, which can improve the quality of a large language model's responses.
+
+language models,” arXiv preprint arXiv:2309.11495, 2023.
+[94] X. Li and J. Li, “Angle-optimized text embeddings,” arXiv preprint
+arXiv:2309.12871, 2023.
+[95] VoyageAI, “Voyage’s embedding models,” https://docs.voyageai.com/
+embeddings/, 2023.
+[96] BAAI,
+“Flagembedding,”
+https://github.com/FlagOpen/
+FlagEmbedding, 2023.
+[97] P. Zhang, S. Xiao, Z. Liu, Z. Dou, and J.-Y. Nie, “Retrieve anything
+to augment large language models,” arXiv preprint arXiv:2310.07554,
+2023.
+
+and fluency tradeoffs for retrieval-augmented large language models,”
+arXiv:2302.05578, 2023.
+[349] C. Han, Q. Wang, W. Xiong et al., “Lm-infinite: Simple on-the-fly
+length generalization for large language models,” arXiv:2308.16137,
+2023.
+[350] H.
+Chase,
+“Langchain,”
+https://github.com/langchain-ai/langchain,
+2022.
+[351] W. Jiang, S. Zhang, B. Han et al., “Piperag: Fast retrieval-augmented
+generation via algorithm-system co-design,” arXiv:2403.05676, 2024.","The provided context does not contain sufficient information about the specific components that have allowed large language models to surpass their predecessors. It mentions the success of large-scale general language models and the focus on up-scaling, as well as techniques like reinforcement learning from human feedback, but does not provide detailed technical information on the components or methodologies that have led to their improved performance.","The provided context does not contain sufficient information about the specific components that have allowed large language models to surpass their predecessors. It mentions the success of large-scale general language models and the focus on up-scaling, as well as techniques like reinforcement learning from human feedback, but does not provide detailed technical information on the components or methodologies that have led to their improved performance."
+multi-qa-mpnet-base-dot-v1,768,research_prompt_48,512,100,5,Cohere,0.2,0.95,True,1.1,200,5.489332,research,19,What is the significant enhancement in Claude 2.1 compared to its previous version?,"improvements in knowledge-intensive tasks after fine-tuning or used with off-the-shelf LMs (Ram
+et al., 2023). A more recent work (Luo et al., 2023) instruction-tunes an LM with a fixed number
+2
+
+32.3
+52.3
+37.0
+77.0
+70.1
+80.5
+30.4
+53.7
+29.6
+57.9
+51.9
+GTR-XL (1.5B)
+48.0
+56.0
+41.5
+86.1
+67.1
+77.8
+30.2
+58.4
+32.0
+60.4
+55.5
+INSTRUCTOR-XL (1.5B)
+49.3
+57.3
+44.7
+86.6
+73.2
+83.1
+32.0
+61.8
+34.1
+68.6
+58.8
+Relative gain (%)
++2.7
++2.3
++7.7
++0.6
++9.1
++6.9
++6.0
++5.8
++6.6
++13.6
++5.9
+Table 2: Results on the massive text embedding benchmark (MTEB; Muennighoff et al., 2022), Billboard (Kasai
+et al., 2022a), and prompt retrieval (Su et al., 2022). The last column averages performance scores over 9 categories
+
+nih_exporter
+uspto_backgrounds
+pubmed_central
+pile_cc
+bookcorpus2
+stackexchange
+opensubtitles
+openwebtext2
+hackernews
+dm_mathematics
+arxiv
+freelaw
+books3
+philpapers
+github
+ubuntu_irc
+europarl
+gutenberg_pg_19
+0.00
+0.02
+0.04
+0.06
+0.08
+0.10
+Decrease in bpb 
+ compared to Gopher
+Figure 5 | Pile Evaluation. For the diﬀerent evaluation sets in The Pile (Gao et al., 2020), we show
+the bits-per-byte (bpb) improvement (decrease) of Chinchilla compared to Gopher. On all subsets,
+Chinchilla outperforms Gopher.
+
+approach, fine-grained segmentation, and the incorporation of
+metadata. Additionally, it incorporates several optimization
+methods to streamline the retrieval process [8].
+
+MTEB, Billboard, and prompt retrieval respec-
+tively. Specifically, among all task categories, IN-
+STRUCTOR (335M) demonstrates large improve-
+ments over GTR-Large on the text evaluation
+(18.3%), classification (10.1%), and clustering
+tasks (8.9%). Particularly noteworthy is INSTRUC-
+TOR’s performance compared to the previous state-
+of-the-art model, Sent-T5-XXL (58.4 vs. 56.5 on
+average), despite the fact that INSTRUCTOR has
+one order of magnitude fewer parameters (335M
+vs. 4.8B).","The provided context does not contain sufficient information about the significant enhancements in Claude 2.1 compared to its previous version. The context focuses on improvements in language models (LMs) like GTR-XL, INSTRUCTOR-XL, and their performance on benchmarks such as MTEB, Billboard, and prompt retrieval, as well as comparisons between Chinchilla and Gopher on The Pile dataset. There is no mention of Claude 2.1 or its specific enhancements.","The provided context does not contain sufficient information about the significant enhancements in Claude 2.1 compared to its previous version. The context focuses on improvements in language models (LMs) like GTR-XL, INSTRUCTOR-XL, and their performance on benchmarks such as MTEB, Billboard, and prompt retrieval, as well as comparisons between Chinchilla and Gopher on The Pile dataset. There is no mention of Claude 2.1 or its specific enhancements."
+multi-qa-mpnet-base-dot-v1,768,research_prompt_48,512,100,5,Cohere,0.2,0.95,True,1.1,200,5.489332,research,27,What is the significance of the accuracy percentage achieved by Chinchilla on the MMLU benchmark?,"The Massive Multitask Language Understanding (MMLU) benchmark (Hendrycks et al., 2020) consists
+of a range of exam-like questions on academic subjects. In Table 6, we report Chinchilla’s average
+5-shot performance on MMLU (the full breakdown of results is shown in Table A6). On this benchmark,
+Chinchilla signiﬁcantly outperforms Gopher despite being much smaller, with an average accuracy of
+67.6% (improving upon Gopher by 7.6%). Remarkably, Chinchilla even outperforms the expert forecast
+
+10-shot accuracy. In stark contrast with the ﬁndings of Lin et al. (2021), the large improvements
+(14.1% in 0-shot accuracy) achieved by Chinchilla suggest that better modelling of the pre-training
+data alone can lead to substantial improvements on this benchmark.
+12
+
+On the ﬁnal word prediction dataset LAMBADA (Paperno et al., 2016), Chinchilla achieves 77.4%
+accuracy, compared to 74.5% accuracy from Gopher and 76.6% from MT-NLG 530B (see Table 7). On
+RACE-h and RACE-m (Lai et al., 2017), Chinchilla greatly outperforms Gopher, improving accuracy
+by more than 10% in both cases—see Table 7.
+4.2.4. BIG-bench
+We analysed Chinchilla on the same set of BIG-bench tasks (BIG-bench collaboration, 2021) reported
+
+64.9
+sociology
+91.0
+84.1
+us_foreign_policy
+92.0
+81.0
+virology
+53.6
+47.0
+world_religions
+87.7
+84.2
+Table A6 | Chinchilla MMLU results. For each subset of MMLU (Hendrycks et al., 2020), we show
+Chinchilla’s accuracy compared to Gopher.
+Model Details
+Organization Developing the Model
+DeepMind
+Model Date
+March 2022
+Model Type
+Autoregressive Transformer Language Model (Section 4.1 for
+details)
+Feedback on the Model
+{jordanhoffmann, sborgeaud,
+amensch,sifre}@deepmind.com
+Intended Uses
+Primary Intended Uses
+
+4× more more data. Chinchilla uniformly and signiﬁcantly outperforms Gopher (280B), GPT-3 (175B),
+Jurassic-1 (178B), and Megatron-Turing NLG (530B) on a large range of downstream evaluation tasks.
+This also means that Chinchilla uses substantially less compute for ﬁne-tuning and inference, greatly
+facilitating downstream usage. As a highlight, Chinchilla reaches a state-of-the-art average accuracy of
+67.5% on the MMLU benchmark, greater than a 7% improvement over Gopher.
+1. Introduction","The significance of Chinchilla's 67.6% accuracy on the MMLU benchmark lies in its substantial improvement over larger models like Gopher (7.6% better) and its outperformance of expert forecasts, despite being a smaller model. This achievement highlights that better modeling of pre-training data alone can yield significant gains, as evidenced by the 14.1% improvement in 0-shot accuracy compared to previous findings. Chinchilla's autoregressive Transformer architecture, trained on 4× more data, demonstrates that efficient data utilization can surpass the performance of larger models, reducing compute requirements for fine-tuning and inference. This result underscores the importance of data scaling and model optimization in achieving state-of-the-art performance on academic, exam-like tasks.","The significance of Chinchilla's 67.6% accuracy on the MMLU benchmark lies in its substantial improvement over larger models like Gopher (7.6% better) and its outperformance of expert forecasts, despite being a smaller model. This achievement highlights that better modeling of pre-training data alone can yield significant gains, as evidenced by the 14.1% improvement in 0-shot accuracy compared to previous findings. Chinchilla's autoregressive Transformer architecture, trained on 4× more data, demonstrates that efficient data utilization can surpass the performance of larger models, reducing compute requirements for fine-tuning and inference. This result underscores the importance of data scaling and model optimization in achieving state-of-the-art performance on academic, exam-like tasks."
+multi-qa-mpnet-base-dot-v1,768,research_prompt_48,512,100,5,Cohere,0.2,0.95,True,1.1,200,5.489332,research,28,Why is Chinchilla considered more efficient in terms of computing power for inference and fine-tuning?,"tokens. Not only does Chinchilla outperform its much larger counterpart, Gopher, but its reduced
+model size reduces inference cost considerably and greatly facilitates downstream uses on smaller
+hardware. The energy cost of a large language model is amortized through its usage for inference an
+ﬁne-tuning. The beneﬁts of a more optimally trained smaller model, therefore, extend beyond the
+immediate beneﬁts of its improved performance.
+
+4× more more data. Chinchilla uniformly and signiﬁcantly outperforms Gopher (280B), GPT-3 (175B),
+Jurassic-1 (178B), and Megatron-Turing NLG (530B) on a large range of downstream evaluation tasks.
+This also means that Chinchilla uses substantially less compute for ﬁne-tuning and inference, greatly
+facilitating downstream usage. As a highlight, Chinchilla reaches a state-of-the-art average accuracy of
+67.5% on the MMLU benchmark, greater than a 7% improvement over Gopher.
+1. Introduction
+
+7.16 compared to 7.75 for Gopher. Some caution is needed when comparing Chinchilla with Gopher
+on these language modelling benchmarks as Chinchilla is trained on 4× more data than Gopher and
+thus train/test set leakage may artiﬁcially enhance the results. We thus place more emphasis on other
+10
+
+We analysed Chinchilla on the same set of BIG-bench tasks (BIG-bench collaboration, 2021) reported
+in Rae et al. (2021). Similar to what we observed in MMLU, Chinchilla outperforms Gopher on the
+vast majority of tasks (see Figure 7). We ﬁnd that Chinchilla improves the average performance
+by 10.7%, reaching an accuracy of 65.1% versus 54.4% for Gopher. Of the 62 tasks we consider,
+Chinchilla performs worse than Gopher on only four—crash_blossom, dark_humor_detection,
+11
+
+On the ﬁnal word prediction dataset LAMBADA (Paperno et al., 2016), Chinchilla achieves 77.4%
+accuracy, compared to 74.5% accuracy from Gopher and 76.6% from MT-NLG 530B (see Table 7). On
+RACE-h and RACE-m (Lai et al., 2017), Chinchilla greatly outperforms Gopher, improving accuracy
+by more than 10% in both cases—see Table 7.
+4.2.4. BIG-bench
+We analysed Chinchilla on the same set of BIG-bench tasks (BIG-bench collaboration, 2021) reported","Chinchilla is considered more efficient in terms of computing power for inference and fine-tuning due to its reduced model size compared to larger models like Gopher, which significantly lowers inference costs and facilitates deployment on smaller hardware. The model's optimal training on 4× more data enhances its performance while using substantially less compute for fine-tuning and inference, as evidenced by its state-of-the-art results on benchmarks like MMLU and BIG-bench. This efficiency extends beyond immediate performance gains, as the energy cost of the model is better amortized through its usage, making it a more resource-effective solution for downstream tasks.","Chinchilla is considered more efficient in terms of computing power for inference and fine-tuning due to its reduced model size compared to larger models like Gopher, which significantly lowers inference costs and facilitates deployment on smaller hardware. The model's optimal training on 4× more data enhances its performance while using substantially less compute for fine-tuning and inference, as evidenced by its state-of-the-art results on benchmarks like MMLU and BIG-bench. This efficiency extends beyond immediate performance gains, as the energy cost of the model is better amortized through its usage, making it a more resource-effective solution for downstream tasks."
+multi-qa-mpnet-base-dot-v1,768,research_prompt_48,512,100,5,Cohere,0.2,0.95,True,1.1,200,5.489332,research,33,What assumptions must be met in order for the reparameterization of reward functions to be applied within the context of Plackett-Luce and Bradley-Terry models?,"Theorem 1. Under mild assumptions, all reward classes consistent with the Plackett-Luce
+(and Bradley-Terry in particular) models can be represented with the reparameterization
+r(x, y) = β log
+π(y|x)
+πref(y|x) for some model π(y | x) and a given reference model πref(y | x).
+Proof Sketch. Consider any reward function r(x, y), which induces a corresponding optimal model
+πr(y | x), specified by Eq. 4. We will show that a reward function from the equivalence class of r
+
+corresponding optimal policy πr, the reference policy πref, and the unknown partition function Z(·).
+Specifically, we first take the logarithm of both sides of Eq. 4 and then with some algebra we obtain:
+r(x, y) = β log πr(y | x)
+πref(y | x) + β log Z(x).
+(5)
+We can apply this reparameterization to the ground-truth reward r∗and corresponding optimal model
+π∗. Fortunately, the Bradley-Terry model depends only on the difference of rewards between two
+
+we usually have to impose additional identifiability constraints to achieve any guarantees on the MLE
+estimates from Eq. 2 [4]. The second lemma states that all reward functions from the same class
+yield the same optimal policy, hence for our final objective, we are only interested in recovering an
+arbitrary reward function from the optimal class. We prove the following Theorem in Appendix A.6:
+Theorem 1. Under mild assumptions, all reward classes consistent with the Plackett-Luce
+
+Definition 1. We say that two reward functions r(x, y) and r′(x, y) are equivalent iff
+r(x, y) −r′(x, y) = f(x) for some function f.
+It is easy to see that this is indeed an equivalence relation, which partitions the set of reward functions
+into classes. We can state the following two lemmas:
+Lemma 1. Under the Plackett-Luce, and in particular the Bradley-Terry, preference framework, two
+reward functions from the same class induce the same preference distribution.
+
+Notice that when K = 2, Equation 18 reduces to the Bradley-Terry model. However, for the general
+Plackett-Luce model, we can still utilize the results of Eq. 5 and substitute the reward function
+parameterized by its optimal policy. Similarly to Appendix A.2, the normalization constant Z(x)
+cancels out and we’re left with:
+p∗(τ|y1, . . . , yK, x) =
+K
+Y
+k=1
+exp
+
+β log
+π∗(yτ(k)|x)
+πref(yτ(k)|x)
+
+PK
+j=k exp
+
+β log
+π∗(yτ(j)|x)
+πref(yτ(j)|x)
+
+(19)
+16","The reparameterization of reward functions \( r(x, y) = \beta \log \frac{\pi(y|x)}{\pi_{\text{ref}}(y|x)} \) within the context of Plackett-Luce and Bradley-Terry models relies on the assumption that the reward functions are equivalent up to a function of \( x \) (i.e., \( r(x, y) - r'(x, y) = f(x) \)), as defined in Definition 1. Additionally, Lemma 1 ensures that reward functions from the same equivalence class induce the same preference distribution under these models. The proof sketch further assumes the existence of a corresponding optimal policy \( \pi_r(y|x) \) and a reference policy \( \pi_{\text{ref}}(y|x) \), with the partition function \( Z(x) \) canceling out in the reparameterization, as shown in Equation 5. These assumptions are critical for the reparameterization to hold, ensuring that the difference in rewards between alternatives is sufficient to determine preferences, as emphasized in the Bradley-Terry model's dependency on reward differences. Implementation-wise, the methodology involves taking the logarithm of the optimal policy ratio and incorporating the reference policy, with the normalization constant \( Z(x) \) eliminated through algebraic manipulation.","The reparameterization of reward functions \( r(x, y) = \beta \log \frac{\pi(y|x)}{\pi_{\text{ref}}(y|x)} \) within the context of Plackett-Luce and Bradley-Terry models relies on the assumption that the reward functions are equivalent up to a function of \( x \) (i.e., \( r(x, y) - r'(x, y) = f(x) \)), as defined in Definition 1. Additionally, Lemma 1 ensures that reward functions from the same equivalence class induce the same preference distribution under these models. The proof sketch further assumes the existence of a corresponding optimal policy \( \pi_r(y|x) \) and a reference policy \( \pi_{\text{ref}}(y|x) \), with the partition function \( Z(x) \) canceling out in the reparameterization, as shown in Equation 5. These assumptions are critical for the reparameterization to hold, ensuring that the difference in rewards between alternatives is sufficient to determine preferences, as emphasized in the Bradley-Terry model's dependency on reward differences. Implementation-wise, the methodology involves taking the logarithm of the optimal policy ratio and incorporating the reference policy, with the normalization constant \( Z(x) \) eliminated through algebraic manipulation."
+multi-qa-mpnet-base-dot-v1,768,research_prompt_48,512,100,5,Cohere,0.2,0.95,True,1.1,200,5.489332,research,53,What are the implications of adding updates on the pretraining data during the fine-tuning phase of model development based on the observed performance of the models?,"Pre-training Data Issues#
+The volume of the pre-training data corpus is enormous, as it is supposed to represent world knowledge in all available written forms. Data crawled from the public Internet is the most common choice and thus out-of-date, missing, or incorrect information is expected. As the model may incorrectly memorize this information by simply maximizing the log-likelihood, we would expect the model to make mistakes.
+Fine-tuning New Knowledge#
+
+ity of its training data, and it can be further improved by fine-tuning with
+domain-specific knowledge. Fine-tuning involves retraining the model with
+specialized datasets, allowing it to internalize specific organizational knowl-
+edge for more precise and relevant responses. This process keeps the model
+updated and tailored to the user’s needs while maintaining privacy.
+5
+Preliminary Evaluation of the Guide
+5.1
+Feedback Process Overview
+
+Many methods could be tried to further decrease the models’ propensity to generate toxic, biased,
+or otherwise harmful outputs. For example, one could use an adversarial set-up where labelers ﬁnd
+the worst-case behaviors of the model, which are then labeled and added to the dataset (Dinan et al.,
+2019b). One could also combine our method with ways of ﬁltering the pretraining data (Ngo et al.,
+2021), either for training the initial pretrained models, or for the data we use for our pretraining
+
+such as improved explainability, faithfulness, and controlla-
+bility in generation (§A).
+D.2. Taking an existing model (e.g. vanilla CM3) and
+finetune it with retrieval-augmentation, instead of
+training the retrieval-augmented model (RA-CM3)
+from scratch
+In practice, finetuning from the vanilla model can save com-
+pute for training RA-CM3 and is useful. The reason we
+trained RA-CM3 and vanilla CM3 both from scratch in our
+main experiments was to make a fair comparison between
+
+Fine-tuning New Knowledge#
+Fine-tuning a pre-trained LLM via supervised fine-tuning and RLHF is a common technique for improving certain capabilities of the model like instruction following. Introducing new knowledge at the fine-tuning stage is hard to avoid.","The provided context does not contain sufficient information about the specific implications of adding updates on the pretraining data during the fine-tuning phase of model development based on observed performance. However, it does mention that fine-tuning involves retraining the model with specialized datasets to internalize specific organizational knowledge, keeping the model updated and tailored to user needs while maintaining privacy. Additionally, it notes that introducing new knowledge during fine-tuning is hard to avoid and can improve capabilities like instruction following, often achieved through supervised fine-tuning and RLHF (Reinforcement Learning from Human Feedback). The context also suggests that fine-tuning from a pre-trained model (e.g., vanilla CM3) can save compute resources compared to training retrieval-augmented models (e.g., RA-CM3) from scratch, though the latter was done in main experiments for fair comparison. No direct implications of updating pretraining data during fine-tuning are discussed.","The provided context does not contain sufficient information about the specific implications of adding updates on the pretraining data during the fine-tuning phase of model development based on observed performance. However, it does mention that fine-tuning involves retraining the model with specialized datasets to internalize specific organizational knowledge, keeping the model updated and tailored to user needs while maintaining privacy. Additionally, it notes that introducing new knowledge during fine-tuning is hard to avoid and can improve capabilities like instruction following, often achieved through supervised fine-tuning and RLHF (Reinforcement Learning from Human Feedback). The context also suggests that fine-tuning from a pre-trained model (e.g., vanilla CM3) can save compute resources compared to training retrieval-augmented models (e.g., RA-CM3) from scratch, though the latter was done in main experiments for fair comparison. No direct implications of updating pretraining data during fine-tuning are discussed."
+multi-qa-mpnet-base-dot-v1,768,research_prompt_48,512,100,5,Cohere,0.2,0.95,True,1.1,200,5.489332,research,63,What are the advantages of applying LoRA to transformer models in terms of computational efficiency during training and deployment?,"LoRA possesses several key advantages.
+• A pre-trained model can be shared and used to build many small LoRA modules for dif-
+ferent tasks. We can freeze the shared model and efﬁciently switch tasks by replacing the
+matrices A and B in Figure 1, reducing the storage requirement and task-switching over-
+head signiﬁcantly.
+• LoRA makes training more efﬁcient and lowers the hardware barrier to entry by up to 3
+times when using adaptive optimizers since we do not need to calculate the gradients or
+
+on Transformer language models, the proposed principles are generally applicable to any neural
+networks with dense layers.
+There are many directions for future works. 1) LoRA can be combined with other efﬁcient adapta-
+tion methods, potentially providing orthogonal improvement. 2) The mechanism behind ﬁne-tuning
+or LoRA is far from clear – how are features learned during pre-training transformed to do well
+on downstream tasks? We believe that LoRA makes it more tractable to answer this than full ﬁne-
+12
+
+trained model weights and injects trainable rank decomposition matrices into each
+layer of the Transformer architecture, greatly reducing the number of trainable pa-
+rameters for downstream tasks. Compared to GPT-3 175B ﬁne-tuned with Adam,
+LoRA can reduce the number of trainable parameters by 10,000 times and the
+GPU memory requirement by 3 times. LoRA performs on-par or better than ﬁne-
+tuning in model quality on RoBERTa, DeBERTa, GPT-2, and GPT-3, despite hav-
+
+size is reduced by roughly 10,000× (from 350GB to 35MB)4. This allows us to train with signiﬁ-
+cantly fewer GPUs and avoid I/O bottlenecks. Another beneﬁt is that we can switch between tasks
+while deployed at a much lower cost by only swapping the LoRA weights as opposed to all the
+parameters. This allows for the creation of many customized models that can be swapped in and out
+on the ﬂy on machines that store the pre-trained weights in VRAM. We also observe a 25% speedup
+
+and the storage/switching cost for hosting independent instances for different tasks. We propose
+LoRA, an efﬁcient adaptation strategy that neither introduces inference latency nor reduces input
+sequence length while retaining high model quality. Importantly, it allows for quick task-switching
+when deployed as a service by sharing the vast majority of the model parameters. While we focused
+on Transformer language models, the proposed principles are generally applicable to any neural","Applying LoRA to transformer models significantly enhances computational efficiency during both training and deployment. During training, LoRA reduces the number of trainable parameters by injecting low-rank decomposition matrices (A and B) into each layer, which decreases GPU memory requirements by up to 3 times compared to full fine-tuning. This reduction in trainable parameters, exemplified by a 10,000× decrease in size (from 350GB to 35MB), allows for training with fewer GPUs and mitigates I/O bottlenecks. During deployment, LoRA enables efficient task-switching by replacing only the LoRA matrices (A and B) instead of the entire model, reducing storage and switching overhead. Additionally, LoRA avoids introducing inference latency or reducing input sequence length while maintaining high model quality, making it suitable for quick task-switching in deployed services.","Applying LoRA to transformer models significantly enhances computational efficiency during both training and deployment. During training, LoRA reduces the number of trainable parameters by injecting low-rank decomposition matrices (A and B) into each layer, which decreases GPU memory requirements by up to 3 times compared to full fine-tuning. This reduction in trainable parameters, exemplified by a 10,000× decrease in size (from 350GB to 35MB), allows for training with fewer GPUs and mitigates I/O bottlenecks. During deployment, LoRA enables efficient task-switching by replacing only the LoRA matrices (A and B) instead of the entire model, reducing storage and switching overhead. Additionally, LoRA avoids introducing inference latency or reducing input sequence length while maintaining high model quality, making it suitable for quick task-switching in deployed services."
+multi-qa-mpnet-base-dot-v1,768,research_prompt_48,512,100,5,Cohere,0.2,0.95,True,1.1,200,5.489332,research,76,"What are the key differences between HALO and non-HALO loss functions, and what impact do these differences have on language model alignment?","sally superior, there is no one loss function either—the best
+HALO depends on the inductive biases that are most ap-
+propriate for a given setting, and much work remains to be
+done in identifying the best HALO for each context.
+Acknowledgements
+We thank Percy Liang, Dilip Arumugam, Arya McCarthy,
+and Nathan Lambert for feedback. We thank Stas Bekman
+and Gautam Mittal for cluster assistance and Alex Manthey
+for helping with human evaluation.
+Impact Statement
+
+This is not a HALO, since that would demand that
+−log πref(y|x) always equal the reference point; how-
+ever, since the reference point is fixed for a given x, this
+is not possible when πref is a non-uniform distribution.
+2. SLiC: Sequence Likelihood Calibration (Zhao et al.,
+2023), which combines a max-margin loss for prefer-
+ences with a language modeling loss, is not a HALO
+(for the same reasons given above for CSFT):
+Lcal(πθ) = Ex,yw,yl∼D
+
+max
+
+0, δ −log πθ(yw|x)
+πθ(yl|x)
+
+
+using one default loss?
+On a more technical level, important directions include
+developing HALOs that: (1) incorporate granular feedback,
+such as a score, especially when optimizing for multiple
+desiderata; (2) work for other modalities (e.g. images) and
+model classes (e.g., diffusion models), especially models
+that do not produce an explicit distribution over the output
+space; (3) can resolve contradictions in feedback according
+to different definitions of fairness; (4) are designed to be
+
+ultimately suggests that there is no one HALO that is uni-
+versally superior; the best HALO depends on the inductive
+biases appropriate for a given setting, and this choice should
+be made deliberately instead of defaulting to any one loss.
+2Our code is available on Github; models are on Huggingface.
+2. Background
+For a detailed survey, please see Appendix A. In brief, LLMs
+are traditionally trained in three stages (Ouyang et al., 2022):
+Pretraining
+Given a large corpus, train the model to max-
+
+since both HALOs and non-HALOs are diverse function
+classes, but we attempt to do so by comparing popular meth-
+ods that qualify as a HALO with those that do not:
+1. CSFT: Conditional SFT is a simple alignment method
+where a control token is prepended to the output during
+training; then, at inference, the control token corre-
+sponding to desirable generations is appended to the
+input to induce good generations (Korbak et al., 2023).
+This is not a HALO, since that would demand that","The provided context does not contain sufficient information about the key differences between HALO and non-HALO loss functions in a way that directly answers the question with implementation details, methodologies, and technical terminology. However, it does mention that HALOs (Human-Aligned Loss Objectives) are distinct from non-HALOs like CSFT (Conditional SFT) and SLiC (Sequence Likelihood Calibration) because HALOs require that \(-\log \pi_{\text{ref}}(y|x)\) equals the reference point, which is not possible for non-uniform distributions. Additionally, the context emphasizes that there is no universally superior HALO; the best HALO depends on inductive biases appropriate for a given setting. It also highlights future directions for HALOs, such as incorporating granular feedback, working with other modalities, and resolving contradictions in feedback. These points suggest that HALOs are more context-specific and tailored to alignment goals compared to non-HALOs, but detailed technical differences and their impact on language model alignment are not explicitly provided in the context.","The provided context does not contain sufficient information about the key differences between HALO and non-HALO loss functions in a way that directly answers the question with implementation details, methodologies, and technical terminology. However, it does mention that HALOs (Human-Aligned Loss Objectives) are distinct from non-HALOs like CSFT (Conditional SFT) and SLiC (Sequence Likelihood Calibration) because HALOs require that \(-\log \pi_{\text{ref}}(y|x)\) equals the reference point, which is not possible for non-uniform distributions. Additionally, the context emphasizes that there is no universally superior HALO; the best HALO depends on inductive biases appropriate for a given setting. It also highlights future directions for HALOs, such as incorporating granular feedback, working with other modalities, and resolving contradictions in feedback. These points suggest that HALOs are more context-specific and tailored to alignment goals compared to non-HALOs, but detailed technical differences and their impact on language model alignment are not explicitly provided in the context."
+multi-qa-mpnet-base-dot-v1,768,research_prompt_48,512,100,5,Cohere,0.2,0.95,True,1.1,200,5.489332,research,87,What are the main components that complement the central controller in an autonomous agent system?,"}
+]
+Challenges#
+After going through key ideas and demos of building LLM-centered agents, I start to see a couple common limitations:
+
+Component One: Planning#
+A complicated task usually involves many steps. An agent needs to know what they are and plan ahead.
+Task Decomposition#
+
+Planning
+
+Subgoal and decomposition: The agent breaks down large tasks into smaller, manageable subgoals, enabling efficient handling of complex tasks.
+Reflection and refinement: The agent can do self-criticism and self-reflection over past actions, learn from mistakes and refine them for future steps, thereby improving the quality of final results.
+
+
+Memory
+
+== Overview ==
+
+Proof-of-Concept Examples#
+AutoGPT has drawn a lot of attention into the possibility of setting up autonomous agents with LLM as the main controller. It has quite a lot of reliability issues given the natural language interface, but nevertheless a cool proof-of-concept demo. A lot of code in AutoGPT is about format parsing.
+Here is the system message used by AutoGPT, where {{...}} are user inputs:
+You are {{ai-name}}, {{user-provided AI bot description}}.","The provided context does not contain sufficient information about the main components that complement the central controller in an autonomous agent system beyond the mention of **planning** and **memory** as key aspects. The context focuses on task decomposition, subgoal planning, reflection, and refinement as part of the planning component, and briefly mentions AutoGPT as a proof-of-concept example with reliability issues due to its natural language interface. No additional components or implementation details are discussed.","The provided context does not contain sufficient information about the main components that complement the central controller in an autonomous agent system beyond the mention of planning and memory as key aspects. The context focuses on task decomposition, subgoal planning, reflection, and refinement as part of the planning component, and briefly mentions AutoGPT as a proof-of-concept example with reliability issues due to its natural language interface. No additional components or implementation details are discussed."
+multi-qa-mpnet-base-dot-v1,768,research_prompt_48,512,100,5,Cohere,0.2,0.95,True,1.1,200,5.489332,research,92,In what ways can an agent's performance be evaluated and refined over time?,"Planning
+
+Subgoal and decomposition: The agent breaks down large tasks into smaller, manageable subgoals, enabling efficient handling of complex tasks.
+Reflection and refinement: The agent can do self-criticism and self-reflection over past actions, learn from mistakes and refine them for future steps, thereby improving the quality of final results.
+
+
+Memory
+
+many times and in each episode the agent gets a little better, AD concatenates this learning history and feeds that into the model. Hence we should expect the next predicted action to lead to better performance than previous trials. The goal is to learn the process of RL instead of training a task-specific policy itself.
+
+include methods such as observed user behaviour, test collections, precision and recall, and scores from prepared benchmark test sets.
+
+Performance Evaluation:
+1. Continuously review and analyze your actions to ensure you are performing to the best of your abilities.
+2. Constructively self-criticize your big-picture behavior constantly.
+3. Reflect on past decisions and strategies to refine your approach.
+4. Every command has a cost, so be smart and efficient. Aim to complete tasks in the least number of steps.
+
+models consistently show performance regressions, which is mitigated by adding updates on the
+pretraining data during ﬁne-tuning. Few-shot performance is shown in Figure 29. Error bars for
+translation are not available because we use a software package that does not report them.
+E.1
+Performance on public NLP datasets
+We run automatic evaluation tasks on our models that collectively measure bias, toxicity, truthfulness,","An agent's performance can be evaluated and refined through **continuous self-review and analysis**, **constructive self-criticism**, and **reflection on past decisions** to refine strategies, as outlined in the Performance Evaluation section. This process involves **breaking down tasks into subgoals** and **learning from mistakes** via **reflection and refinement**, which is facilitated by concatenating learning history and feeding it into the model, as described in the Memory section. Additionally, **performance regressions** are mitigated by incorporating updates on pretraining data during fine-tuning, and evaluation methodologies include **automatic tasks measuring bias, toxicity, and truthfulness** on public NLP datasets, as mentioned in the Performance on public NLP datasets section. These techniques collectively ensure the agent’s actions are efficient, cost-effective, and progressively improved over time.","An agent's performance can be evaluated and refined through continuous self-review and analysis, constructive self-criticism, and reflection on past decisions to refine strategies, as outlined in the Performance Evaluation section. This process involves breaking down tasks into subgoals and learning from mistakes via reflection and refinement, which is facilitated by concatenating learning history and feeding it into the model, as described in the Memory section. Additionally, performance regressions are mitigated by incorporating updates on pretraining data during fine-tuning, and evaluation methodologies include automatic tasks measuring bias, toxicity, and truthfulness on public NLP datasets, as mentioned in the Performance on public NLP datasets section. These techniques collectively ensure the agent’s actions are efficient, cost-effective, and progressively improved over time."
+multi-qa-mpnet-base-dot-v1,768,research_prompt_48,512,100,5,Cohere,0.2,0.95,True,1.1,200,5.489332,research,95,What are the primary techniques involved in steering the behavior of language models without modifying their underlying architectures?,"techniques like reinforcement learning from human feedback, which can improve the quality of a large language model's responses.
+
+for example, it may be beneﬁcial to use language models to generate toxic outputs as part of a data
+augmentation pipeline. Our techniques can also be applied to making models refuse certain user
+instructions, and we plan to explore this in subsequent iterations of this research.
+Getting models to do what we want is directly related to the steerability and controllability litera-
+ture (Dathathri et al., 2019; Krause et al., 2020). A promising future path is combining RLHF with
+
+Modifying the behavior of language models to mitigate harms.
+There are many ways to change
+the generation behavior of language models. Solaiman and Dennison (2021) ﬁne-tune LMs on a
+small, value-targeted dataset, which improves the models’ ability to adhere to these values on a
+question answering task. Ngo et al. (2021) ﬁlter the pretraining dataset by removing documents on
+which a language model has a high conditional likelihood of generating a set of researcher-written
+
+After the success of many large-scale general language models, many QA models embrace the following approach:
+
+2021; Nangia et al., 2020; Rudinger et al., 2018). Making signiﬁcant progress on these problems is
+hard since well-intentioned interventions on LM behavior can have side-effects (Welbl et al., 2021;
+Blodgett et al., 2020); for instance, efforts to reduce the toxicity of LMs can reduce their ability to
+model text from under-represented groups, due to prejudicial correlations in the training data (Xu
+et al., 2021).
+Modifying the behavior of language models to mitigate harms.
+There are many ways to change","The primary techniques involved in steering the behavior of language models without modifying their underlying architectures include **reinforcement learning from human feedback (RLHF)**, **fine-tuning on value-targeted datasets**, and **filtering pretraining datasets**. RLHF improves response quality by aligning model outputs with human preferences, while fine-tuning on small, value-targeted datasets enhances adherence to specific values, as demonstrated by Solaiman and Dennison (2021). Additionally, dataset filtering removes documents likely to generate harmful outputs, as proposed by Ngo et al. (2021). These methods aim to mitigate harms and improve controllability without altering the model's architecture, leveraging techniques from the steerability and controllability literature (Dathathri et al., 2019; Krause et al., 2020). Implementation involves training models on curated datasets or using RLHF to reward desired behaviors while penalizing undesired ones.","The primary techniques involved in steering the behavior of language models without modifying their underlying architectures include reinforcement learning from human feedback (RLHF), fine-tuning on value-targeted datasets, and filtering pretraining datasets. RLHF improves response quality by aligning model outputs with human preferences, while fine-tuning on small, value-targeted datasets enhances adherence to specific values, as demonstrated by Solaiman and Dennison (2021). Additionally, dataset filtering removes documents likely to generate harmful outputs, as proposed by Ngo et al. (2021). These methods aim to mitigate harms and improve controllability without altering the model's architecture, leveraging techniques from the steerability and controllability literature (Dathathri et al., 2019; Krause et al., 2020). Implementation involves training models on curated datasets or using RLHF to reward desired behaviors while penalizing undesired ones."
+multi-qa-mpnet-base-dot-v1,768,research_prompt_48,512,100,5,Cohere,0.2,0.95,True,1.1,200,5.489332,research,103,What kind of learning challenges does the attention mechanism address in neural machine translation?,"Born for Translation#
+The attention mechanism was born to help memorize long source sentences in neural machine translation (NMT). Rather than building a single context vector out of the encoder’s last hidden state, the secret sauce invented by attention is to create shortcuts between the context vector and the entire source input. The weights of these shortcut connections are customizable for each output element.
+
+A Family of Attention Mechanisms#
+With the help of the attention, the dependencies between source and target sequences are not restricted by the in-between distance anymore! Given the big improvement by attention in machine translation, it soon got extended into the computer vision field (Xu et al. 2015) and people started exploring various other forms of attention mechanisms (Luong, et al., 2015; Britz et al., 2017; Vaswani, et al., 2017).
+Summary#
+
+of an attention mechanism allows models to process entire sequences of text at once, enabling the training of much larger and more sophisticated models. Since 2017, numerous transformer-based NLP systems have been available that are capable of processing, mining, organizing, connecting, contrasting, and summarizing texts as well as correctly answering questions from textual input.
+
+[5] Ilya Sutskever, Oriol Vinyals, and Quoc V. Le. “Sequence to sequence learning with neural networks.” NIPS 2014.
+[6] Thang Luong, Hieu Pham, Christopher D. Manning. “Effective Approaches to Attention-based Neural Machine Translation.” EMNLP 2015.
+[7] Denny Britz, Anna Goldie, Thang Luong, and Quoc Le. “Massive exploration of neural machine translation architectures.” ACL 2017.
+[8] Ashish Vaswani, et al. “Attention is all you need.” NIPS 2017.
+
+Attention Mechanisms#
+In Neural Turing Machine, how to generate the attention distribution $\mathbf{w}_t$ depends on the addressing mechanisms: NTM uses a mixture of content-based and location-based addressings.
+Content-based addressing","The attention mechanism in neural machine translation (NMT) addresses the challenge of memorizing long source sentences by creating shortcuts between the context vector and the entire source input, rather than relying solely on the encoder’s last hidden state. This approach allows for customizable weights of shortcut connections for each output element, enabling the model to capture dependencies between source and target sequences regardless of their distance. By processing entire sequences of text at once, attention mechanisms facilitate the training of larger and more sophisticated models, as evidenced by transformer-based NLP systems since 2017. The implementation involves a mixture of content-based and location-based addressing to generate the attention distribution, as seen in the Neural Turing Machine (NTM) context. This methodology significantly improves the handling of long-range dependencies, which were previously restricted by distance in earlier NMT architectures.","The attention mechanism in neural machine translation (NMT) addresses the challenge of memorizing long source sentences by creating shortcuts between the context vector and the entire source input, rather than relying solely on the encoder’s last hidden state. This approach allows for customizable weights of shortcut connections for each output element, enabling the model to capture dependencies between source and target sequences regardless of their distance. By processing entire sequences of text at once, attention mechanisms facilitate the training of larger and more sophisticated models, as evidenced by transformer-based NLP systems since 2017. The implementation involves a mixture of content-based and location-based addressing to generate the attention distribution, as seen in the Neural Turing Machine (NTM) context. This methodology significantly improves the handling of long-range dependencies, which were previously restricted by distance in earlier NMT architectures."
+multi-qa-mpnet-base-dot-v1,768,research_prompt_48,512,100,5,Cohere,0.2,0.95,True,1.1,200,5.489332,research,110,How does Neural Turing Machine (NTM) simulate the infinite memory characteristic of Turing machines?,"Neural Turing Machine (NTM, Graves, Wayne & Danihelka, 2014) is a model architecture for coupling a neural network with external memory storage. The memory mimics the Turing machine tape and the neural network controls the operation heads to read from or write to the tape. However, the memory in NTM is finite, and thus it probably looks more like a “Neural von Neumann Machine”.
+NTM contains two major components, a controller neural network and a memory bank.
+
+or expensive the procedure might be. The infinite memory gives a Turing machine an edge to be mathematically limitless. However, infinite memory is not feasible in real modern computers and then we only consider Turing machine as a mathematical model of computation.
+
+Neural Turing Machines#
+
+Fig 10. Neural Turing Machine Architecture.
+
+Reading and Writing#
+When reading from the memory at time t, an attention vector of size $N$, $\mathbf{w}_t$ controls how much attention to assign to different memory locations (matrix rows). The read vector $\mathbf{r}_t$ is a sum weighted by attention intensity:
+
+$$
+\mathbf{r}_t = \sum_{i=1}^N w_t(i)\mathbf{M}_t(i)\text{, where }\sum_{i=1}^N w_t(i)=1, \forall i: 0 \leq w_t(i) \leq 1
+$$
+
+NTM contains two major components, a controller neural network and a memory bank.
+Controller: is in charge of executing operations on the memory. It can be any type of neural network, feed-forward or recurrent.
+Memory: stores processed information. It is a matrix of size $N \times M$, containing N vector rows and each has $M$ dimensions.","The provided context does not contain sufficient information about how Neural Turing Machines (NTMs) simulate the infinite memory characteristic of Turing machines. The context mentions that the memory in NTMs is finite and compares it to a ""Neural von Neumann Machine,"" but it does not describe any mechanisms or methodologies for simulating infinite memory. Instead, it focuses on the architecture of NTMs, including the controller neural network and memory bank, as well as the reading and writing processes using attention vectors. No details are provided on how NTMs address or approximate infinite memory.","The provided context does not contain sufficient information about how Neural Turing Machines (NTMs) simulate the infinite memory characteristic of Turing machines. The context mentions that the memory in NTMs is finite and compares it to a ""Neural von Neumann Machine,"" but it does not describe any mechanisms or methodologies for simulating infinite memory. Instead, it focuses on the architecture of NTMs, including the controller neural network and memory bank, as well as the reading and writing processes using attention vectors. No details are provided on how NTMs address or approximate infinite memory."
+multi-qa-mpnet-base-dot-v1,768,marketing_prompt_q33,512,100,5,Cohere,0.2,0.95,True,1.1,200,3.324598,marketing,0,What defines a large language model in the context of natural language processing tasks?,"language modelling tasks. Nonetheless, large language models face several challenges, including
+their overwhelming computational requirements (the cost of training and inference increase with
+model size) (Rae et al., 2021; Thoppilan et al., 2022) and the need for acquiring more high-quality
+training data. In fact, in this work we ﬁnd that larger, high quality datasets will play a key role in any
+further scaling of language models.
+Modelling the scaling behavior.
+
+A large language model (LLM) is a language model trained with self-supervised machine learning on a vast amount of text, designed for natural language processing tasks, especially language generation. The largest and most capable LLMs are generative pre-trained transformers (GPTs) and provide the core capabilities of modern chatbots. LLMs can be fine-tuned for specific tasks or guided by prompt engineering. These models acquire predictive power regarding syntax, semantics, and ontologies inherent in human
+
+175 Billion
+3.85e+24
+6.7
+3.7 Trillion
+280 Billion
+9.90e+24
+17.2
+5.9 Trillion
+520 Billion
+3.43e+25
+59.5
+11.0 Trillion
+1 Trillion
+1.27e+26
+221.3
+21.2 Trillion
+10 Trillion
+1.30e+28
+22515.9
+216.2 Trillion
+large language models are considerably over-sized, given their respective compute budgets, as shown
+in Figure 1. For example, we ﬁnd that a 175 billion parameter model should be trained with a compute
+budget of 4.41 × 1024 FLOPs and on over 4.2 trillion tokens. A 280 billion Gopher-like model is the
+
+The amount of computation used for training big language models of different sizes is getting big. (Image source: Brown et al., 2020).
+
+A large language model (LLM) is a type of machine learning model designed for natural language processing tasks such as language generation. LLMs are language models with many parameters, and are trained with self-supervised learning on a vast amount of text.
+
+
+== List ==
+For the training cost column, 1 petaFLOP-day = 1 petaFLOP/sec × 1 day = 8.64E19 FLOP. Also, only the largest model's cost is written.
+
+
+== Timeline ==
+
+
+== See also ==
+List of chatbots
+List of language model benchmarks
+
+
+== Notes ==","A large language model (LLM) is a powerful tool for natural language processing, trained on vast amounts of text to generate human-like language, enabling advanced applications like chatbots and task-specific fine-tuning. Its ability to understand and generate language makes it a key driver for innovation in AI-powered communication and automation.","A large language model (LLM) is a powerful tool for natural language processing, trained on vast amounts of text to generate human-like language, enabling advanced applications like chatbots and task-specific fine-tuning. Its ability to understand and generate language makes it a key driver for innovation in AI-powered communication and automation."
+multi-qa-mpnet-base-dot-v1,768,marketing_prompt_q33,512,100,5,Cohere,0.2,0.95,True,1.1,200,3.324598,marketing,7,What licensing terms are associated with source-available models like Mistral AI's language models?,"reduced inference cost. We also provide a model fine-tuned to follow instructions,
+Mistral 7B – Instruct, that surpasses Llama 2 13B – chat model both on human and
+automated benchmarks. Our models are released under the Apache 2.0 license.
+Code: https://github.com/mistralai/mistral-src
+Webpage: https://mistral.ai/news/announcing-mistral-7b/
+1
+Introduction
+In the rapidly evolving domain of Natural Language Processing (NLP), the race towards higher model
+
+been extensively documented (Bender et al., 2021; Bommasani et al., 2021; Kenton et al., 2021;
+Weidinger et al., 2021; Tamkin et al., 2021). Language models can produce biased outputs (Dhamala
+et al., 2021; Liang et al., 2021; Manela et al., 2021; Caliskan et al., 2017; Kirk et al., 2021), leak
+private data (Carlini et al., 2021), generate misinformation (Solaiman et al., 2019; Buchanan et al.,
+2021), and be used maliciously; for a thorough review we direct the reader to Weidinger et al. (2021).
+
+misuse, there are many domains where large language models should be deployed only with great
+care, or not at all. Examples include high-stakes domains such as medical diagnoses, classifying
+people based on protected characteristics, determining eligibility for credit, employment, or hous-
+ing, generating political advertisements, and law enforcement. If these models are open-sourced,
+it becomes challenging to limit harmful applications in these and other domains without proper
+
+2017.
+L. Weidinger, J. Mellor, M. Rauh, C. Griﬃn, J. Uesato, P.-S. Huang, M. Cheng, M. Glaese, B. Balle,
+A. Kasirzadeh, Z. Kenton, S. Brown, W. Hawkins, T. Stepleton, C. Biles, A. Birhane, J. Haas, L. Rimell,
+L. A. Hendricks, W. Isaac, S. Legassick, G. Irving, and I. Gabriel. Ethical and social risks of harm
+from language models. arXiv submission, 2021.
+20
+
+eralization of language models as generic plug-in.
+arXiv preprint arXiv:2305.17331.
+Ruochen Zhao, Hailin Chen, Weishi Wang, Fangkai
+Jiao, Xuan Long Do, Chengwei Qin, Bosheng
+Ding, Xiaobao Guo, Minzhi Li, Xingxuan Li, et al.","Mistral AI's language models are released under the Apache 2.0 license, which allows for free use, modification, and distribution, fostering innovation and collaboration while ensuring proper attribution. This licensing approach promotes accessibility and encourages responsible development in the NLP community.","Mistral AI's language models are released under the Apache 2.0 license, which allows for free use, modification, and distribution, fostering innovation and collaboration while ensuring proper attribution. This licensing approach promotes accessibility and encourages responsible development in the NLP community."
+multi-qa-mpnet-base-dot-v1,768,marketing_prompt_q33,512,100,5,Cohere,0.2,0.95,True,1.1,200,3.324598,marketing,11,Which components have allowed large language models to surpass their predecessors?,"After the success of many large-scale general language models, many QA models embrace the following approach:
+
+== Background ==
+After the release of large language models such as GPT-3, a focus of research was up-scaling models, which in some instances showed major increases in emergent capabilities. The release of ChatGPT and its surprise success caused an increase in attention to large language models.
+Compared with other responses to ChatGPT, Meta's Chief AI scientist Yann LeCun stated that large language models are best for aiding with writing.
+
+
+== Versions ==
+
+techniques like reinforcement learning from human feedback, which can improve the quality of a large language model's responses.
+
+language models,” arXiv preprint arXiv:2309.11495, 2023.
+[94] X. Li and J. Li, “Angle-optimized text embeddings,” arXiv preprint
+arXiv:2309.12871, 2023.
+[95] VoyageAI, “Voyage’s embedding models,” https://docs.voyageai.com/
+embeddings/, 2023.
+[96] BAAI,
+“Flagembedding,”
+https://github.com/FlagOpen/
+FlagEmbedding, 2023.
+[97] P. Zhang, S. Xiao, Z. Liu, Z. Dou, and J.-Y. Nie, “Retrieve anything
+to augment large language models,” arXiv preprint arXiv:2310.07554,
+2023.
+
+and fluency tradeoffs for retrieval-augmented large language models,”
+arXiv:2302.05578, 2023.
+[349] C. Han, Q. Wang, W. Xiong et al., “Lm-infinite: Simple on-the-fly
+length generalization for large language models,” arXiv:2308.16137,
+2023.
+[350] H.
+Chase,
+“Langchain,”
+https://github.com/langchain-ai/langchain,
+2022.
+[351] W. Jiang, S. Zhang, B. Han et al., “Piperag: Fast retrieval-augmented
+generation via algorithm-system co-design,” arXiv:2403.05676, 2024.","Large language models have surpassed their predecessors by leveraging techniques like reinforcement learning from human feedback, which improves the quality of their responses, and by scaling up in size, leading to major increases in emergent capabilities. These advancements have made them particularly effective for aiding with writing tasks, as highlighted by experts like Yann LeCun.","Large language models have surpassed their predecessors by leveraging techniques like reinforcement learning from human feedback, which improves the quality of their responses, and by scaling up in size, leading to major increases in emergent capabilities. These advancements have made them particularly effective for aiding with writing tasks, as highlighted by experts like Yann LeCun."
+multi-qa-mpnet-base-dot-v1,768,marketing_prompt_q33,512,100,5,Cohere,0.2,0.95,True,1.1,200,3.324598,marketing,19,What is the significant enhancement in Claude 2.1 compared to its previous version?,"improvements in knowledge-intensive tasks after fine-tuning or used with off-the-shelf LMs (Ram
+et al., 2023). A more recent work (Luo et al., 2023) instruction-tunes an LM with a fixed number
+2
+
+32.3
+52.3
+37.0
+77.0
+70.1
+80.5
+30.4
+53.7
+29.6
+57.9
+51.9
+GTR-XL (1.5B)
+48.0
+56.0
+41.5
+86.1
+67.1
+77.8
+30.2
+58.4
+32.0
+60.4
+55.5
+INSTRUCTOR-XL (1.5B)
+49.3
+57.3
+44.7
+86.6
+73.2
+83.1
+32.0
+61.8
+34.1
+68.6
+58.8
+Relative gain (%)
++2.7
++2.3
++7.7
++0.6
++9.1
++6.9
++6.0
++5.8
++6.6
++13.6
++5.9
+Table 2: Results on the massive text embedding benchmark (MTEB; Muennighoff et al., 2022), Billboard (Kasai
+et al., 2022a), and prompt retrieval (Su et al., 2022). The last column averages performance scores over 9 categories
+
+nih_exporter
+uspto_backgrounds
+pubmed_central
+pile_cc
+bookcorpus2
+stackexchange
+opensubtitles
+openwebtext2
+hackernews
+dm_mathematics
+arxiv
+freelaw
+books3
+philpapers
+github
+ubuntu_irc
+europarl
+gutenberg_pg_19
+0.00
+0.02
+0.04
+0.06
+0.08
+0.10
+Decrease in bpb 
+ compared to Gopher
+Figure 5 | Pile Evaluation. For the diﬀerent evaluation sets in The Pile (Gao et al., 2020), we show
+the bits-per-byte (bpb) improvement (decrease) of Chinchilla compared to Gopher. On all subsets,
+Chinchilla outperforms Gopher.
+
+approach, fine-grained segmentation, and the incorporation of
+metadata. Additionally, it incorporates several optimization
+methods to streamline the retrieval process [8].
+
+MTEB, Billboard, and prompt retrieval respec-
+tively. Specifically, among all task categories, IN-
+STRUCTOR (335M) demonstrates large improve-
+ments over GTR-Large on the text evaluation
+(18.3%), classification (10.1%), and clustering
+tasks (8.9%). Particularly noteworthy is INSTRUC-
+TOR’s performance compared to the previous state-
+of-the-art model, Sent-T5-XXL (58.4 vs. 56.5 on
+average), despite the fact that INSTRUCTOR has
+one order of magnitude fewer parameters (335M
+vs. 4.8B).",The available information does not cover this topic.,The available information does not cover this topic.
+multi-qa-mpnet-base-dot-v1,768,marketing_prompt_q33,512,100,5,Cohere,0.2,0.95,True,1.1,200,3.324598,marketing,27,What is the significance of the accuracy percentage achieved by Chinchilla on the MMLU benchmark?,"The Massive Multitask Language Understanding (MMLU) benchmark (Hendrycks et al., 2020) consists
+of a range of exam-like questions on academic subjects. In Table 6, we report Chinchilla’s average
+5-shot performance on MMLU (the full breakdown of results is shown in Table A6). On this benchmark,
+Chinchilla signiﬁcantly outperforms Gopher despite being much smaller, with an average accuracy of
+67.6% (improving upon Gopher by 7.6%). Remarkably, Chinchilla even outperforms the expert forecast
+
+10-shot accuracy. In stark contrast with the ﬁndings of Lin et al. (2021), the large improvements
+(14.1% in 0-shot accuracy) achieved by Chinchilla suggest that better modelling of the pre-training
+data alone can lead to substantial improvements on this benchmark.
+12
+
+On the ﬁnal word prediction dataset LAMBADA (Paperno et al., 2016), Chinchilla achieves 77.4%
+accuracy, compared to 74.5% accuracy from Gopher and 76.6% from MT-NLG 530B (see Table 7). On
+RACE-h and RACE-m (Lai et al., 2017), Chinchilla greatly outperforms Gopher, improving accuracy
+by more than 10% in both cases—see Table 7.
+4.2.4. BIG-bench
+We analysed Chinchilla on the same set of BIG-bench tasks (BIG-bench collaboration, 2021) reported
+
+64.9
+sociology
+91.0
+84.1
+us_foreign_policy
+92.0
+81.0
+virology
+53.6
+47.0
+world_religions
+87.7
+84.2
+Table A6 | Chinchilla MMLU results. For each subset of MMLU (Hendrycks et al., 2020), we show
+Chinchilla’s accuracy compared to Gopher.
+Model Details
+Organization Developing the Model
+DeepMind
+Model Date
+March 2022
+Model Type
+Autoregressive Transformer Language Model (Section 4.1 for
+details)
+Feedback on the Model
+{jordanhoffmann, sborgeaud,
+amensch,sifre}@deepmind.com
+Intended Uses
+Primary Intended Uses
+
+4× more more data. Chinchilla uniformly and signiﬁcantly outperforms Gopher (280B), GPT-3 (175B),
+Jurassic-1 (178B), and Megatron-Turing NLG (530B) on a large range of downstream evaluation tasks.
+This also means that Chinchilla uses substantially less compute for ﬁne-tuning and inference, greatly
+facilitating downstream usage. As a highlight, Chinchilla reaches a state-of-the-art average accuracy of
+67.5% on the MMLU benchmark, greater than a 7% improvement over Gopher.
+1. Introduction","Chinchilla's 67.6% accuracy on the MMLU benchmark is significant because it outperforms larger models like Gopher by over 7%, demonstrating that better pre-training data modeling can lead to substantial improvements in understanding academic subjects, even with a smaller model. This means Chinchilla can achieve high performance more efficiently, using less compute for fine-tuning and inference.","Chinchilla's 67.6% accuracy on the MMLU benchmark is significant because it outperforms larger models like Gopher by over 7%, demonstrating that better pre-training data modeling can lead to substantial improvements in understanding academic subjects, even with a smaller model. This means Chinchilla can achieve high performance more efficiently, using less compute for fine-tuning and inference."
+multi-qa-mpnet-base-dot-v1,768,marketing_prompt_q33,512,100,5,Cohere,0.2,0.95,True,1.1,200,3.324598,marketing,28,Why is Chinchilla considered more efficient in terms of computing power for inference and fine-tuning?,"tokens. Not only does Chinchilla outperform its much larger counterpart, Gopher, but its reduced
+model size reduces inference cost considerably and greatly facilitates downstream uses on smaller
+hardware. The energy cost of a large language model is amortized through its usage for inference an
+ﬁne-tuning. The beneﬁts of a more optimally trained smaller model, therefore, extend beyond the
+immediate beneﬁts of its improved performance.
+
+4× more more data. Chinchilla uniformly and signiﬁcantly outperforms Gopher (280B), GPT-3 (175B),
+Jurassic-1 (178B), and Megatron-Turing NLG (530B) on a large range of downstream evaluation tasks.
+This also means that Chinchilla uses substantially less compute for ﬁne-tuning and inference, greatly
+facilitating downstream usage. As a highlight, Chinchilla reaches a state-of-the-art average accuracy of
+67.5% on the MMLU benchmark, greater than a 7% improvement over Gopher.
+1. Introduction
+
+7.16 compared to 7.75 for Gopher. Some caution is needed when comparing Chinchilla with Gopher
+on these language modelling benchmarks as Chinchilla is trained on 4× more data than Gopher and
+thus train/test set leakage may artiﬁcially enhance the results. We thus place more emphasis on other
+10
+
+We analysed Chinchilla on the same set of BIG-bench tasks (BIG-bench collaboration, 2021) reported
+in Rae et al. (2021). Similar to what we observed in MMLU, Chinchilla outperforms Gopher on the
+vast majority of tasks (see Figure 7). We ﬁnd that Chinchilla improves the average performance
+by 10.7%, reaching an accuracy of 65.1% versus 54.4% for Gopher. Of the 62 tasks we consider,
+Chinchilla performs worse than Gopher on only four—crash_blossom, dark_humor_detection,
+11
+
+On the ﬁnal word prediction dataset LAMBADA (Paperno et al., 2016), Chinchilla achieves 77.4%
+accuracy, compared to 74.5% accuracy from Gopher and 76.6% from MT-NLG 530B (see Table 7). On
+RACE-h and RACE-m (Lai et al., 2017), Chinchilla greatly outperforms Gopher, improving accuracy
+by more than 10% in both cases—see Table 7.
+4.2.4. BIG-bench
+We analysed Chinchilla on the same set of BIG-bench tasks (BIG-bench collaboration, 2021) reported","Chinchilla is more efficient in terms of computing power for inference and fine-tuning because its smaller model size reduces costs and facilitates use on smaller hardware, while still outperforming larger models like Gopher on various tasks. This means businesses can achieve better results with less compute, saving resources and enabling broader applications.","Chinchilla is more efficient in terms of computing power for inference and fine-tuning because its smaller model size reduces costs and facilitates use on smaller hardware, while still outperforming larger models like Gopher on various tasks. This means businesses can achieve better results with less compute, saving resources and enabling broader applications."
+multi-qa-mpnet-base-dot-v1,768,marketing_prompt_q33,512,100,5,Cohere,0.2,0.95,True,1.1,200,3.324598,marketing,33,What assumptions must be met in order for the reparameterization of reward functions to be applied within the context of Plackett-Luce and Bradley-Terry models?,"Theorem 1. Under mild assumptions, all reward classes consistent with the Plackett-Luce
+(and Bradley-Terry in particular) models can be represented with the reparameterization
+r(x, y) = β log
+π(y|x)
+πref(y|x) for some model π(y | x) and a given reference model πref(y | x).
+Proof Sketch. Consider any reward function r(x, y), which induces a corresponding optimal model
+πr(y | x), specified by Eq. 4. We will show that a reward function from the equivalence class of r
+
+corresponding optimal policy πr, the reference policy πref, and the unknown partition function Z(·).
+Specifically, we first take the logarithm of both sides of Eq. 4 and then with some algebra we obtain:
+r(x, y) = β log πr(y | x)
+πref(y | x) + β log Z(x).
+(5)
+We can apply this reparameterization to the ground-truth reward r∗and corresponding optimal model
+π∗. Fortunately, the Bradley-Terry model depends only on the difference of rewards between two
+
+we usually have to impose additional identifiability constraints to achieve any guarantees on the MLE
+estimates from Eq. 2 [4]. The second lemma states that all reward functions from the same class
+yield the same optimal policy, hence for our final objective, we are only interested in recovering an
+arbitrary reward function from the optimal class. We prove the following Theorem in Appendix A.6:
+Theorem 1. Under mild assumptions, all reward classes consistent with the Plackett-Luce
+
+Definition 1. We say that two reward functions r(x, y) and r′(x, y) are equivalent iff
+r(x, y) −r′(x, y) = f(x) for some function f.
+It is easy to see that this is indeed an equivalence relation, which partitions the set of reward functions
+into classes. We can state the following two lemmas:
+Lemma 1. Under the Plackett-Luce, and in particular the Bradley-Terry, preference framework, two
+reward functions from the same class induce the same preference distribution.
+
+Notice that when K = 2, Equation 18 reduces to the Bradley-Terry model. However, for the general
+Plackett-Luce model, we can still utilize the results of Eq. 5 and substitute the reward function
+parameterized by its optimal policy. Similarly to Appendix A.2, the normalization constant Z(x)
+cancels out and we’re left with:
+p∗(τ|y1, . . . , yK, x) =
+K
+Y
+k=1
+exp
+
+β log
+π∗(yτ(k)|x)
+πref(yτ(k)|x)
+
+PK
+j=k exp
+
+β log
+π∗(yτ(j)|x)
+πref(yτ(j)|x)
+
+(19)
+16","The reparameterization of reward functions can be applied within the Plackett-Luce and Bradley-Terry models under mild assumptions, as long as the reward classes are consistent with these models, ensuring that the reparameterization simplifies the representation and aids in recovering optimal policies efficiently.","The reparameterization of reward functions can be applied within the Plackett-Luce and Bradley-Terry models under mild assumptions, as long as the reward classes are consistent with these models, ensuring that the reparameterization simplifies the representation and aids in recovering optimal policies efficiently."
+multi-qa-mpnet-base-dot-v1,768,marketing_prompt_q33,512,100,5,Cohere,0.2,0.95,True,1.1,200,3.324598,marketing,53,What are the implications of adding updates on the pretraining data during the fine-tuning phase of model development based on the observed performance of the models?,"Pre-training Data Issues#
+The volume of the pre-training data corpus is enormous, as it is supposed to represent world knowledge in all available written forms. Data crawled from the public Internet is the most common choice and thus out-of-date, missing, or incorrect information is expected. As the model may incorrectly memorize this information by simply maximizing the log-likelihood, we would expect the model to make mistakes.
+Fine-tuning New Knowledge#
+
+ity of its training data, and it can be further improved by fine-tuning with
+domain-specific knowledge. Fine-tuning involves retraining the model with
+specialized datasets, allowing it to internalize specific organizational knowl-
+edge for more precise and relevant responses. This process keeps the model
+updated and tailored to the user’s needs while maintaining privacy.
+5
+Preliminary Evaluation of the Guide
+5.1
+Feedback Process Overview
+
+Many methods could be tried to further decrease the models’ propensity to generate toxic, biased,
+or otherwise harmful outputs. For example, one could use an adversarial set-up where labelers ﬁnd
+the worst-case behaviors of the model, which are then labeled and added to the dataset (Dinan et al.,
+2019b). One could also combine our method with ways of ﬁltering the pretraining data (Ngo et al.,
+2021), either for training the initial pretrained models, or for the data we use for our pretraining
+
+such as improved explainability, faithfulness, and controlla-
+bility in generation (§A).
+D.2. Taking an existing model (e.g. vanilla CM3) and
+finetune it with retrieval-augmentation, instead of
+training the retrieval-augmented model (RA-CM3)
+from scratch
+In practice, finetuning from the vanilla model can save com-
+pute for training RA-CM3 and is useful. The reason we
+trained RA-CM3 and vanilla CM3 both from scratch in our
+main experiments was to make a fair comparison between
+
+Fine-tuning New Knowledge#
+Fine-tuning a pre-trained LLM via supervised fine-tuning and RLHF is a common technique for improving certain capabilities of the model like instruction following. Introducing new knowledge at the fine-tuning stage is hard to avoid.","Adding updates during the fine-tuning phase helps the model internalize new, domain-specific knowledge, improving its precision and relevance while maintaining privacy, which is crucial for tailored and accurate responses. This process also allows the model to stay updated and aligned with user needs.","Adding updates during the fine-tuning phase helps the model internalize new, domain-specific knowledge, improving its precision and relevance while maintaining privacy, which is crucial for tailored and accurate responses. This process also allows the model to stay updated and aligned with user needs."
+multi-qa-mpnet-base-dot-v1,768,marketing_prompt_q33,512,100,5,Cohere,0.2,0.95,True,1.1,200,3.324598,marketing,63,What are the advantages of applying LoRA to transformer models in terms of computational efficiency during training and deployment?,"LoRA possesses several key advantages.
+• A pre-trained model can be shared and used to build many small LoRA modules for dif-
+ferent tasks. We can freeze the shared model and efﬁciently switch tasks by replacing the
+matrices A and B in Figure 1, reducing the storage requirement and task-switching over-
+head signiﬁcantly.
+• LoRA makes training more efﬁcient and lowers the hardware barrier to entry by up to 3
+times when using adaptive optimizers since we do not need to calculate the gradients or
+
+on Transformer language models, the proposed principles are generally applicable to any neural
+networks with dense layers.
+There are many directions for future works. 1) LoRA can be combined with other efﬁcient adapta-
+tion methods, potentially providing orthogonal improvement. 2) The mechanism behind ﬁne-tuning
+or LoRA is far from clear – how are features learned during pre-training transformed to do well
+on downstream tasks? We believe that LoRA makes it more tractable to answer this than full ﬁne-
+12
+
+trained model weights and injects trainable rank decomposition matrices into each
+layer of the Transformer architecture, greatly reducing the number of trainable pa-
+rameters for downstream tasks. Compared to GPT-3 175B ﬁne-tuned with Adam,
+LoRA can reduce the number of trainable parameters by 10,000 times and the
+GPU memory requirement by 3 times. LoRA performs on-par or better than ﬁne-
+tuning in model quality on RoBERTa, DeBERTa, GPT-2, and GPT-3, despite hav-
+
+size is reduced by roughly 10,000× (from 350GB to 35MB)4. This allows us to train with signiﬁ-
+cantly fewer GPUs and avoid I/O bottlenecks. Another beneﬁt is that we can switch between tasks
+while deployed at a much lower cost by only swapping the LoRA weights as opposed to all the
+parameters. This allows for the creation of many customized models that can be swapped in and out
+on the ﬂy on machines that store the pre-trained weights in VRAM. We also observe a 25% speedup
+
+and the storage/switching cost for hosting independent instances for different tasks. We propose
+LoRA, an efﬁcient adaptation strategy that neither introduces inference latency nor reduces input
+sequence length while retaining high model quality. Importantly, it allows for quick task-switching
+when deployed as a service by sharing the vast majority of the model parameters. While we focused
+on Transformer language models, the proposed principles are generally applicable to any neural","Applying LoRA to transformer models significantly reduces computational requirements during training and deployment by lowering GPU memory usage (up to 3 times), decreasing the number of trainable parameters (by 10,000 times), and enabling quick task-switching with minimal storage and overhead, all while maintaining or improving model quality.","Applying LoRA to transformer models significantly reduces computational requirements during training and deployment by lowering GPU memory usage (up to 3 times), decreasing the number of trainable parameters (by 10,000 times), and enabling quick task-switching with minimal storage and overhead, all while maintaining or improving model quality."
+multi-qa-mpnet-base-dot-v1,768,marketing_prompt_q33,512,100,5,Cohere,0.2,0.95,True,1.1,200,3.324598,marketing,76,"What are the key differences between HALO and non-HALO loss functions, and what impact do these differences have on language model alignment?","sally superior, there is no one loss function either—the best
+HALO depends on the inductive biases that are most ap-
+propriate for a given setting, and much work remains to be
+done in identifying the best HALO for each context.
+Acknowledgements
+We thank Percy Liang, Dilip Arumugam, Arya McCarthy,
+and Nathan Lambert for feedback. We thank Stas Bekman
+and Gautam Mittal for cluster assistance and Alex Manthey
+for helping with human evaluation.
+Impact Statement
+
+This is not a HALO, since that would demand that
+−log πref(y|x) always equal the reference point; how-
+ever, since the reference point is fixed for a given x, this
+is not possible when πref is a non-uniform distribution.
+2. SLiC: Sequence Likelihood Calibration (Zhao et al.,
+2023), which combines a max-margin loss for prefer-
+ences with a language modeling loss, is not a HALO
+(for the same reasons given above for CSFT):
+Lcal(πθ) = Ex,yw,yl∼D
+
+max
+
+0, δ −log πθ(yw|x)
+πθ(yl|x)
+
+
+using one default loss?
+On a more technical level, important directions include
+developing HALOs that: (1) incorporate granular feedback,
+such as a score, especially when optimizing for multiple
+desiderata; (2) work for other modalities (e.g. images) and
+model classes (e.g., diffusion models), especially models
+that do not produce an explicit distribution over the output
+space; (3) can resolve contradictions in feedback according
+to different definitions of fairness; (4) are designed to be
+
+ultimately suggests that there is no one HALO that is uni-
+versally superior; the best HALO depends on the inductive
+biases appropriate for a given setting, and this choice should
+be made deliberately instead of defaulting to any one loss.
+2Our code is available on Github; models are on Huggingface.
+2. Background
+For a detailed survey, please see Appendix A. In brief, LLMs
+are traditionally trained in three stages (Ouyang et al., 2022):
+Pretraining
+Given a large corpus, train the model to max-
+
+since both HALOs and non-HALOs are diverse function
+classes, but we attempt to do so by comparing popular meth-
+ods that qualify as a HALO with those that do not:
+1. CSFT: Conditional SFT is a simple alignment method
+where a control token is prepended to the output during
+training; then, at inference, the control token corre-
+sponding to desirable generations is appended to the
+input to induce good generations (Korbak et al., 2023).
+This is not a HALO, since that would demand that","HALO loss functions are tailored to specific contexts based on appropriate inductive biases, while non-HALO methods, like CSFT and SLiC, fail to meet HALO criteria due to fixed reference points or combined losses. This distinction matters because choosing the right HALO improves language model alignment by deliberately addressing the unique requirements of each setting, rather than relying on a one-size-fits-all approach.","HALO loss functions are tailored to specific contexts based on appropriate inductive biases, while non-HALO methods, like CSFT and SLiC, fail to meet HALO criteria due to fixed reference points or combined losses. This distinction matters because choosing the right HALO improves language model alignment by deliberately addressing the unique requirements of each setting, rather than relying on a one-size-fits-all approach."
+multi-qa-mpnet-base-dot-v1,768,marketing_prompt_q33,512,100,5,Cohere,0.2,0.95,True,1.1,200,3.324598,marketing,87,What are the main components that complement the central controller in an autonomous agent system?,"}
+]
+Challenges#
+After going through key ideas and demos of building LLM-centered agents, I start to see a couple common limitations:
+
+Component One: Planning#
+A complicated task usually involves many steps. An agent needs to know what they are and plan ahead.
+Task Decomposition#
+
+Planning
+
+Subgoal and decomposition: The agent breaks down large tasks into smaller, manageable subgoals, enabling efficient handling of complex tasks.
+Reflection and refinement: The agent can do self-criticism and self-reflection over past actions, learn from mistakes and refine them for future steps, thereby improving the quality of final results.
+
+
+Memory
+
+== Overview ==
+
+Proof-of-Concept Examples#
+AutoGPT has drawn a lot of attention into the possibility of setting up autonomous agents with LLM as the main controller. It has quite a lot of reliability issues given the natural language interface, but nevertheless a cool proof-of-concept demo. A lot of code in AutoGPT is about format parsing.
+Here is the system message used by AutoGPT, where {{...}} are user inputs:
+You are {{ai-name}}, {{user-provided AI bot description}}.","The main components that complement the central controller in an autonomous agent system are **planning** and **memory**, which enable the agent to efficiently handle complex tasks by breaking them down into manageable subgoals and refining actions through self-reflection, ensuring improved outcomes. These components are crucial for tackling multi-step tasks and enhancing reliability.","The main components that complement the central controller in an autonomous agent system are planning and memory, which enable the agent to efficiently handle complex tasks by breaking them down into manageable subgoals and refining actions through self-reflection, ensuring improved outcomes. These components are crucial for tackling multi-step tasks and enhancing reliability."
+multi-qa-mpnet-base-dot-v1,768,marketing_prompt_q33,512,100,5,Cohere,0.2,0.95,True,1.1,200,3.324598,marketing,92,In what ways can an agent's performance be evaluated and refined over time?,"Planning
+
+Subgoal and decomposition: The agent breaks down large tasks into smaller, manageable subgoals, enabling efficient handling of complex tasks.
+Reflection and refinement: The agent can do self-criticism and self-reflection over past actions, learn from mistakes and refine them for future steps, thereby improving the quality of final results.
+
+
+Memory
+
+many times and in each episode the agent gets a little better, AD concatenates this learning history and feeds that into the model. Hence we should expect the next predicted action to lead to better performance than previous trials. The goal is to learn the process of RL instead of training a task-specific policy itself.
+
+include methods such as observed user behaviour, test collections, precision and recall, and scores from prepared benchmark test sets.
+
+Performance Evaluation:
+1. Continuously review and analyze your actions to ensure you are performing to the best of your abilities.
+2. Constructively self-criticize your big-picture behavior constantly.
+3. Reflect on past decisions and strategies to refine your approach.
+4. Every command has a cost, so be smart and efficient. Aim to complete tasks in the least number of steps.
+
+models consistently show performance regressions, which is mitigated by adding updates on the
+pretraining data during ﬁne-tuning. Few-shot performance is shown in Figure 29. Error bars for
+translation are not available because we use a software package that does not report them.
+E.1
+Performance on public NLP datasets
+We run automatic evaluation tasks on our models that collectively measure bias, toxicity, truthfulness,","An agent's performance can be evaluated and refined through continuous self-reflection, learning from past actions, and breaking tasks into manageable subgoals, which improves efficiency and the quality of results over time. This process ensures the agent adapts and optimizes its actions for better outcomes.","An agent's performance can be evaluated and refined through continuous self-reflection, learning from past actions, and breaking tasks into manageable subgoals, which improves efficiency and the quality of results over time. This process ensures the agent adapts and optimizes its actions for better outcomes."
+multi-qa-mpnet-base-dot-v1,768,marketing_prompt_q33,512,100,5,Cohere,0.2,0.95,True,1.1,200,3.324598,marketing,95,What are the primary techniques involved in steering the behavior of language models without modifying their underlying architectures?,"techniques like reinforcement learning from human feedback, which can improve the quality of a large language model's responses.
+
+for example, it may be beneﬁcial to use language models to generate toxic outputs as part of a data
+augmentation pipeline. Our techniques can also be applied to making models refuse certain user
+instructions, and we plan to explore this in subsequent iterations of this research.
+Getting models to do what we want is directly related to the steerability and controllability litera-
+ture (Dathathri et al., 2019; Krause et al., 2020). A promising future path is combining RLHF with
+
+Modifying the behavior of language models to mitigate harms.
+There are many ways to change
+the generation behavior of language models. Solaiman and Dennison (2021) ﬁne-tune LMs on a
+small, value-targeted dataset, which improves the models’ ability to adhere to these values on a
+question answering task. Ngo et al. (2021) ﬁlter the pretraining dataset by removing documents on
+which a language model has a high conditional likelihood of generating a set of researcher-written
+
+After the success of many large-scale general language models, many QA models embrace the following approach:
+
+2021; Nangia et al., 2020; Rudinger et al., 2018). Making signiﬁcant progress on these problems is
+hard since well-intentioned interventions on LM behavior can have side-effects (Welbl et al., 2021;
+Blodgett et al., 2020); for instance, efforts to reduce the toxicity of LMs can reduce their ability to
+model text from under-represented groups, due to prejudicial correlations in the training data (Xu
+et al., 2021).
+Modifying the behavior of language models to mitigate harms.
+There are many ways to change","The primary techniques for steering language model behavior without altering their architecture include reinforcement learning from human feedback (RLHF) and fine-tuning on value-targeted datasets, which improve response quality, mitigate harms, and align models with desired values, ensuring safer and more reliable outputs.","The primary techniques for steering language model behavior without altering their architecture include reinforcement learning from human feedback (RLHF) and fine-tuning on value-targeted datasets, which improve response quality, mitigate harms, and align models with desired values, ensuring safer and more reliable outputs."
+multi-qa-mpnet-base-dot-v1,768,marketing_prompt_q33,512,100,5,Cohere,0.2,0.95,True,1.1,200,3.324598,marketing,103,What kind of learning challenges does the attention mechanism address in neural machine translation?,"Born for Translation#
+The attention mechanism was born to help memorize long source sentences in neural machine translation (NMT). Rather than building a single context vector out of the encoder’s last hidden state, the secret sauce invented by attention is to create shortcuts between the context vector and the entire source input. The weights of these shortcut connections are customizable for each output element.
+
+A Family of Attention Mechanisms#
+With the help of the attention, the dependencies between source and target sequences are not restricted by the in-between distance anymore! Given the big improvement by attention in machine translation, it soon got extended into the computer vision field (Xu et al. 2015) and people started exploring various other forms of attention mechanisms (Luong, et al., 2015; Britz et al., 2017; Vaswani, et al., 2017).
+Summary#
+
+of an attention mechanism allows models to process entire sequences of text at once, enabling the training of much larger and more sophisticated models. Since 2017, numerous transformer-based NLP systems have been available that are capable of processing, mining, organizing, connecting, contrasting, and summarizing texts as well as correctly answering questions from textual input.
+
+[5] Ilya Sutskever, Oriol Vinyals, and Quoc V. Le. “Sequence to sequence learning with neural networks.” NIPS 2014.
+[6] Thang Luong, Hieu Pham, Christopher D. Manning. “Effective Approaches to Attention-based Neural Machine Translation.” EMNLP 2015.
+[7] Denny Britz, Anna Goldie, Thang Luong, and Quoc Le. “Massive exploration of neural machine translation architectures.” ACL 2017.
+[8] Ashish Vaswani, et al. “Attention is all you need.” NIPS 2017.
+
+Attention Mechanisms#
+In Neural Turing Machine, how to generate the attention distribution $\mathbf{w}_t$ depends on the addressing mechanisms: NTM uses a mixture of content-based and location-based addressings.
+Content-based addressing","The attention mechanism in neural machine translation helps models better handle long sentences by creating direct connections between the translation output and the entire source input, improving accuracy and efficiency in processing complex text. This innovation allows for more sophisticated models that can process entire sequences at once, significantly enhancing translation quality.","The attention mechanism in neural machine translation helps models better handle long sentences by creating direct connections between the translation output and the entire source input, improving accuracy and efficiency in processing complex text. This innovation allows for more sophisticated models that can process entire sequences at once, significantly enhancing translation quality."
+multi-qa-mpnet-base-dot-v1,768,marketing_prompt_q33,512,100,5,Cohere,0.2,0.95,True,1.1,200,3.324598,marketing,110,How does Neural Turing Machine (NTM) simulate the infinite memory characteristic of Turing machines?,"Neural Turing Machine (NTM, Graves, Wayne & Danihelka, 2014) is a model architecture for coupling a neural network with external memory storage. The memory mimics the Turing machine tape and the neural network controls the operation heads to read from or write to the tape. However, the memory in NTM is finite, and thus it probably looks more like a “Neural von Neumann Machine”.
+NTM contains two major components, a controller neural network and a memory bank.
+
+or expensive the procedure might be. The infinite memory gives a Turing machine an edge to be mathematically limitless. However, infinite memory is not feasible in real modern computers and then we only consider Turing machine as a mathematical model of computation.
+
+Neural Turing Machines#
+
+Fig 10. Neural Turing Machine Architecture.
+
+Reading and Writing#
+When reading from the memory at time t, an attention vector of size $N$, $\mathbf{w}_t$ controls how much attention to assign to different memory locations (matrix rows). The read vector $\mathbf{r}_t$ is a sum weighted by attention intensity:
+
+$$
+\mathbf{r}_t = \sum_{i=1}^N w_t(i)\mathbf{M}_t(i)\text{, where }\sum_{i=1}^N w_t(i)=1, \forall i: 0 \leq w_t(i) \leq 1
+$$
+
+NTM contains two major components, a controller neural network and a memory bank.
+Controller: is in charge of executing operations on the memory. It can be any type of neural network, feed-forward or recurrent.
+Memory: stores processed information. It is a matrix of size $N \times M$, containing N vector rows and each has $M$ dimensions.","The Neural Turing Machine (NTM) simulates the infinite memory characteristic of Turing machines by using a finite memory bank controlled by a neural network, which dynamically allocates attention to different memory locations, effectively mimicking the limitless nature of a Turing machine’s tape in a practical, real-world context. This approach allows NTM to handle complex tasks with finite resources while retaining the computational flexibility of infinite memory models.","The Neural Turing Machine (NTM) simulates the infinite memory characteristic of Turing machines by using a finite memory bank controlled by a neural network, which dynamically allocates attention to different memory locations, effectively mimicking the limitless nature of a Turing machine’s tape in a practical, real-world context. This approach allows NTM to handle complex tasks with finite resources while retaining the computational flexibility of infinite memory models."

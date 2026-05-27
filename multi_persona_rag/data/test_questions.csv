@@ -1,0 +1,31 @@
+question_num,question
+4,{'question': 'What significant advancements did the transformer architecture introduce in natural language processing?'}
+5,{'question': 'How has the public accessibility of GPT models evolved since their inception?'}
+6,"{'question': 'What benchmark is used to compare the performance of different language models, as mentioned in the text?'}"
+10,{'question': 'What type of experiments did IBM perform in the 1980s regarding language models?'}
+14,{'question': 'How is the evaluation of language models typically conducted?'}
+15,{'question': 'Name some benchmarks or data sets used for evaluating language processing systems.'}
+21,{'question': 'For what purpose do language models like Claude undergo fine-tuning after their initial pre-training?'}
+26,"{'question': ""How does Chinchilla's training approach differ with respect to the number of training tokens compared to the model size?""}"
+29,{'question': 'What is the role of optimizers in the training of Chinchilla and how does it differ from its predecessor?'}
+31,{'question': 'In what context is LaMDA mentioned in relation to the Gopher and Chinchilla models?'}
+32,{'question': 'How does the DPO method influence the generation of language completions in terms of preferred and dispreferred outcomes?'}
+37,{'question': 'What are the key advantages of InstructGPT models over GPT-3 models according to the findings in the research?'}
+40,"{'question': 'When evaluating summaries or chatbot responses, what criteria should be considered to determine their effectiveness and helpfulness?'}"
+42,{'question': 'What are the potential limitations and drawbacks of large language models that have not been fine-tuned with human feedback?'}
+49,{'question': 'What methods are used to evaluate and measure bias and toxicity in the provided datasets?'}
+56,{'question': 'What are the benchmarks used to evaluate the performance of the Deep Policy Optimization (DPO) method compared to other preference learning algorithms in the document provided?'}
+57,"{'question': 'What innovations does QLORA introduce to enhance the efficiency of language model fine-tuning, and what are the benefits achieved by these innovations?'}"
+58,{'question': 'How does the use of 4-bit QLORA with NF4 data type compare to 16-bit LoRA finetuning in terms of performance on benchmark datasets?'}
+66,"{'question': 'What approaches have been proposed to enhance the effectiveness of fine-tuning in language models, according to recent research?'}"
+68,"{'question': ""What performance improvement can be observed when using fine-tuning over few-shot learning according to the study's results outlined in Table 8?""}"
+71,"{'question': 'What metric is used to evaluate the effectiveness of a language model in the context of processing long sequences of text, as reported in the given document?'}"
+72,{'question': 'How does Position Interpolation contribute to the adaptability of language models for processing texts with varying lengths?'}
+77,{'question': 'What are some of the research areas and methodologies referenced in the literature cited within the field of artificial intelligence and machine learning?'}
+79,{'question': 'What are the common approaches for building open-domain question answering systems?'}
+83,"{'question': 'In what ways do neural networks, particularly Transformer-based models, contribute to question answering tasks?'}"
+90,{'question': 'What potential benefits does integrating external APIs provide for autonomous agents?'}
+98,{'question': 'Can you elaborate on some biases that may affect the performance of language models during tasks and the strategies employed to mitigate these biases?'}
+99,"{'question': 'What is the significance of example diversity and order during language model prompting, and what are some methods to optimize these factors?'}"
+100,"{'question': 'In the context of task instruction, how can the communication cost be reduced while maintaining effective interaction with language models?'}"
+109,{'question': 'What actor plays the role of Thanos in the Marvel Universe and the role of Cable in Deadpool 2?'}

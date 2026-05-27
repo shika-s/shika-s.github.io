@@ -1,0 +1,28 @@
+---
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: external-access
+  namespace: shikhasharma
+spec:
+  hosts:
+    - shikhasharma.mids255.com
+  gateways:
+    - istio-ingress/shikhasharma-gateway
+  http:
+    - match:
+        - uri:
+            prefix: /lab
+      route:
+        - destination:
+            host: lab-prediction-service
+            port:
+              number: 8000
+    - match:
+        - uri:
+            prefix: /project
+      route:
+        - destination:
+            host: project-prediction-service
+            port:
+              number: 8000

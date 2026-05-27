@@ -1,0 +1,90 @@
+---
+name: GitHub Classroom Workflow
+
+on:
+  - push
+  - workflow_dispatch
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  LAB_ASSIGNMENT: project
+  ROLE_TO_ASSUME: arn:aws:iam::650251712107:role/AutograderStudentActionsRole
+
+permissions:
+  id-token: write
+  checks: write
+  actions: read
+  contents: read
+
+jobs:
+  build:
+    name: Autograding
+    runs-on: self-hosted
+    concurrency:
+      group: ${{ github.actor }}
+      cancel-in-progress: true
+
+    if: github.actor != 'github-classroom[bot]'
+    steps:
+      # Checkout
+      - uses: actions/checkout@v6
+
+      # Setup Dependencies
+      - name: Configure AWS Credentials
+        id: aws-creds-retrieve
+        uses: aws-actions/configure-aws-credentials@v5
+        with:
+          aws-region: us-west-2
+          role-to-assume: ${{ env.ROLE_TO_ASSUME }}
+          role-session-name: lab-student-autograder-run-${{ github.actor }}-${{ env.LAB_ASSIGNMENT }}
+          output-credentials: true
+
+      - name: Create file for setting aws env vars
+        # https://github.com/education/autograding/issues/69#issuecomment-1497674655
+        # https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions#using-secrets-in-a-workflow
+        run: |
+          echo "#!/bin/sh" > setenv.sh
+          echo "export AWS_REGION=\"us-west-2\"" >> setenv.sh
+          echo "export AWS_ACCESS_KEY_ID=\"${{ steps.aws-creds-retrieve.outputs.aws-access-key-id }}\"" >> setenv.sh
+          echo "export AWS_SECRET_ACCESS_KEY=\"${{ steps.aws-creds-retrieve.outputs.aws-secret-access-key }}\"" >> setenv.sh
+          echo "export AWS_SESSION_TOKEN=\"${{ steps.aws-creds-retrieve.outputs.aws-session-token }}\"" >> setenv.sh
+          echo "export ROLE_TO_ASSUME=\"${{ env.ROLE_TO_ASSUME }}\"" >> setenv.sh
+          echo "export LAB_ASSIGNMENT=\"${{ env.LAB_ASSIGNMENT }}\"" >> setenv.sh
+          chmod +x setenv.sh
+
+      - name: Setup kubeconfig
+        run: |
+          aws eks update-kubeconfig --name datasci255-eks
+
+      # Get Test Files
+      - name: Download all autograder scripts
+        run: |
+          aws s3 cp s3://datasci255-autograder-static/common/test_autograder_application.py mlapi/tests/test_autograder_application.py
+          aws s3 cp s3://datasci255-autograder-static/common/test_k8s.py mlapi/tests/test_k8s.py
+          aws s3 cp s3://datasci255-autograder-static/common/test_applications.sh test_applications.sh
+          aws s3 cp s3://datasci255-autograder-static/common/test_containers.sh test_containers.sh
+          chmod +x test_applications.sh test_containers.sh
+
+      - name: Install lightweight autograder dependencies
+        run: cd mlapi && poetry run pip install pytest poetry-core boto3 kr8s docker requests httpx redis
+
+      - name: project_k8s_requirements
+        id: project_k8s_requirements
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: project_k8s_requirements
+          setup-command: ""
+          command: ". ./setenv.sh && bash test_containers.sh"
+
+          timeout: 10
+          max-score: 10
+
+      - name: Autograding Reporter
+        uses: classroom-resources/autograding-grading-reporter@v1
+        env:
+          PROJECT_K8S_REQUIREMENTS_RESULTS: "${{steps.project_k8s_requirements.outputs.result}}"
+        with:
+          runners: project_k8s_requirements

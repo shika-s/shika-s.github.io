@@ -1,0 +1,18 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": "ecs:RunTask",
+      "Resource": "arn:aws:ecs:us-east-1:__AWS_ACCOUNT_ID__:task-definition/wfp-data-pipeline:*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": "iam:PassRole",
+      "Resource": [
+        "arn:aws:iam::__AWS_ACCOUNT_ID__:role/wfp-ecs-execution-role",
+        "arn:aws:iam::__AWS_ACCOUNT_ID__:role/wfp-ecs-task-role"
+      ]
+    }
+  ]
+}

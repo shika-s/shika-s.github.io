@@ -1,0 +1,872 @@
+﻿1. Baseline - momentum only feature
+2. LightGBM - momentum + volume + bar_range
+training rows: 47,374,898  (2000-01-03 10:00:00 to 2025-02-26 15:30:00)
+train rows: 46,678,270, val rows: 696,628
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[31]        valid_0's l2: 5.16542e-05
+
+
+LightGBM validation IC over 708 timestamps:
+  mean IC:  +0.0412
+  std IC:   0.1120
+  pct > 0:  65.3%
+3. LightGBM - base features plus rolling statistics
+features_df: 51,446,654 rows
+after target alignment: 47,452,271 rows
+train: 46,754,588, val: 697,683
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[35]        valid_0's l2: 5.1761e-05
+
+
+LightGBM (8 features) validation IC over 708 timestamps:
+  mean IC:  +0.0441
+  std IC:   0.1240
+  pct > 0:  64.4%
+  (3-feature model on same window: +0.0412)
+  (flipped-momentum baseline:      +0.0478)
+
+
+feature importance (gain):
+momentum                17.095258
+bar_range               16.007114
+rolling_volume_ratio     9.016771
+volume_change            5.817482
+rolling_mean_5           5.552519
+rolling_std_13           5.380081
+rolling_mean_13          5.149397
+rolling_std_5            4.794137
+4. LightGBM - base features + rolling + cross-sectional
+features_df: 51,446,654 rows
+features_df (>= 2020-01-01): 15,701,897 rows
+computing cross-sectional features...
+  added 7 cross-sectional features
+after target alignment: 14,489,991 rows
+train: 13,792,308, val: 697,683
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[104]        valid_0's l2: 5.17286e-05
+
+
+LightGBM (15 features) validation IC over 708 timestamps:
+  mean IC:  +0.0465
+  std IC:   0.1139
+  pct > 0:  65.7%
+  (8-feature model on same window:  +0.0441)
+  (3-feature model on same window:  +0.0412)
+  (flipped-momentum baseline:       +0.0478)
+
+
+feature importance (gain):
+rolling_volume_ratio      5.112828
+rolling_volume_ratio_z    4.578304
+momentum_rank             4.167870
+momentum                  3.969881
+rolling_mean_13           3.363417
+momentum_z                3.157073
+rolling_mean_5            2.750222
+volume_change             2.688184
+bar_range                 2.505053
+volume_change_z           2.045423
+rolling_std_13            1.883023
+rolling_std_5             1.728858
+rolling_mean_13_z         1.694870
+bar_range_z               1.569668
+rolling_mean_5_z          1.406660
+
+
+
+
+5. LightGBM + base features + rolling stats + z-scores + clusters
+features_df (full): 15,701,897 rows
+features_df (>= 2020-01-01): 15,701,897 rows
+sector mapping loaded: 21 unique clusters
+computing cross-sectional features...
+computing sector-relative features...
+after target alignment: 14,489,991 rows
+train: 13,792,308, val: 697,683
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[57]        valid_0's l2: 5.17136e-05
+
+
+LightGBM (17 features, train >= 2020-01-01) validation IC over 708 timestamps:
+  mean IC:  +0.0426
+  std IC:   0.0757
+  pct > 0:  73.4%
+  (15-feature model on same window: +0.0465)
+  (8-feature model on same window:  +0.0441)
+  (flipped-momentum baseline:       +0.0478)
+
+
+feature importance (gain):
+momentum_relative_to_sector    5.918628
+rolling_volume_ratio_z         3.478144
+rolling_volume_ratio           2.847885
+rolling_mean_13                2.198308
+momentum                       2.179658
+momentum_rank                  2.049424
+volume_change                  2.023079
+bar_range                      1.755748
+rolling_std_5                  1.124521
+rolling_mean_5                 1.114472
+rolling_std_13                 1.087196
+rolling_mean_13_z              1.082088
+momentum_sector_z              0.989461
+volume_change_z                0.962211
+rolling_mean_5_z               0.853905
+bar_range_z                    0.669176
+momentum_z                     0.552682
+6. LightGBMRanker
+features_df (full): 15,701,897 rows
+features_df (>= 2020-01-01): 15,701,897 rows
+sector mapping loaded: 21 unique clusters
+computing cross-sectional features...
+computing sector-relative features...
+after target alignment: 14,489,991 rows
+train: 13,792,308, val: 697,683
+preparing ranker inputs (sort by datetime, integer-rank target, build groups)...
+  train: 15,101 groups, group size range 1-997
+  val:   733 groups, group size range 1-997
+  target_rank distribution (train): min=0, max=30
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[6]        valid_0's ndcg@1: 0.298883        valid_0's ndcg@2: 0.331676        valid_0's ndcg@3: 0.35019        valid_0's ndcg@4: 0.356955        valid_0's ndcg@5: 0.364709
+
+
+LGBMRanker (17 features, train >= 2020-01-01) validation IC over 708 timestamps:
+  mean IC:  -0.0079
+  std IC:   0.2069
+  IR:       -0.038
+  pct > 0:  50.3%
+  (17-feature regressor:        mean +0.0426, std 0.0757, IR 0.56)
+  (15-feature regressor:        mean +0.0465, std 0.114,  IR 0.41)
+  (flipped-momentum baseline:   mean +0.0478, std 0.125,  IR 0.38)
+
+
+feature importance (gain):
+bar_range_z                    28805.799759
+rolling_std_13                 14308.357015
+rolling_mean_13_z                728.116590
+momentum_rank                    707.264700
+rolling_mean_5_z                 590.732705
+bar_range                        566.901184
+rolling_std_5                    269.170019
+momentum_z                       130.614801
+momentum                          44.649920
+rolling_volume_ratio_z            42.468100
+momentum_relative_to_sector       22.978901
+volume_change                      0.000000
+rolling_mean_5                     0.000000
+rolling_volume_ratio               0.000000
+rolling_mean_13                    0.000000
+volume_change_z                    0.000000
+momentum_sector_z                  0.000000
+7. LightGMBRanker with linear labels
+features_df (full): 15,701,897 rows
+features_df (>= 2020-01-01): 15,701,897 rows
+sector mapping loaded: 21 unique clusters
+computing cross-sectional features...
+computing sector-relative features...
+after target alignment: 14,489,991 rows
+train: 13,792,308, val: 697,683
+preparing ranker inputs (sort by datetime, integer-rank target, build groups)...
+  train: 15,101 groups, group size range 1-997
+  val:   733 groups, group size range 1-997
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[3]        valid_0's ndcg@1: 0.570077        valid_0's ndcg@2: 0.547441        valid_0's ndcg@3: 0.535753        valid_0's ndcg@4: 0.532292        valid_0's ndcg@5: 0.530078
+
+
+LGBMRanker (17 features, train >= 2020-01-01) validation IC over 708 timestamps:
+  mean IC:  -0.0081
+  std IC:   0.2053
+  IR:       -0.039
+  pct > 0:  50.0%
+  (17-feature regressor:        mean +0.0426, std 0.0757, IR 0.56)
+  (15-feature regressor:        mean +0.0465, std 0.114,  IR 0.41)
+  (flipped-momentum baseline:   mean +0.0478, std 0.125,  IR 0.38)
+
+
+feature importance (gain):
+bar_range_z                    18019.728520
+rolling_std_13                  7756.863689
+rolling_mean_5_z                 556.111505
+momentum_rank                    455.771702
+rolling_mean_13_z                440.580003
+bar_range                        301.254295
+rolling_std_5                    262.306999
+momentum_z                       117.999601
+momentum_relative_to_sector       22.978901
+rolling_volume_ratio_z            15.234500
+momentum                           0.000000
+volume_change                      0.000000
+rolling_mean_5                     0.000000
+rolling_volume_ratio               0.000000
+rolling_mean_13                    0.000000
+volume_change_z                    0.000000
+momentum_sector_z                  0.000000
+8. XGBoost
+best iteration: 85
+
+
+XGBoost (17 features) — validation IC over 708 timestamps:
+  mean IC:  +0.0412
+  std IC:   0.0782
+  IR:       0.526
+  pct > 0:  73.3%
+
+
+feature importance:
+momentum_relative_to_sector    0.127882
+rolling_mean_13                0.066104
+momentum_rank                  0.061849
+rolling_volume_ratio_z         0.061048
+rolling_volume_ratio           0.059475
+rolling_mean_13_z              0.059154
+momentum_z                     0.056489
+volume_change                  0.055980
+bar_range_z                    0.055089
+rolling_mean_5_z               0.054537
+volume_change_z                0.053095
+momentum_sector_z              0.051737
+bar_range                      0.049603
+rolling_std_5                  0.048790
+rolling_std_13                 0.047665
+rolling_mean_5                 0.047129
+momentum                       0.044377
+9. LightGBM - rerun
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[57]        valid_0's l2: 5.17182e-05
+
+
+LightGBM (17 features) — validation IC over 708 timestamps:
+  mean IC:  +0.0430
+  std IC:   0.0766
+  IR:       0.561
+  pct > 0:  74.0%
+
+
+feature importance:
+momentum_relative_to_sector    5.831151
+rolling_volume_ratio_z         3.583723
+rolling_volume_ratio           2.771790
+rolling_mean_13                2.233657
+momentum                       2.047570
+momentum_rank                  1.959319
+volume_change                  1.940509
+bar_range                      1.793679
+rolling_mean_5                 1.192986
+rolling_std_13                 1.128351
+rolling_mean_13_z              1.032098
+rolling_std_5                  0.993204
+rolling_mean_5_z               0.981232
+volume_change_z                0.934928
+momentum_sector_z              0.787965
+bar_range_z                    0.651219
+momentum_z                     0.530210
+10. Random Forest 
+subsampling train to 30% for speed...
+  train_sample: 4,137,692 rows
+
+
+RandomForest (17 features, 30% sample) — validation IC over 708 timestamps:
+  mean IC:  +0.0437
+  std IC:   0.0783
+  IR:       0.558
+  pct > 0:  74.4%
+
+
+feature importance:
+momentum_relative_to_sector    0.148003
+momentum_rank                  0.091867
+bar_range                      0.083511
+momentum                       0.075666
+momentum_z                     0.062017
+momentum_sector_z              0.058954
+rolling_volume_ratio           0.057522
+rolling_volume_ratio_z         0.055563
+rolling_mean_13                0.052065
+rolling_std_5                  0.050033
+rolling_std_13                 0.049801
+volume_change                  0.044382
+rolling_mean_5                 0.037996
+bar_range_z                    0.037865
+rolling_mean_5_z               0.034083
+rolling_mean_13_z              0.032498
+volume_change_z                0.028175
+11. LightGBM + 5 min features
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[75]        valid_0's l2: 5.16238e-05
+
+
+LightGBM (17 features) — validation IC over 708 timestamps:
+  mean IC:  +0.0567
+  std IC:   0.0945
+  IR:       0.600
+  pct > 0:  76.6%
+
+
+feature importance:
+tail_strength                  8.008424
+intrabar_std                   4.782040
+momentum_relative_to_sector    3.962322
+rolling_volume_ratio_z         3.717458
+volume_concentration           3.512530
+close_position                 3.480476
+rolling_volume_ratio           2.875872
+rolling_mean_13                2.653476
+momentum                       2.189819
+rolling_std_13                 1.472555
+rolling_mean_13_z              1.394722
+momentum_rank                  1.392045
+rolling_mean_5                 1.173368
+momentum_sector_z              1.170487
+rolling_mean_5_z               1.093099
+bar_range                      1.092598
+volume_change                  1.018658
+rolling_std_5                  0.966543
+bar_range_z                    0.937158
+volume_change_z                0.911345
+momentum_z                     0.403628
+12. XGBoost + 5 min features
+best iteration: 84
+
+
+XGBoost (17 features) — validation IC over 708 timestamps:
+  mean IC:  +0.0565
+  std IC:   0.0947
+  IR:       0.596
+  pct > 0:  75.1%
+
+
+feature importance:
+tail_strength                  0.115589
+close_position                 0.065462
+momentum_relative_to_sector    0.060412
+intrabar_std                   0.059548
+volume_concentration           0.054652
+rolling_mean_13                0.046593
+rolling_mean_5_z               0.044350
+momentum_sector_z              0.042598
+rolling_mean_13_z              0.042455
+volume_change                  0.042381
+momentum_rank                  0.042241
+rolling_volume_ratio_z         0.041932
+rolling_volume_ratio           0.041542
+momentum_z                     0.041212
+volume_change_z                0.039679
+rolling_std_5                  0.038323
+bar_range_z                    0.038124
+bar_range                      0.036636
+rolling_mean_5                 0.036536
+rolling_std_13                 0.035638
+momentum                       0.034096
+13. RandomForest with 5 min features
+subsampling train to 30% for speed...
+  train_sample: 4,137,692 rows
+
+
+RandomForest (17 features, 30% sample) — validation IC over 708 timestamps:
+  mean IC:  +0.0557
+  std IC:   0.0927
+  IR:       0.601
+  pct > 0:  75.7%
+
+
+feature importance:
+tail_strength                  0.227164
+momentum_relative_to_sector    0.085125
+intrabar_std                   0.066462
+close_position                 0.066349
+momentum_rank                  0.055553
+momentum_z                     0.046057
+rolling_mean_13                0.044728
+momentum                       0.040392
+bar_range                      0.039611
+volume_concentration           0.037696
+momentum_sector_z              0.034416
+rolling_std_13                 0.034269
+rolling_volume_ratio           0.032406
+rolling_volume_ratio_z         0.031684
+bar_range_z                    0.026782
+rolling_mean_5                 0.025421
+volume_change                  0.023969
+rolling_mean_5_z               0.023804
+rolling_std_5                  0.021814
+rolling_mean_13_z              0.018638
+volume_change_z                0.017660
+14. Modified target - cross sectional rank instead of return
+training LightGBM with target=target_rank, n_estimators=500, lr=0.05
+Training until validation scores don't improve for 30 rounds
+Did not meet early stopping. Best iteration is:
+[499]        valid_0's l2: 0.0826167
+
+
+LightGBM (21 features, target=target_rank) — validation IC over 708 timestamps:
+  mean IC:  +0.0690
+  std IC:   0.1014
+  IR:       0.680
+  pct > 0:  78.2%
+
+
+feature importance:
+close_position                 18376.488352
+tail_strength                  15428.688528
+rolling_volume_ratio           11149.385687
+rolling_volume_ratio_z          8514.118925
+volume_concentration            5318.432638
+rolling_mean_13_z               4447.526945
+momentum_relative_to_sector     4092.950872
+momentum_sector_z               3536.367010
+intrabar_std                    3511.158258
+rolling_mean_5_z                3069.194236
+bar_range_z                     2543.905397
+volume_change                   2305.581247
+momentum                        2268.830636
+momentum_rank                   1835.249988
+volume_change_z                 1684.691230
+bar_range                       1392.974076
+rolling_mean_13                 1261.988570
+rolling_std_13                  1103.617066
+momentum_z                       964.322605
+rolling_mean_5                   946.150456
+rolling_std_5                    631.801444
+15. Modified target with 1500 estimators for lightgbm
+training LightGBM with target=target_rank, n_estimators=1500, lr=0.05
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[514]        valid_0's l2: 0.0826151
+
+
+LightGBM (21 features, target=target_rank) — validation IC over 708 timestamps:
+  mean IC:  +0.0690
+  std IC:   0.1014
+  IR:       0.681
+  pct > 0:  78.4%
+
+
+feature importance:
+close_position                 18412.372184
+tail_strength                  15459.740750
+rolling_volume_ratio           11207.009528
+rolling_volume_ratio_z          8550.899675
+volume_concentration            5357.156249
+rolling_mean_13_z               4484.319588
+momentum_relative_to_sector     4109.801525
+momentum_sector_z               3563.261714
+intrabar_std                    3541.360420
+rolling_mean_5_z                3096.938184
+bar_range_z                     2587.780289
+volume_change                   2325.558937
+momentum                        2296.381892
+momentum_rank                   1845.949895
+volume_change_z                 1713.407209
+bar_range                       1419.252596
+rolling_mean_13                 1289.572582
+rolling_std_13                  1131.938456
+momentum_z                       979.011169
+rolling_mean_5                   976.864254
+rolling_std_5                    660.057178
+16. XGBoost with cross sectional rank as target
+training XGBoost with target=target_rank
+best iteration: 430
+
+
+XGBoost (21 features, target=target_rank) — validation IC over 708 timestamps:
+  mean IC:  +0.0686
+  std IC:   0.1015
+  IR:       0.676
+  pct > 0:  77.8%
+
+
+feature importance:
+tail_strength                  0.164911
+close_position                 0.125604
+rolling_volume_ratio           0.084235
+rolling_volume_ratio_z         0.060550
+momentum_relative_to_sector    0.057904
+volume_concentration           0.050584
+momentum_sector_z              0.049961
+rolling_mean_13_z              0.048920
+rolling_mean_5_z               0.040137
+intrabar_std                   0.040103
+volume_change                  0.032292
+momentum_rank                  0.031492
+bar_range_z                    0.030066
+volume_change_z                0.028598
+momentum                       0.028564
+bar_range                      0.023974
+momentum_z                     0.023542
+rolling_mean_13                0.021503
+rolling_std_13                 0.020635
+rolling_mean_5                 0.019619
+rolling_std_5                  0.016806
+17. RF with cross sectional rank as target
+training RandomForest with target=target_rank, n_estimators=200, sample_frac=0.3
+  train_sample: 4,137,692 rows
+
+
+RandomForest (21 features, 30% sample, target=target_rank) — validation IC over 708 timestamps:
+  mean IC:  +0.0676
+  std IC:   0.0973
+  IR:       0.695
+  pct > 0:  78.8%
+
+
+feature importance:
+close_position                 0.189189
+tail_strength                  0.170928
+rolling_volume_ratio           0.066026
+momentum_relative_to_sector    0.064765
+momentum_sector_z              0.058849
+momentum_rank                  0.049805
+volume_change                  0.045876
+volume_concentration           0.045707
+rolling_volume_ratio_z         0.042831
+momentum_z                     0.041924
+rolling_mean_5_z               0.028988
+intrabar_std                   0.025736
+volume_change_z                0.025276
+momentum                       0.025142
+rolling_mean_13_z              0.025083
+bar_range_z                    0.023351
+rolling_std_13                 0.015436
+rolling_mean_13                0.014990
+rolling_mean_5                 0.014958
+bar_range                      0.014397
+rolling_std_5                  0.010743
+18. LightGBM + rank target + additional new features 
+training LightGBM with target=target_rank, n_estimators=1500, lr=0.05
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[719]        valid_0's l2: 0.0825666
+
+
+LightGBM (26 features, target=target_rank) — validation IC over 708 timestamps:
+  mean IC:  +0.0712
+  std IC:   0.1022
+  IR:       0.696
+  pct > 0:  79.2%
+
+
+feature importance:
+tail_strength                  18403.283055
+close_position                 16538.449685
+dollar_volume                  12060.368231
+minutes_from_open              10511.780152
+minutes_to_close                8152.856948
+rolling_mean_13_z               6773.485337
+rolling_mean_5_z                4880.780838
+momentum_relative_to_sector     4762.014016
+momentum_sector_z               3913.634776
+intrabar_std                    2805.055658
+bar_range_z                     2696.282975
+momentum                        2600.207379
+gap_return                      2248.750501
+volume_concentration            2045.224012
+momentum_rank                   1976.726420
+vwap_distance                   1832.916439
+rolling_mean_13                 1579.395602
+rolling_volume_ratio            1485.244347
+rolling_std_13                  1379.517654
+bar_range                       1369.310652
+rolling_volume_ratio_z          1348.286257
+momentum_z                      1344.072771
+rolling_mean_5                  1164.974553
+volume_change                   1041.734794
+volume_change_z                  958.062213
+rolling_std_5                    955.560278
+19. XGBoost with extra features + rank target
+training XGBoost with target=target_rank, n_estimators=1500, lr=0.05
+best iteration: 527
+
+
+XGBoost (26 features, target=target_rank) — validation IC over 708 timestamps:
+  mean IC:  +0.0705
+  std IC:   0.1016
+  IR:       0.694
+  pct > 0:  78.4%
+
+
+feature importance:
+minutes_to_close               0.153492
+close_position                 0.109001
+tail_strength                  0.103205
+minutes_from_open              0.083448
+dollar_volume                  0.057377
+momentum_relative_to_sector    0.050108
+rolling_mean_13_z              0.047946
+momentum_sector_z              0.041245
+rolling_mean_5_z               0.039155
+intrabar_std                   0.027132
+momentum                       0.022395
+bar_range_z                    0.022073
+momentum_rank                  0.021597
+volume_concentration           0.020541
+momentum_z                     0.019849
+vwap_distance                  0.018839
+rolling_volume_ratio_z         0.017661
+rolling_std_13                 0.017150
+bar_range                      0.017131
+rolling_volume_ratio           0.017050
+rolling_mean_13                0.016975
+gap_return                     0.016699
+volume_change                  0.015651
+rolling_mean_5                 0.015218
+rolling_std_5                  0.014636
+volume_change_z                0.014429
+20. RandomForest with extra features and cross section rank target
+training RandomForest with target=target_rank, n_estimators=200, sample_frac=0.3
+  train_sample: 4,137,692 rows
+
+
+RandomForest (26 features, 30% sample, target=target_rank) — validation IC over 708 timestamps:
+  mean IC:  +0.0688
+  std IC:   0.0992
+  IR:       0.694
+  pct > 0:  78.8%
+
+
+feature importance:
+close_position                 0.186832
+tail_strength                  0.146116
+dollar_volume                  0.072393
+minutes_from_open              0.060753
+minutes_to_close               0.057302
+momentum_relative_to_sector    0.054282
+momentum_sector_z              0.045485
+momentum_rank                  0.042477
+rolling_mean_5_z               0.033891
+rolling_mean_13_z              0.032987
+momentum_z                     0.032793
+rolling_volume_ratio           0.026607
+vwap_distance                  0.023327
+volume_concentration           0.021992
+intrabar_std                   0.020116
+bar_range_z                    0.019958
+momentum                       0.019853
+volume_change                  0.016231
+rolling_volume_ratio_z         0.015170
+rolling_mean_13                0.014641
+rolling_mean_5                 0.011816
+rolling_std_13                 0.011314
+bar_range                      0.010200
+volume_change_z                0.008737
+rolling_std_5                  0.007396
+gap_return                     0.007330
+21. ElasticeNet with extra features and cross sectional rank as target
+training ElasticNet with target=target_rank on 50% sample...
+  train_sample: 6,896,154 rows
+
+
+coefficients (23/26 non-zero, top 10 by |value|):
+momentum                       0.010939
+tail_strength                 -0.009310
+close_position                -0.007364
+momentum_relative_to_sector   -0.007183
+momentum_z                    -0.005138
+vwap_distance                 -0.003783
+rolling_mean_5                 0.002510
+rolling_mean_5_z              -0.002415
+momentum_rank                  0.002275
+momentum_sector_z             -0.002259
+
+
+ElasticNet (26 features, 50% sample, target=target_rank) — validation IC over 708 timestamps:
+  mean IC:  +0.0639
+  std IC:   0.1017
+  IR:       0.628
+  pct > 0:  77.1%
+22. Ensemble with extra features
+LightGBM       mean IC +0.0712, std 0.1022, IR 0.696
+  XGBoost        mean IC +0.0705, std 0.1016, IR 0.694
+  RandomForest   mean IC +0.0688, std 0.0992, IR 0.694
+
+
+  ensemble (equal weights     ) mean IC +0.0714, std 0.1015, IR 0.704, pct>0 78.7%
+  ensemble (LGB-heavy         ) mean IC +0.0714, std 0.1018, IR 0.701, pct>0 79.2%
+  ensemble (LGB+RF only       ) mean IC +0.0713, std 0.1009, IR 0.707, pct>0 79.9%
+23. 4-way ensemble (adding elasticnet)
+Standalone:
+  LightGBM       mean IC +0.0712, std 0.1022, IR 0.696
+  XGBoost        mean IC +0.0705, std 0.1016, IR 0.694
+  RandomForest   mean IC +0.0688, std 0.0992, IR 0.694
+  ElasticNet     mean IC +0.0639, std 0.1017, IR 0.628
+
+
+4-way ensemble candidates:
+  (equal 4-way              ) mean IC +0.0711, std 0.1021, IR 0.697, pct>0 79.4%
+  (trees 80% / enet 20%     ) mean IC +0.0712, std 0.1019, IR 0.699, pct>0 79.7%
+  (LGB+RF+ENet (no XGB)     ) mean IC +0.0710, std 0.1016, IR 0.698, pct>0 79.7%
+  (LGB+RF only (3-tree)     ) mean IC +0.0713, std 0.1009, IR 0.707, pct>0 79.9%
+  (LGB+RF+ENet equal        ) mean IC +0.0706, std 0.1022, IR 0.691, pct>0 79.2%
+24. Training with data from 2015 - lightGBM
+training LightGBM with target=target_rank, n_estimators=1500, lr=0.05
+Training until validation scores don't improve for 30 rounds
+Early stopping, best iteration is:
+[741]        valid_0's l2: 0.0825501
+
+
+LightGBM (26 features, target=target_rank) — validation IC over 708 timestamps:
+  mean IC:  +0.0721
+  std IC:   0.0994
+  IR:       0.725
+  pct > 0:  80.8%
+
+
+feature importance:
+close_position                 37340.508535
+tail_strength                  33680.532235
+dollar_volume                  24345.309774
+minutes_from_open              16094.887025
+minutes_to_close                9877.500794
+momentum_sector_z               8185.455308
+rolling_mean_13_z               7598.159613
+momentum_relative_to_sector     6454.121226
+bar_range_z                     5742.114050
+rolling_mean_5_z                4528.026960
+intrabar_std                    4432.979670
+momentum                        3830.694427
+momentum_rank                   3277.842789
+volume_concentration            3143.563359
+gap_return                      2727.815558
+vwap_distance                   2617.576903
+rolling_std_13                  2199.676078
+rolling_mean_13                 1942.280692
+rolling_volume_ratio_z          1829.954123
+bar_range                       1648.619659
+rolling_volume_ratio            1615.963610
+rolling_mean_5                  1224.482267
+rolling_std_5                   1162.505478
+momentum_z                      1066.825569
+volume_change_z                 1056.023490
+volume_change                   1033.556295
+25. Training with data from 2015 - XGBoost
+training XGBoost with target=target_rank, n_estimators=1500, lr=0.05
+best iteration: 484
+
+
+XGBoost (26 features, target=target_rank) — validation IC over 708 timestamps:
+  mean IC:  +0.0723
+  std IC:   0.0994
+  IR:       0.727
+  pct > 0:  79.8%
+
+
+feature importance:
+close_position                 0.149782
+minutes_to_close               0.144930
+tail_strength                  0.109763
+minutes_from_open              0.079010
+dollar_volume                  0.069308
+momentum_sector_z              0.057917
+momentum_relative_to_sector    0.039056
+rolling_mean_13_z              0.038598
+rolling_mean_5_z               0.033066
+bar_range_z                    0.026449
+intrabar_std                   0.025689
+momentum_rank                  0.022953
+momentum                       0.021005
+momentum_z                     0.019955
+volume_concentration           0.019597
+vwap_distance                  0.016471
+rolling_std_13                 0.014538
+rolling_volume_ratio_z         0.013645
+bar_range                      0.013582
+rolling_volume_ratio           0.013436
+rolling_mean_13                0.013252
+gap_return                     0.012643
+rolling_mean_5                 0.012129
+volume_change                  0.011411
+rolling_std_5                  0.011005
+volume_change_z                0.010811
+26. Training with data from 2015 - RF
+training RandomForest with target=target_rank, n_estimators=200, sample_frac=0.3
+  train_sample: 7,453,855 rows
+
+
+RandomForest (26 features, 30% sample, target=target_rank) — validation IC over 708 timestamps:
+  mean IC:  +0.0696
+  std IC:   0.1019
+  IR:       0.683
+  pct > 0:  78.8%
+
+
+feature importance:
+close_position                 0.210308
+tail_strength                  0.168941
+dollar_volume                  0.085247
+momentum_relative_to_sector    0.058260
+momentum_rank                  0.051055
+momentum_sector_z              0.049507
+minutes_from_open              0.046606
+minutes_to_close               0.042372
+momentum_z                     0.037660
+volume_concentration           0.024892
+rolling_mean_5_z               0.023087
+bar_range_z                    0.022301
+intrabar_std                   0.021929
+momentum                       0.021770
+rolling_volume_ratio           0.020300
+rolling_mean_13_z              0.018996
+vwap_distance                  0.017569
+volume_change                  0.013512
+rolling_volume_ratio_z         0.012361
+bar_range                      0.009943
+rolling_mean_13                0.009458
+rolling_mean_5                 0.009328
+rolling_std_13                 0.007804
+volume_change_z                0.006292
+rolling_std_5                  0.005496
+gap_return                     0.005007
+27. ElasticNet with 2015 data
+training ElasticNet with target=target_rank on 50% sample...
+  train_sample: 12,423,091 rows
+
+
+coefficients (23/26 non-zero, top 10 by |value|):
+momentum                       0.011620
+tail_strength                 -0.010001
+close_position                -0.008428
+momentum_z                    -0.007092
+momentum_relative_to_sector   -0.006382
+momentum_rank                  0.002976
+vwap_distance                 -0.002889
+momentum_sector_z             -0.002692
+rolling_mean_5_z              -0.002335
+rolling_mean_5                 0.001964
+
+
+ElasticNet (26 features, 50% sample, target=target_rank) — validation IC over 708 timestamps:
+  mean IC:  +0.0639
+  std IC:   0.1022
+  IR:       0.625
+  pct > 0:  77.3%
+28. 3 - ensemble with 2015 data
+LightGBM       mean IC +0.0721, std 0.0994, IR 0.725
+  XGBoost        mean IC +0.0723, std 0.0994, IR 0.727
+  RandomForest   mean IC +0.0696, std 0.1019, IR 0.683
+
+
+  ensemble (equal weights     ) mean IC +0.0727, std 0.1003, IR 0.724, pct>0 79.7%
+  ensemble (LGB-heavy         ) mean IC +0.0726, std 0.1001, IR 0.726, pct>0 79.7%
+  ensemble (LGB+RF only       ) mean IC +0.0724, std 0.1003, IR 0.722, pct>0 79.7%
+29. 4 way ensemble with 2015 data
+Standalone:
+  LightGBM       mean IC +0.0721, std 0.0994, IR 0.725
+  XGBoost        mean IC +0.0723, std 0.0994, IR 0.727
+  RandomForest   mean IC +0.0696, std 0.1019, IR 0.683
+  ElasticNet     mean IC +0.0639, std 0.1022, IR 0.625
+
+
+4-way ensemble candidates:
+  (equal 4-way              ) mean IC +0.0717, std 0.1019, IR 0.704, pct>0 79.4%
+  (trees 80% / enet 20%     ) mean IC +0.0719, std 0.1016, IR 0.708, pct>0 79.4%
+  (LGB+RF+ENet (no XGB)     ) mean IC +0.0716, std 0.1016, IR 0.705, pct>0 79.7%
+  (LGB+RF only (3-tree)     ) mean IC +0.0724, std 0.1003, IR 0.722, pct>0 79.7%
+  (LGB+RF+ENet equal        ) mean IC +0.0709, std 0.1023, IR 0.693, pct>0 78.5%
+30.

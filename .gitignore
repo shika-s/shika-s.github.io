@@ -1,0 +1,77 @@
+# --- OS / editor junk ---
+.DS_Store
+Thumbs.db
+*.swp
+.vscode/
+.idea/
+
+# --- Secrets ---
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+credentials.json
+secrets.yaml
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# --- Jupyter ---
+.ipynb_checkpoints/
+
+# --- Virtualenvs ---
+venv/
+.venv/
+env/
+.python-version
+
+# --- Node (for any JS/React frontends) ---
+node_modules/
+dist/
+build/
+.next/
+
+# --- R (housing_price_analysis uses renv) ---
+housing_price_analysis/renv/library/
+housing_price_analysis/renv/local/
+housing_price_analysis/renv/cellar/
+housing_price_analysis/renv/staging/
+.Rhistory
+.RData
+.Ruserdata
+.Rproj.user/
+
+# --- Large data directories (per project) ---
+bird_sound_classification/data/
+bird_sound_classification/models/
+four_sigma_hackathon/data/
+four_sigma_hackathon/submission/*.pkl
+cybersecurity_policy_generation/data/
+cybersecurity_policy_generation/models/
+
+# --- Pretrained model weights (too large for git) ---
+end_to_end_machine_learning_api/distilbert-base-uncased-finetuned-sst2/
+*.safetensors
+*.bin
+*.h5
+
+# --- Generic ML/data artifacts (allow only if explicitly added) ---
+*.parquet
+*.pkl
+*.feather
+*.tar
+*.tar.gz
+*.zip
+
+# --- Logs ---
+*.log
+logs/

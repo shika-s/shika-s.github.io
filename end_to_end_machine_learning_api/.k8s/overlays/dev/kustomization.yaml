@@ -1,0 +1,13 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: shikhasharma
+resources:
+  - ./namespace.yaml
+  - ../../base
+
+patches:
+  - path: service-lab4-lb.yaml
+    target:
+      kind: Service
+      labelSelector: app=lab-prediction-service

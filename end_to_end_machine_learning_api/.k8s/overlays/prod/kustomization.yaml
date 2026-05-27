@@ -1,0 +1,15 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: shikhasharma
+resources:
+- ../../base
+- virtual-service.yaml
+- hpa-api.yaml
+- hpa-project.yaml
+images:
+- name: lab
+  newName: 650251712107.dkr.ecr.us-west-2.amazonaws.com/shikhasharma/lab
+  newTag: e8ab1b6
+- name: project
+  newName: 650251712107.dkr.ecr.us-west-2.amazonaws.com/shikhasharma/project
+  newTag: "3069600"

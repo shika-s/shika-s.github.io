@@ -1,0 +1,81 @@
+{
+    "model_type": "ensemble (lightgbm + xgboost + randomforest)",
+    "n_features": 26,
+
+    "data": {
+        "train_start":         "2015-01-01",
+        "val_days":            90,
+        "prepare_start":       "2020-01-01",
+        "feature_build_start": "2015-01-01",
+        "predict_chunk_size":  1000000
+    },
+
+    "training": {
+        "target_column":         "target_rank",
+        "random_state":          42,
+        "early_stopping_rounds": 30,
+
+        "lightgbm": {
+            "objective":         "regression",
+            "n_estimators":      1500,
+            "learning_rate":     0.05,
+            "num_leaves":        31,
+            "min_child_samples": 500,
+            "feature_fraction":  0.9,
+            "bagging_fraction":  0.9,
+            "bagging_freq":      1
+        },
+
+        "xgboost": {
+            "n_estimators":     1500,
+            "learning_rate":    0.05,
+            "max_depth":        6,
+            "min_child_weight": 10,
+            "subsample":        0.9,
+            "colsample_bytree": 0.9,
+            "tree_method":      "hist",
+            "eval_metric":      "rmse"
+        },
+
+        "rf": {
+            "n_estimators":     200,
+            "max_depth":        10,
+            "min_samples_leaf": 500,
+            "max_features":     "sqrt",
+            "sample_frac":      0.3
+        }
+    },
+
+    "ensemble": {
+        "w_lgb": 0.3334,
+        "w_xgb": 0.3333,
+        "w_rf":  0.3333,
+        "_comment": "Equal-weighted 3-tree ensemble. With train_start=2015 (full 10y window), XGB earns its slot — equal weights beats LGB+RF-only by +0.0003 mean IC and +0.002 IR. ENet remains too weak to include."
+    },
+
+    "feature_categories": {
+        "per_ticker_30min":             8,
+        "cross_sectional_vs_universe":  7,
+        "sector_relative_vs_cluster":   2,
+        "5min_microstructure":          4,
+        "extras_time_volume_gap":       5
+    },
+
+    "sector_clustering": {
+        "algorithm":        "spectral",
+        "data_window":      "2015-2025",
+        "n_clusters":       20,
+        "min_observations": 500,
+        "demean_market":    true
+    },
+
+    "validation_results": {
+        "ic_mean":  0.0727,
+        "ic_std":   0.1003,
+        "ir":       0.724,
+        "pct_pos":  0.797,
+        "comment":  "Equal-weighted 3-tree ensemble (LGB + XGB + RF, 1/3 each) on 26 features with rank target. Trained on 2015+ data. Standalones: LGB +0.0721/IR 0.725, XGB +0.0723/IR 0.727, RF +0.0696/IR 0.683."
+    },
+
+    "notes": "Sector mapping loaded from clusters.pkl. Pre-2020 data filtered in prepare() (prepare_start). Models trained on 2015+ (train_start) — full 10y window. 5-min features computed alongside 30-min in prepare phase 1."
+}
